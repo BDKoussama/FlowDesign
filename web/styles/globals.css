@@ -23,3 +23,64 @@ a {
 .app {
   background-color: #F8F8F8;
 }
+
+
+/** ------------------------ Editor Layout Styles ------------------------------ **/
+
+.editor {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.editor-navbar{
+  width: 100px;
+  height: 100%;
+  background-color: #0e1214;
+}
+
+.editor-widget--wrapper{
+  width: 350px;
+  height: 100%;
+  transition: all 0.4s ease-in-out; 
+  will-change: margin;
+  position: relative;
+}
+
+
+.editor-widget--wrapper div {
+    display: inline-block;
+    position: absolute;
+    left: 94%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.editor-widget--wrapper .editor-widget--toggle {
+  height: 40px;
+  width: 40px;
+  background-color: #0e1214;
+  cursor: pointer;
+  border-radius: 50%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  will-change: transform;
+}
+
+.transform-btn {
+  transform: rotate(-180deg);
+}
+
+
+.editor-scene--wrapper{
+  flex: 1 ;
+  flex-grow: 1    ;
+  height: 100%;
+  background-color: #e5e5e5;
+}
+
+/** ------------------------ Editor Layout Styles End ------------------------------ **/
