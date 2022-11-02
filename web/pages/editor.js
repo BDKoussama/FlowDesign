@@ -16,7 +16,7 @@ export default function Editor() {
           <div  className='editor'>
               <SideBar />
               <Widget toggle = {toggle} setToggle = {setToggle} />
-              <Scene />
+              <Scene toggle = {toggle}/>
           </div>     
         </>
   )

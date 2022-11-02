@@ -1,12 +1,71 @@
 import { Stage, Layer, Rect, Circle } from 'react-konva';
+import StageBackground from '../Editor/StageBackground';
+import { MagnifyingGlassPlusIcon , MagnifyingGlassMinusIcon } from '@heroicons/react/24/outline'
+import { useRef} from 'react';
+import { useState } from 'react';
+import { useLayoutEffect } from 'react';
 
-export default function StageWrapper(){
+
+export default function StageWrapper({toggle}){
+
+    const wrapper = useRef();
+
+    const [size , setSize] = useState({
+        height: 500,
+        width: 500
+    })
+
+    const [parentSize , setParentSize] = useState({
+        height: 0,
+        width: 0
+    })
+
+    useLayoutEffect(() => {
+        if(wrapper.current){
+            const {height , width} = wrapper.current.getBoundingClientRect();
+            setParentSize({
+                height,
+                width
+            })
+        }
+    },[toggle]) 
+
+    const zoomIn = () => {
+        // update size
+        setSize({
+            height: size.height + 200,
+            width: size.width + 200
+        })
+    }
+
+    const zoomOut = () => {
+        setSize({
+            height: size.height - 200,
+            width: size.width - 200
+        })
+    }
+
     return(
-        <Stage width={500} height={500}>
-            <Layer>
-                <Rect width={50} height={50} fill="red" />
-                <Circle x={200} y={200} stroke="black" radius={50} />
-            </Layer>
-        </Stage>   
+        <div className={`stage-wrapper ${( parentSize.height >= size.height && parentSize.width >= size.width ) ? 'center-stage' : '' }`}  ref={wrapper}>
+            <div className='zoom-control'>
+                <button className='zoom-control--btn' onClick={() => zoomIn()}>
+                    <MagnifyingGlassPlusIcon className="h-5 w-5 text-white"/>
+                </button>
+
+                <button className='zoom-control--btn' onClick={() => zoomOut()}>
+                    <MagnifyingGlassMinusIcon className="h-5 w-5 text-white"/>
+                </button>
+            </div>
+
+            <div className='stage' style = {{ height : `${size.height}px` , width : `${size.width}px` }} >
+                <Stage width={size.width} height={size.height}>
+                    <Layer>
+                        <StageBackground height={size.height} width = {size.width} fill = "#2F2F" />
+                        <Rect width={50} height={50} fill="red" />
+                        <Circle x={50} y={50} stroke="black" radius={50} />
+                    </Layer>
+                </Stage>
+            </div>
+        </div>   
     )
 }

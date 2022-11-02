@@ -1,0 +1,53 @@
+.editor-scene--wrapper{
+    height: 100%;
+    flex: 1;
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+
+.stage-wrapper{
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    padding: 20px;
+}
+
+.stage{
+    display: inline-block;
+    margin: auto;
+}
+
+.center-stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.zoom-control{
+    height: 30px;
+    background-color: black;
+    z-index: 2;
+    position: absolute;
+    left: 5%;
+    bottom: 5%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.zoom-control .zoom-control--btn{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}

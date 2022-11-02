@@ -6,10 +6,10 @@ const Stage = dynamic(() => import("../Editor/StageWrapper"), {
     ssr: false,
   });
 
-export default function Scene(){
+export default function Scene({toggle}){
     return (
         <div className='editor-scene--wrapper'>
-            <Stage />
+            <Stage toggle= {toggle}/>
         </div>  
     )   
 }

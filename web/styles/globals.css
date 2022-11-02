@@ -79,12 +79,4 @@ a {
 }
 
 
-.editor-scene--wrapper{
-  flex: 1 ;
-  flex-grow: 1    ;
-  height: 100%;
-  background-color: #e5e5e5;
-  border: 1px solid red;
-}
-
 /** ------------------------ Editor Layout Styles End ------------------------------ **/
