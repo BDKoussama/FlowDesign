@@ -39,6 +39,7 @@ a {
   width: 100px;
   height: 100%;
   background-color: #0e1214;
+  z-index: 1;
 }
 
 .editor-widget--wrapper{
@@ -47,6 +48,7 @@ a {
   transition: all 0.4s ease-in-out; 
   will-change: margin;
   position: relative;
+  background-color: #1f282c;
 }
 
 
@@ -56,6 +58,7 @@ a {
     left: 94%;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 2;
 }
 
 .editor-widget--wrapper .editor-widget--toggle {
@@ -81,6 +84,7 @@ a {
   flex-grow: 1    ;
   height: 100%;
   background-color: #e5e5e5;
+  border: 1px solid red;
 }
 
 /** ------------------------ Editor Layout Styles End ------------------------------ **/
