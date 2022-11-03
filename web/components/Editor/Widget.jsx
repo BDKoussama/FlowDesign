@@ -1,4 +1,5 @@
 import { ChevronRightIcon } from '@heroicons/react/24/outline'
+import { useEffect } from 'react';
 import { useContext } from 'react'
 import { WidgetContext } from '../../context/WidgetContext';
 import {Templates , TextWidget , Photos , Elements , Upload , Background , Layers , Resize } from '../Widgets/index';
@@ -6,6 +7,10 @@ import {Templates , TextWidget , Photos , Elements , Upload , Background , Layer
 export default function Widget({toggle , setToggle}){
 
     const {widget} = useContext(WidgetContext);
+
+    useEffect(() => {
+        setToggle(false);
+    },[widget])
 
     const handleRender = () => {
         switch (widget) {
@@ -39,7 +44,7 @@ export default function Widget({toggle , setToggle}){
 
     return (
         <div className='editor-widget--wrapper' style={{ marginLeft : `${ toggle ? -350  : 0}px` }}>
-            <div className='editor-widget--content'>
+            <div className='editor-widget--content p-6 text-white'>
                 {handleRender()}
             </div>
             <span>
