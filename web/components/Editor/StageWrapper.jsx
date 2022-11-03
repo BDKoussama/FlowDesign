@@ -1,9 +1,9 @@
 import { Stage, Layer, Rect, Circle } from 'react-konva';
 import StageBackground from '../Editor/StageBackground';
-import { MagnifyingGlassPlusIcon , MagnifyingGlassMinusIcon } from '@heroicons/react/24/outline'
 import { useRef} from 'react';
 import { useState } from 'react';
 import { useLayoutEffect } from 'react';
+import Zoom from './Zoom';
 
 
 export default function StageWrapper({toggle}){
@@ -47,16 +47,7 @@ export default function StageWrapper({toggle}){
 
     return(
         <div className={`stage-wrapper ${( parentSize.height >= size.height && parentSize.width >= size.width ) ? 'center-stage' : '' }`}  ref={wrapper}>
-            <div className='zoom-control'>
-                <button className='zoom-control--btn' onClick={() => zoomIn()}>
-                    <MagnifyingGlassPlusIcon className="h-5 w-5 text-white"/>
-                </button>
-
-                <button className='zoom-control--btn' onClick={() => zoomOut()}>
-                    <MagnifyingGlassMinusIcon className="h-5 w-5 text-white"/>
-                </button>
-            </div>
-
+            <Zoom zoomIn={zoomIn} zoomOut = {zoomOut} />
             <div className='stage' style = {{ height : `${size.height}px` , width : `${size.width}px` }} >
                 <Stage width={size.width} height={size.height}>
                     <Layer>
