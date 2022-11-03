@@ -51,9 +51,8 @@ export default function StageWrapper({toggle}){
             <div className='stage' style = {{ height : `${size.height}px` , width : `${size.width}px` }} >
                 <Stage width={size.width} height={size.height}>
                     <Layer>
-                        <StageBackground height={size.height} width = {size.width} fill = "#2F2F" />
-                        <Rect width={50} height={50} fill="red" />
-                        <Circle x={50} y={50} stroke="black" radius={50} />
+                        <StageBackground height={size.height} width = {size.width} fill = "#bdc3bd" />
+                        <Rect width={50} height={50} fill="red" x={30} y= {30} />
                     </Layer>
                 </Stage>
             </div>
