@@ -1,11 +1,15 @@
 import '../styles/fonts.css'
 import '../styles/globals.css'
 import '../styles/stage.css'
+import {Provider} from 'react-redux'
+import {store} from '../app/store'
 
 function MyApp({ Component, pageProps}) {
 
   return (
-    <Component {...pageProps}/>
+    <Provider store={store}>
+      <Component {...pageProps}/>
+    </Provider>
   )
       
   
