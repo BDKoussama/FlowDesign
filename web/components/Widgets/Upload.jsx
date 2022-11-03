@@ -1,5 +1,7 @@
 export default function Upload(){
     return(
-        <div></div>
+        <div>
+            Upload
+        </div>
     )
 }

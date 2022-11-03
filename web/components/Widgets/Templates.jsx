@@ -1,5 +1,7 @@
 export default function Templates(){
     return(
-        <div></div>
+        <div>
+            Templates
+        </div>
     )
 }

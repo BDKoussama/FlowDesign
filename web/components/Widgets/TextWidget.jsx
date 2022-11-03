@@ -1,5 +1,7 @@
 export default function TextWidget(){
     return(
-        <div></div>
+        <div>
+            Text Widget
+        </div>
     )
 }
