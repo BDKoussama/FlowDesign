@@ -5,11 +5,15 @@ const initialState = {
     size : {
         type : "ig-post",
         height: 1080,
-        width: 1080
-    },
-    scale : {
-        x : 1,
-        y: 1
+        width: 1080,
+        initialWidth : 1080 ,
+        initialHeight : 1080 ,
+        heightAmount : 108,
+        widthAmount: 108,
+        scale : {
+            x : 1 ,
+            y : 1
+        }
     },
     children : {},
     background : {},
@@ -30,6 +34,9 @@ const stageSlice = createSlice({
             state.scale = {
                 ...action.payload
             }
+        },
+        setStageBackground(state, action){
+
         }
     }
 })

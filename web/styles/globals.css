@@ -144,3 +144,22 @@ a {
 
 
 /** ----------------------- Navbar Styles End -------------------------------------------- **/
+
+
+.resize-list_item button{
+  transition: background 0.3s ease-in-out;
+  border-radius: 4px;
+}
+
+.resize-list_item button:hover{
+  background-color: #0e1214;
+}
+
+.resize-list_item--checked {
+  border: 1px solid #F8F8F8;
+  border-radius: 4px;
+  background-color: #0e1214;
+}
+
+
+
