@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useLayoutEffect } from 'react';
 import Zoom from './Zoom';
 import { useDispatch, useSelector } from 'react-redux';
+import { scaleStage } from '../../app/features/canvas/stageSlice';
 
 
 export default function StageWrapper({toggle}){
@@ -34,18 +35,15 @@ export default function StageWrapper({toggle}){
         scale,
     } = useSelector((state) => state.stage.size)
 
-    const zoomIn = () => {
-        // update size
-       
-    }
+    const dispatch = useDispatch();
 
-    const zoomOut = () => {
-        
+    const zoom = (direction) => {
+        dispatch(scaleStage({direction})) 
     }
 
     return(
         <div className={`stage-wrapper ${( parentSize.height >= initialHeight && parentSize.width >= initialWidth ) ? 'center-stage' : '' }`}  ref={wrapper}>
-            <Zoom zoomIn={zoomIn} zoomOut = {zoomOut} />
+            <Zoom scale = {scale.x} zoom = {zoom} />
             <div className='stage' style = {{ height : `${initialHeight}px` , width : `${initialWidth}px`}} >
                 <Stage width={initialWidth} height={initialHeight} scaleX = {scale.x} scaleY = {scale.y}>
                     <Layer>

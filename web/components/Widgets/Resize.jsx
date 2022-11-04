@@ -12,7 +12,7 @@ const sizes = {
         initialHeight : 1080,
         type: 'ig-post',
         widthAmount : 108,
-        heightAmout: 108,
+        heightAmount: 108,
         scale : {
             x : 1 ,
             y : 1
@@ -25,7 +25,7 @@ const sizes = {
         initialHeight : 1920,
         type : 'ig-story',
         widthAmount : 108,
-        heightAmout: 192,
+        heightAmount: 192,
         scale : {
             x : 1 ,
             y : 1
@@ -38,7 +38,7 @@ const sizes = {
         initialHeight : 788,
         type : 'fb-post',
         widthAmount : 94,
-        heightAmout: 78.8,
+        heightAmount: 78.8,
         scale : {
             x : 1 ,
             y : 1
@@ -51,7 +51,7 @@ const sizes = {
         initialHeight : 315,
         type : 'fb-cover',
         widthAmount : 85.1,
-        heightAmout: 31.5,
+        heightAmount: 31.5,
         scale : {
             x : 1 ,
             y : 1
@@ -64,7 +64,7 @@ const sizes = {
         initialHeight : 628,
         type : 'fb-ad',
         widthAmount : 120,
-        heightAmout: 62.8,
+        heightAmount: 62.8,
         scale : {
             x : 1 ,
             y : 1
@@ -77,7 +77,7 @@ const sizes = {
         initialHeight : 1080,
         type: 'tw-post',
         widthAmount : 108,
-        heightAmout: 108,
+        heightAmount: 108,
         scale : {
             x : 1 ,
             y : 1
@@ -94,7 +94,7 @@ const sizes = {
         },
         type : 'tw-cover',
         widthAmount : 85.1,
-        heightAmout: 31.5
+        heightAmount: 31.5
     },
     'yt-thmb' :{
         height: 628,
@@ -103,7 +103,7 @@ const sizes = {
         initialHeight : 628,
         type : 'yt-thmb',
         widthAmount : 128,
-        heightAmout: 62.8,
+        heightAmount: 62.8,
         scale : {
             x : 1 ,
             y : 1

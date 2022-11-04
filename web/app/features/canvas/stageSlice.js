@@ -31,8 +31,32 @@ const stageSlice = createSlice({
             }
         },
         scaleStage(state, action) {
-            state.scale = {
-                ...action.payload
+            const {direction} =  action.payload;
+            const {size} = state;
+
+            const scale = {
+                x : 0,
+                y : 0
+            }
+
+            if(direction === "out") {
+                scale.x = (size.initialWidth - size.widthAmount) / size.width;
+                scale.y = (size.initialHeight - size.heightAmount) / size.height;
+            }else{
+                scale.x = (size.initialWidth + size.widthAmount) / size.width;
+                scale.y = (size.initialHeight + size.heightAmount) / size.height;
+            }
+
+            const newSizes = {
+                height: size.height * scale.y ,
+                width : size.width * scale.x
+            }
+
+            state.size = {
+                ...state.size,
+                initialHeight : newSizes.height,
+                initialWidth : newSizes.width,
+                scale: scale
             }
         },
         setStageBackground(state, action){
