@@ -52,7 +52,6 @@ export default function StageWrapper({toggle}){
                 <Stage width={size.width} height={size.height}>
                     <Layer>
                         <StageBackground height={size.height} width = {size.width} fill = "#bdc3bd" />
-                        <Rect width={50} height={50} fill="red" x={30} y= {30} />
                     </Layer>
                 </Stage>
             </div>

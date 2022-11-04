@@ -34,5 +34,6 @@ const stageSlice = createSlice({
     }
 })
 
-export const { setStageSize } = stageSlice.actions;
+export const { setStageSize , scaleStage } = stageSlice.actions;
+
 export default stageSlice.reducer;
