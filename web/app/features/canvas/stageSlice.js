@@ -16,7 +16,11 @@ const initialState = {
         }
     },
     children : [],
-    background : {},
+    background : {
+        fill : '#fff',
+        fillPatternImage : '',
+        type : 'color'
+    },
     className : "stage"
 }
 
@@ -63,11 +67,14 @@ const stageSlice = createSlice({
             state.children.push(action.payload)
         },
         setStageBackground(state, action){
-
+            state.background = {
+                ...state.background,
+                ...action.payload
+            }
         }
     }
 })
 
-export const { setStageSize , scaleStage , addShape} = stageSlice.actions;
+export const { setStageSize , scaleStage , addShape , setStageBackground} = stageSlice.actions;
 
 export default stageSlice.reducer;

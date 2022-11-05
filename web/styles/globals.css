@@ -178,3 +178,15 @@ a {
 .text-widget ul li:hover{
   background-color: #0e1214;
 }
+
+
+
+.color-picker_wrapper{
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.show-color-picker { 
+  opacity: 1;
+}
+  

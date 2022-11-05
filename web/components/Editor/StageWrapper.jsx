@@ -41,6 +41,10 @@ export default function StageWrapper({toggle}){
     // get all childre elements from store
     const { children } = useSelector((state) => state.stage)
 
+    // get stage background from store
+    const {fillPatternImage , type , fill } = useSelector((state) => state.stage.background)
+
+
     const dispatch = useDispatch();
 
     // dispatch stage scale
@@ -54,7 +58,7 @@ export default function StageWrapper({toggle}){
             <div className='stage' style = {{ height : `${initialHeight}px` , width : `${initialWidth}px`}} >
                 <Stage width={initialWidth} height={initialHeight} scaleX = {scale.x} scaleY = {scale.y}>
                     <Layer>
-                        <StageBackground height={height} width = {width} fill = "#bdc3bd" />
+                        {type !== null ? <StageBackground height={height} width = {width} fill = {fill} /> : null}
                         {children.length !== 0 && (
                             children.map(item => {
                                 return (<Shape key={item.attrs.id} attrs = {item.attrs} type = {item.attrs.type}/>)
