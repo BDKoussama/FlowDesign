@@ -7,7 +7,7 @@ export default function Zoom({scale , zoom}){
                 <button className='zoom-control--btn' onClick={() => zoom('in')} disabled = { scale >= 0.99 }>
                     <MagnifyingGlassPlusIcon className="h-5 w-5" color= { scale >= 0.99 ? '#313f45' : '#fff' }/>
                 </button>
-                <p className='text-sm text-white'> {`${scale.toFixed(1) * 100}%`} </p>
+                <p className='text-sm text-white block w-10 text-center'> {`${scale.toFixed(1) * 100}%`} </p>
                 <button className='zoom-control--btn' onClick={() => zoom('out')}  disabled = { scale <= 0.3 }>
                     <MagnifyingGlassMinusIcon className="h-5 w-5" color= { scale <= 0.3 ? '#313f45' : '#fff' } />
                 </button>

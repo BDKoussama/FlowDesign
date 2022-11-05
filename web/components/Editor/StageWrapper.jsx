@@ -6,6 +6,7 @@ import { useLayoutEffect } from 'react';
 import Zoom from './Zoom';
 import { useDispatch, useSelector } from 'react-redux';
 import { scaleStage } from '../../app/features/canvas/stageSlice';
+import Shape from './Shape';
 
 
 export default function StageWrapper({toggle}){
@@ -17,6 +18,7 @@ export default function StageWrapper({toggle}){
         width: 0
     })
 
+    // get stage wrapper bounds 
     useLayoutEffect(() => {
         if(wrapper.current){
             const {height , width} = wrapper.current.getBoundingClientRect();
@@ -27,6 +29,7 @@ export default function StageWrapper({toggle}){
         }
     },[]) 
 
+    // get stage props from store
     const {
         height , 
         width , 
@@ -35,8 +38,12 @@ export default function StageWrapper({toggle}){
         scale,
     } = useSelector((state) => state.stage.size)
 
+    // get all childre elements from store
+    const { children } = useSelector((state) => state.stage)
+
     const dispatch = useDispatch();
 
+    // dispatch stage scale
     const zoom = (direction) => {
         dispatch(scaleStage({direction})) 
     }
@@ -48,6 +55,11 @@ export default function StageWrapper({toggle}){
                 <Stage width={initialWidth} height={initialHeight} scaleX = {scale.x} scaleY = {scale.y}>
                     <Layer>
                         <StageBackground height={height} width = {width} fill = "#bdc3bd" />
+                        {children.length !== 0 && (
+                            children.map(item => {
+                                return (<Shape key={item.attrs.id} attrs = {item.attrs} type = {item.attrs.type}/>)
+                            }))
+                        }
                     </Layer>
                 </Stage>
             </div>
