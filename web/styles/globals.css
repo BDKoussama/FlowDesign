@@ -169,3 +169,12 @@ a {
 .element-item_wrapper:hover{
   background-color: #31434d;
 }
+
+.text-widget ul li {
+  transition: background 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.text-widget ul li:hover{
+  background-color: #0e1214;
+}
