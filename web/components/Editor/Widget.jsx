@@ -44,10 +44,10 @@ export default function Widget({toggle , setToggle}){
 
     return (
         <div className='editor-widget--wrapper' style={{ marginLeft : `${ toggle ? -350  : 0}px` }}>
-            <div className='editor-widget--content p-6 text-white'>
+            <div className='editor-widget--content p-4 text-white overflow-hidden'>
                 {handleRender()}
             </div>
-            <span>
+            <span className='toggle-span'>
                <button className={`editor-widget--toggle ${toggle ? '' : 'transform-btn'}`} onClick={() => setToggle(!toggle)}>
                     <ChevronRightIcon className="h-5 w-5 text-white"/>
                </button>

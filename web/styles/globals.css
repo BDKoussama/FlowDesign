@@ -60,7 +60,7 @@ a {
 }
 
 
-.editor-widget--wrapper span {
+.editor-widget--wrapper .toggle-span {
     display: block;
     position: absolute;
     left: 94%;

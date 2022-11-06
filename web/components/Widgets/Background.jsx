@@ -5,8 +5,11 @@ import { useState , useRef} from "react";
 import { useEffect } from "react";
 import {useDispatch} from 'react-redux'
 import { setStageBackground } from "../../app/features/canvas/stageSlice";
+import {QueryClient , QueryClientProvider } from 'react-query';
+import UnsplashGallery from "../Layout/UnsplashGallery";
 
 
+const queryClient = new QueryClient();
 
 const useIsMounted = () => {
     const isMountRef = useRef(true);
@@ -40,7 +43,6 @@ export default function Background(){
         }
     },[color])
 
-
     useEffect(() => {
         if(!isMounted){
             dispatch(setStageBackground({
@@ -49,6 +51,9 @@ export default function Background(){
             }))
         }
     },[value])
+
+
+    
 
 
     return(
@@ -65,7 +70,6 @@ export default function Background(){
                             <div className={`color-picker_wrapper absolute top-[100%] ${toggle ? 'show-color-picker' : ''}`}>
                                 <ColorPicker width={200} height={100} color={color} onChange={setColor} hideHSV dark />
                             </div>
-
                         </li>
                         <li className="colors-list_item mr-1"> <button className="h-10 w-10 rounded bg-[#cfca20]" onClick={() => pickColor('#cfca20')}></button> </li>
                         <li className="colors-list_item mr-1"> <button className="h-10 w-10 rounded bg-[#d17611]" onClick={() => pickColor('#d17611')}></button> </li>
@@ -75,6 +79,12 @@ export default function Background(){
                         <li className="colors-list_item mr-1"> <button className="h-10 w-10 rounded bg-[#b060b8]" onClick={() => pickColor('#b060b8')}></button> </li>
                     </ul>
                 </div>
+
+                
+                <QueryClientProvider client={queryClient}>
+                    <UnsplashGallery />
+                </QueryClientProvider>
+                
             </div>
         </div>
     )
