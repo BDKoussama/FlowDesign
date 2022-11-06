@@ -2,10 +2,9 @@ import {useInfiniteQuery} from 'react-query';
 import axios from 'axios';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import { useRef, useState } from 'react';
-import Image from 'next/image';
 import GalleryItem from './GalleryItem';
 
-export default function UnsplashGallery () {
+export default function UnsplashGallery ({widget}) {
 
     const [search , setSearch] = useState('')
 
@@ -78,7 +77,7 @@ export default function UnsplashGallery () {
                                     <div key={i.toString()} className = "flex flex-row flex-wrap justify-start">
                                         {
                                             page.results.map((photo => (
-                                                <GalleryItem key={photo.id} photo = {photo} />
+                                                <GalleryItem key={photo.id} photo = {photo} widget = {widget} />
                                             )))
                                         }
                                     </div>

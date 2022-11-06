@@ -58,7 +58,7 @@ export default function Background(){
 
     return(
         <div>
-            Backgrounds
+            <h3>Backgrounds</h3>
             <div className="mt-10">
                 <div className="colors-list">
                     <ul className="flex flex-row">
@@ -83,7 +83,7 @@ export default function Background(){
 
                 
                 <QueryClientProvider client={queryClient}>
-                    <UnsplashGallery />
+                    <UnsplashGallery widget = "background"/>
                 </QueryClientProvider>
                 
             </div>
