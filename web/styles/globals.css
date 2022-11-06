@@ -184,9 +184,19 @@ a {
 .color-picker_wrapper{
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
+  z-index: 2;
 }
 
 .show-color-picker { 
   opacity: 1;
 }
   
+
+.gallery-item_overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.gallery-item:hover .gallery-item_overlay {
+  opacity: 1;
+}

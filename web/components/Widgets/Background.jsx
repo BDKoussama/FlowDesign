@@ -67,9 +67,10 @@ export default function Background(){
                                 <PaintBrushIcon className="h-5 w-5" color="#fff"/>
                             </button> 
 
-                            <div className={`color-picker_wrapper absolute top-[100%] ${toggle ? 'show-color-picker' : ''}`}>
+                            {toggle && (<div className={`color-picker_wrapper absolute top-[100%] ${toggle ? 'show-color-picker' : ''}`}>
                                 <ColorPicker width={200} height={100} color={color} onChange={setColor} hideHSV dark />
-                            </div>
+                            </div>)}
+
                         </li>
                         <li className="colors-list_item mr-1"> <button className="h-10 w-10 rounded bg-[#cfca20]" onClick={() => pickColor('#cfca20')}></button> </li>
                         <li className="colors-list_item mr-1"> <button className="h-10 w-10 rounded bg-[#d17611]" onClick={() => pickColor('#d17611')}></button> </li>

@@ -3,6 +3,7 @@ import axios from 'axios';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import { useRef, useState } from 'react';
 import Image from 'next/image';
+import GalleryItem from './GalleryItem';
 
 export default function UnsplashGallery () {
 
@@ -77,9 +78,7 @@ export default function UnsplashGallery () {
                                     <div key={i.toString()} className = "flex flex-row flex-wrap justify-start">
                                         {
                                             page.results.map((photo => (
-                                                <div className='w-24 h-32 relative m-1' key={photo.id}>
-                                                        <Image layout='fill' objectFit='cover' loading='lazy' src = {photo.urls.small} alt = {photo.alt_description}/>
-                                                </div>
+                                                <GalleryItem key={photo.id} photo = {photo} />
                                             )))
                                         }
                                     </div>
