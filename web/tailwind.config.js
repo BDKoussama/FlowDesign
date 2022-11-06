@@ -2,6 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: [
+    "./node_modules/flowbite-react/**/*.js",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
@@ -53,6 +54,6 @@ module.exports = {
     },
   },
   plugins: [
-    require("daisyui")
+    require("flowbite/plugin")
   ],
 }

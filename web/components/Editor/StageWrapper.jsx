@@ -7,6 +7,7 @@ import Zoom from './Zoom';
 import { useDispatch, useSelector } from 'react-redux';
 import { scaleStage } from '../../app/features/canvas/stageSlice';
 import Shape from './Shape';
+import CustomImage from './CustomImage';
 
 
 export default function StageWrapper({toggle}){
@@ -60,6 +61,10 @@ export default function StageWrapper({toggle}){
                         {type !== null ? <StageBackground height={height} width = {width} fill = {fill} type = {type} fillPatternImage = {fillPatternImage}/> : null}
                         {children.length !== 0 && (
                             children.map(item => {
+                                if(item.className === "Image"){
+                                    return (
+                                        <CustomImage key={item.attrs.id} attrs = {item.attrs} url = {item.attrs.url} />)
+                                }
                                 return (<Shape key={item.attrs.id} attrs = {item.attrs} type = {item.attrs.type}/>)
                             }))
                         }

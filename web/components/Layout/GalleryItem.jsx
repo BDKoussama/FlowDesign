@@ -3,16 +3,44 @@ import Link from 'next/link'
 import {useRef} from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import {useDispatch} from 'react-redux'
-import { setStageBackground } from '../../app/features/canvas/stageSlice';
+import { addShape, setStageBackground } from '../../app/features/canvas/stageSlice';
 
 export default function GalleryItem({photo , widget}){
 
     const imgRef = useRef();
     const dispatch = useDispatch()
 
+
     const handleClick = (url) => {
+
+        const {height , width}  = imgRef.current.getBoundingClientRect();
+
+        const id = uuidv4()
+
         if(widget === "photos"){
-            // dispatch add photo element
+            const attrs = {
+                id,
+                url,
+                x : 50,
+                y : 50,
+                width : width + 50,
+                height : height + 50,
+                shadowBlur : 0 , 
+                shadowColor : '#000000',
+                shadowOffset : { x : 0 , y : 0 },
+                stroke : '#000000',
+                strokeWidth : 0,
+                blurRadius : 0,
+                brightness: 0,
+                sepia : 0,
+                toggleBlur : false ,
+                name : 'object'
+            }
+
+            dispatch(addShape({
+                className : 'Image',
+                attrs
+            }))
         }else{
             // dispatch setStageBackground
             dispatch(setStageBackground({
