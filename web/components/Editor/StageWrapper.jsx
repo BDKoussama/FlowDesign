@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { scaleStage } from '../../app/features/canvas/stageSlice';
 import Shape from './Shape';
 import CustomImage from './CustomImage';
+import { setSelected } from '../../app/features/canvas/selectSlice';
 
 
 export default function StageWrapper({toggle}){
@@ -44,6 +45,8 @@ export default function StageWrapper({toggle}){
 
     // get stage background from store
     const {fillPatternImage , type , fill } = useSelector((state) => state.stage.background)
+    
+    const selected = useSelector(state => state.selected);
 
     const dispatch = useDispatch();
 
@@ -65,7 +68,19 @@ export default function StageWrapper({toggle}){
                                     return (
                                         <CustomImage key={item.attrs.id} attrs = {item.attrs} url = {item.attrs.url} />)
                                 }
-                                return (<Shape key={item.attrs.id} attrs = {item.attrs} type = {item.attrs.type}/>)
+                                return (
+                                    <Shape 
+                                        key={item.attrs.id} 
+                                        attrs = {item.attrs} 
+                                        type = {item.attrs.type} 
+                                        isSelected = {item.attrs.id === selected.item.id}  
+                                        onSelect = {() => {
+                                            dispatch(setSelected({
+                                                id : item.attrs.id,
+                                                type : item.attrs.type
+                                            }))
+                                        }}
+                                    />)
                             }))
                         }
                     </Layer>
