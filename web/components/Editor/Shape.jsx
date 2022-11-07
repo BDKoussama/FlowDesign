@@ -26,6 +26,8 @@ export default function Shape({type , attrs , isSelected , onSelect}){
                     onDragMove = {() => {}} 
                     onDragEnd = {() => {}}  
                     onDragStart = {() => {}} 
+                    onClick = {onSelect}
+                    onTap = {onSelect}
                 />)
             
             case 'Rect':

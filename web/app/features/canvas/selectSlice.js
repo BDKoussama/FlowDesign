@@ -4,6 +4,7 @@ const initialState = {
     item : {
         type: '' ,
         id: null , 
+        attrs: {},
         onTransform : {
             x : 0 ,
             y : 0 ,

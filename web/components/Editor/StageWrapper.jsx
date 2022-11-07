@@ -55,13 +55,45 @@ export default function StageWrapper({toggle}){
         dispatch(scaleStage({direction})) 
     }
 
+
+    //deselect all items
+    const checkDeslect = (e) => {
+        // deselect when clicked on empty area
+        const clickedOnEmpty = e.target === e.target.getStage();
+        const clickedOnBg = e.target?.attrs?.name === "background"
+        if (clickedOnEmpty || clickedOnBg) {
+            dispatch(setSelected({
+                type : "",
+                id : null
+            }))
+        }
+    }
+
     return(
         <div className={`stage-wrapper ${( parentSize.height >= initialHeight && parentSize.width >= initialWidth ) ? 'center-stage' : '' }`}  ref={wrapper}>
             <Zoom scale = {scale.x} zoom = {zoom} />
             <div className='stage' style = {{ height : `${initialHeight}px` , width : `${initialWidth}px`}} >
-                <Stage width={initialWidth} height={initialHeight} scaleX = {scale.x} scaleY = {scale.y}>
+                <Stage 
+                    width={initialWidth} 
+                    height={initialHeight} 
+                    scaleX = {scale.x} 
+                    scaleY = {scale.y} 
+                    onMouseDown = {checkDeslect}
+                    onTouchStart = {checkDeslect}
+                >
                     <Layer>
-                        {type !== null ? <StageBackground height={height} width = {width} fill = {fill} type = {type} fillPatternImage = {fillPatternImage}/> : null}
+                        {type !== null ? 
+                            <StageBackground 
+                                height={height} 
+                                width = {width} 
+                                fill = {fill} 
+                                type = {type} 
+                                fillPatternImage = {fillPatternImage}
+                                onMouseDown = {checkDeslect}
+                                onTouchStart = {checkDeslect}
+                            /> : null 
+                                
+                            }
                         {children.length !== 0 && (
                             children.map(item => {
                                 if(item.className === "Image"){

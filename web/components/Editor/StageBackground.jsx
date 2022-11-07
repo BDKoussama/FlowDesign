@@ -2,7 +2,7 @@ import { useState , useEffect } from 'react'
 import {Rect , Image as BgImage} from 'react-konva'
 import {getCrop} from '../../utils/cropImage';
 
-export default function StageBackground({width , height , fill , type , fillPatternImage}){
+export default function StageBackground({width , height , fill , type , fillPatternImage }){
 
     const [image , setImage] = useState(null)
 
