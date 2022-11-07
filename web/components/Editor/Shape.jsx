@@ -1,11 +1,13 @@
 import { useRef , useEffect } from 'react'
 import {Text , Rect , Circle , Transformer} from 'react-konva'
-
+import {useDispatch} from 'react-redux';
+import { setDragProps, setTransformProps } from '../../app/features/canvas/stageSlice';
 
 export default function Shape({type , attrs , isSelected , onSelect}){
 
     const trRef = useRef();
     const elRef = useRef();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (isSelected && trRef.current !== null) {
@@ -16,6 +18,54 @@ export default function Shape({type , attrs , isSelected , onSelect}){
         }
     }, [isSelected]);
 
+
+    const onTransform = (e) => {
+        if(elRef.current !== null){
+            const element = elRef.current;
+
+            const size = {
+                width: element.width() * element.scaleX(),
+                height: element.height() * element.scaleY()
+            }
+
+        element.setAttrs({
+            width: size.width,
+            ...(type !== 'Text' ? {height : size.height} : {}),
+            scaleX : 1,
+            ...(type !== 'Text'? {scaleY: 1}: {}),
+        })
+        }
+    }
+
+
+    const onTransformEnd = (e) => {
+            const size = {
+                height : Math.floor(e.target.height()),
+                width : Math.floor(e.target.width())
+            }
+
+            dispatch(setTransformProps({
+                id : attrs.id,
+                size : {
+                    width: size.width,
+                    height: size.height
+                }
+            }))
+    }
+
+
+    const onDragEnd = (e) => {
+        const position = {
+            x : Math.floor(e.target.x()),
+            y: Math.floor(e.target.y())
+        }
+
+        dispatch(setDragProps({
+            id : attrs.id,
+            position
+        }))
+    }
+
     const renderShape = () => {
         switch (type) {
             case 'Text':
@@ -24,10 +74,12 @@ export default function Shape({type , attrs , isSelected , onSelect}){
                     {...attrs} 
                     ref = {elRef}
                     onDragMove = {() => {}} 
-                    onDragEnd = {() => {}}  
+                    onDragEnd = {onDragEnd}  
                     onDragStart = {() => {}} 
                     onClick = {onSelect}
                     onTap = {onSelect}
+                    onTransform = {onTransform}
+                    onTransformEnd = {onTransformEnd}
                 />)
             
             case 'Rect':
@@ -36,10 +88,12 @@ export default function Shape({type , attrs , isSelected , onSelect}){
                     {...attrs} 
                     ref = {elRef}
                     onDragMove = {() => {}} 
-                    onDragEnd = {() => {}}  
+                    onDragEnd = {onDragEnd}  
                     onDragStart = {() => {}} 
                     onClick = {onSelect}
                     onTap = {onSelect}
+                    onTransform = {onTransform}
+                    onTransformEnd = {onTransformEnd}
                 />)
 
             case 'Circle':
@@ -48,10 +102,12 @@ export default function Shape({type , attrs , isSelected , onSelect}){
                     {...attrs} 
                     ref = {elRef}
                     onDragMove = {() => {}} 
-                    onDragEnd = {() => {}}  
+                    onDragEnd = {onDragEnd}  
                     onDragStart = {() => {}} 
                     onClick = {onSelect}
                     onTap = {onSelect}
+                    onTransform = {onTransform}
+                    onTransformEnd = {onTransformEnd}
                 />)
 
             default:
@@ -72,7 +128,7 @@ export default function Shape({type , attrs , isSelected , onSelect}){
                 borderDash={[3,3]}
                 rotateEnabled={false}
                 enabledAnchors={type === 'Text' ? ['middle-left', 'middle-right'] : undefined}
-                boundBoxFunc={(oldBox, newBox) => newBox.width < 100 ? oldBox : newBox}
+                boundBoxFunc={(oldBox, newBox) => newBox.width < 10 || newBox.height < 5 ? oldBox : newBox}
             />}
         </>
     )

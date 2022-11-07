@@ -71,10 +71,37 @@ const stageSlice = createSlice({
                 ...state.background,
                 ...action.payload
             }
+        },
+        setTransformProps(state , action){
+            // updates height & width & scalex , scaley
+            const children = state.children.map((item => item.attrs.id !== action.payload.id ? item : 
+                    {
+                        ...item,
+                        attrs : {
+                            ...item.attrs,
+                            ...action.payload.size
+                        }
+                    }
+                ))
+            state.children = children
+
+        },
+        setDragProps(state , action){
+            //updates x & y
+            const children = state.children.map((item => item.attrs.id !== action.payload.id ? item : 
+                {
+                    ...item,
+                    attrs : {
+                        ...item.attrs,
+                        ...action.payload.position
+                    }
+                }
+            ))
+        state.children = children
         }
     }
 })
 
-export const { setStageSize , scaleStage , addShape , setStageBackground} = stageSlice.actions;
+export const { setStageSize , scaleStage , addShape , setStageBackground , setTransformProps , setDragProps} = stageSlice.actions;
 
 export default stageSlice.reducer;
