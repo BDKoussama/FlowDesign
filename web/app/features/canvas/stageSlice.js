@@ -79,7 +79,8 @@ const stageSlice = createSlice({
                         ...item,
                         attrs : {
                             ...item.attrs,
-                            ...action.payload.size
+                            ...action.payload.size,
+                            ...(item.attrs.type === 'Image' ? {...action.payload.other} : {})
                         }
                     }
                 ))

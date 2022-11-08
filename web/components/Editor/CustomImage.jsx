@@ -1,18 +1,33 @@
-import {Image} from 'react-konva';
+import {Image , Transformer} from 'react-konva';
 import useImage from 'use-image';
 import { Html } from 'react-konva-utils';
 import { useEffect, useRef, useState } from 'react';
 import {Spinner} from 'flowbite-react';
+import {getCrop} from '../../utils/cropImage';
+import { useDispatch } from 'react-redux';
+import { setDragProps, setTransformProps } from '../../app/features/canvas/stageSlice';
 
-export default function CustomImage({url , attrs }){
+export default function CustomImage({url , attrs , isSelected , onSelect }){
     const [image] = useImage(url , "anonymous");
     const imgRef = useRef();
     const spinRef = useRef();
+    const trRef = useRef();
     const [isLoading , setIsLoading] = useState(false);
+
+    const dispatch = useDispatch()
 
     useEffect(() => {
         imgRef.current.cache();
     },[image , attrs])
+
+    useEffect(() => {
+      if (isSelected && trRef.current !== null) {
+        //trRef.current.rotateAnchorOffset(0);
+        // we need to attach transformer manually
+        trRef.current.nodes([imgRef.current]);
+        trRef.current.getLayer().batchDraw();
+      }
+  }, [isSelected]);
 
     const displaySpinner = () => {
         if(imgRef.current && imgRef.current !== null) {
@@ -58,6 +73,80 @@ export default function CustomImage({url , attrs }){
         }
     }
 
+
+    const onTransform = () => {
+      if (imgRef.current !== null) {
+
+        const img = imgRef.current;
+
+        const newWidth = img.width() * img.scaleX();
+        const newHeight = img.height() * img.scaleY();
+        
+        let pos = img.getAttr('lastCropUsed');
+
+        img.setAttr('lastCropUsed', pos);
+
+        const crop = getCrop(
+        img.image(),
+        { width: img.width(), height: img.height() },
+        pos
+        );
+        imgRef.current.cache();
+        img.setAttrs({
+          width: newWidth,
+          height: newHeight,
+          scaleY : 1,
+          scaleX: 1,
+          ...crop
+        });
+      }
+    }
+
+    const onTransformEnd = () => {
+
+      const size = {
+        width: Math.floor(imgRef.current.width()),
+        height : Math.floor(imgRef.current.height()),
+      }
+
+      const newAttrs = {
+        scaleX : imgRef.current.scaleX(),
+        scaleY : imgRef.current.scaleY(),
+        cropHeight : imgRef.current.cropHeight(),
+        cropWidth : imgRef.current.cropWidth(),
+        cropX: imgRef.current.cropX(),
+        cropY: imgRef.current.cropY(),
+      }
+
+      dispatch(setTransformProps({
+        id : attrs.id,
+        size : {
+          width: size.width,
+          height: size.height
+        },
+        other : {
+          ...newAttrs
+        }
+      }))
+    }
+
+    const onDragEnd = (e) => {
+
+      imgRef.current.name('object');
+
+      const position = {
+        x : Math.floor(e.target.x()),
+        y: Math.floor(e.target.y())
+      }
+
+      dispatch(setDragProps({
+        id : attrs.id,
+        position
+      }))
+
+    }
+
+
     return(
         <>
             {isLoading ? displaySpinner() : null}
@@ -65,11 +154,32 @@ export default function CustomImage({url , attrs }){
                 image={image}
                 {...attrs}
                 ref = {imgRef}
-                onDragEnd = {() => {}}
+                onDragEnd = {onDragEnd}
+                onTransform = {onTransform}
+                onTransformEnd = {onTransformEnd}
                 onDragMove = {() => {}}
                 onDragStart = {() => {}}
                 draggable = {true}
+                onClick = {onSelect}
+                onTap = {onSelect}
             />
+            { isSelected && 
+            <Transformer
+                ref = {trRef}   
+                anchorFill = '#eaf1fe'
+                anchorCornerRadius = {50}
+                anchorSize={10}
+                anchorStroke = '#216ee0'
+                borderDash={[3,3]}
+                rotateEnabled={false}
+                boundBoxFunc={(oldBox, newBox) => {
+                    // limit resize
+                    if (newBox.width < 100) {
+                      return oldBox;
+                    }
+                    return newBox;
+                }}
+            /> }
         </>
     )
 }

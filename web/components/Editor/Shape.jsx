@@ -128,7 +128,7 @@ export default function Shape({type , attrs , isSelected , onSelect}){
                 borderDash={[3,3]}
                 rotateEnabled={false}
                 enabledAnchors={type === 'Text' ? ['middle-left', 'middle-right'] : undefined}
-                boundBoxFunc={(oldBox, newBox) => newBox.width < 10 || newBox.height < 5 ? oldBox : newBox}
+                boundBoxFunc={(oldBox, newBox) => newBox.width < 25 || newBox.height < 5 ? oldBox : newBox}
             />}
         </>
     )

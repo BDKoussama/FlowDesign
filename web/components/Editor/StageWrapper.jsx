@@ -98,7 +98,18 @@ export default function StageWrapper({toggle}){
                             children.map(item => {
                                 if(item.className === "Image"){
                                     return (
-                                        <CustomImage key={item.attrs.id} attrs = {item.attrs} url = {item.attrs.url} />)
+                                        <CustomImage 
+                                            key={item.attrs.id} 
+                                            attrs = {item.attrs} 
+                                            url = {item.attrs.url}
+                                            isSelected = {item.attrs.id === selected.item.id}
+                                            onSelect = {() => {
+                                                dispatch(setSelected({
+                                                    id : item.attrs.id,
+                                                    type : item.attrs.type
+                                                }))
+                                            }}
+                                        />)
                                 }
                                 return (
                                     <Shape 

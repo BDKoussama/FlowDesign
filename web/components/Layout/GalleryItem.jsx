@@ -21,6 +21,7 @@ export default function GalleryItem({photo , widget}){
             const attrs = {
                 id,
                 url,
+                type: 'Image',
                 x : 50,
                 y : 50,
                 width : width + 50,
