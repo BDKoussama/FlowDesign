@@ -11,20 +11,23 @@ export default function ShapeSettings(){
             <h3>Edit Shape</h3>
             <div className="w-full mt-10">
 
-                <div className="mb-2 block mt-2">
-                    <Label
-                        htmlFor="Fill"
-                        value="Fill"
-                        className='text-white'
-                    />
-                </div>
+                <div className='input-group'>
+                    <div className="mb-2 block mt-2">
+                        <Label
+                            htmlFor="Fill"
+                            value="Fill"
+                            className='text-white'
+                        />
+                    </div>
 
-                <div>
-                    <ColorPicker fill = {fill} setFill = {setFill}/>
-                </div>
-
-                <div className='flex justify-between items-center gap-5 my-4'>
                     <div>
+                        <ColorPicker fill = {fill} setFill = {setFill}/>
+                    </div>
+                </div>
+
+                
+                <div className='flex justify-between items-center gap-5 my-4'>
+                    <div className='input-group'>
                         <div className="mb-2 block">
                             <Label
                                 htmlFor="X"
@@ -38,7 +41,7 @@ export default function ShapeSettings(){
                             placeholder="X position"
                         />
                     </div>
-                    <div>
+                    <div className='input-group'>
                         <div className="mb-2 block">
                             <Label
                                 htmlFor="Y"
@@ -54,8 +57,9 @@ export default function ShapeSettings(){
                     </div>
                 </div>
 
+
                 <div className='flex justify-between items-center gap-5 my-4'>
-                    <div>
+                    <div className='input-group'>
                         <div className="mb-2 block">
                             <Label
                                 htmlFor="Height"
@@ -63,13 +67,13 @@ export default function ShapeSettings(){
                                 className='text-white'
                             />
                         </div>
-                            <TextInput
+                        <TextInput
                             id="height"
                             type="number"
                             placeholder="Height"
                         />
                     </div>
-                    <div>
+                    <div className='input-group'>
                         <div className="mb-2 block">
                             <Label
                                 htmlFor="Width"
@@ -77,7 +81,7 @@ export default function ShapeSettings(){
                                 className='text-white'
                             />
                         </div>
-                            <TextInput
+                        <TextInput
                             id="width"
                             type="number"
                             placeholder="Width"
@@ -85,8 +89,8 @@ export default function ShapeSettings(){
                     </div>
                 </div>
 
-                <div className='flex justify-between items-center gap-5 my-4'>
-                    <div>
+                <div className='flex justify-between items-center my-4'>
+                    <div className='input-group w-full'>
                         <div className="mb-2 block">
                             <Label
                                 htmlFor="Border Radius"
@@ -100,7 +104,10 @@ export default function ShapeSettings(){
                                 placeholder="Border Radius"
                         />
                     </div>
-                    <div>
+                </div>
+
+                <div className='flex justify-between items-center gap-5 my-4'>
+                    <div className='input-group'>
                         <div className="mb-2 block">
                             <Label
                                 htmlFor="Stroke"
@@ -114,10 +121,19 @@ export default function ShapeSettings(){
                                 placeholder="Stroke"
                         />
                     </div>
+
+                    <div className='input-group'>
+                        <div className="mb-2 block">
+                            <Label
+                                htmlFor="Stroke Color"
+                                value="Stroke Color"
+                                className='text-white'
+                            />
+                        </div>
+                        <ColorPicker fill = {fill} setFill = {setFill}/>
+                    </div>
                 </div>
 
-
-                
             </div>
         </div>
     )
