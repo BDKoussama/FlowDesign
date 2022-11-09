@@ -5,14 +5,7 @@ const initialState = {
         type: '' ,
         id: null , 
         attrs: {},
-        onTransform : {
-            x : 0 ,
-            y : 0 ,
-            size : {
-                height : 0 ,
-                width : 0 
-            }
-        }
+        
     }
 }
 
@@ -23,11 +16,41 @@ const selectSlice = createSlice({
         setSelected(state , action) {
             state.item = {...state.item , 
                     ...action.payload }
+        },
+        setTransformProps(state , action){
+            // updates height & width & scalex , scaley
+            state.item = {
+                ...state.item,
+                attrs : {
+                    ...state.item.attrs,
+                    ...action.payload.size,
+                    ...(state.item.attrs.type === 'Image' ? {...action.payload.other} : {})
+                }
+               
+            }
+        },
+        setDragProps(state , action){
+            //updates x & y
+            state.item = {
+                ...state.item,
+                attrs : {
+                    ...state.item.attrs,
+                    ...action.payload.position,
+                }
+            }
+        },
+        updateSelected(state , action) {
+            state.item = {
+                ...state.item ,
+                attrs : {
+                    ...action.payload.attrs
+                }
+            }
         }
     }
 })
 
 
-export const {setSelected} = selectSlice.actions;
+export const {setSelected , updateSelected , setTransformProps , setDragProps } = selectSlice.actions;
 
 export default selectSlice.reducer;

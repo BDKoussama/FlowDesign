@@ -1,11 +1,11 @@
 import { Stage, Layer, Rect, Circle } from 'react-konva';
 import StageBackground from '../Editor/StageBackground';
-import { useRef} from 'react';
+import { useEffect, useRef} from 'react';
 import { useState } from 'react';
 import { useLayoutEffect } from 'react';
 import Zoom from './Zoom';
 import { useDispatch, useSelector } from 'react-redux';
-import { scaleStage } from '../../app/features/canvas/stageSlice';
+import { scaleStage, updateElement } from '../../app/features/canvas/stageSlice';
 import Shape from './Shape';
 import CustomImage from './CustomImage';
 import { setSelected } from '../../app/features/canvas/selectSlice';
@@ -31,6 +31,8 @@ export default function StageWrapper({toggle}){
         }
     },[]) 
 
+    
+
     // get stage props from store
     const {
         height , 
@@ -55,6 +57,18 @@ export default function StageWrapper({toggle}){
         dispatch(scaleStage({direction})) 
     }
 
+    useEffect(()=>{
+        const {item} = selected;
+        //check if there is a selected item
+        if(item.id !== null ){
+            dispatch(updateElement({
+                id : item.id,
+                attrs : {
+                    ...item.attrs
+                }
+            }))
+        }
+    },[selected.item])
 
     //deselect all items
     const checkDeslect = (e) => {
@@ -106,7 +120,8 @@ export default function StageWrapper({toggle}){
                                             onSelect = {() => {
                                                 dispatch(setSelected({
                                                     id : item.attrs.id,
-                                                    type : item.attrs.type
+                                                    type : item.attrs.type,
+                                                    attrs : item.attrs
                                                 }))
                                             }}
                                         />)
@@ -120,7 +135,8 @@ export default function StageWrapper({toggle}){
                                         onSelect = {() => {
                                             dispatch(setSelected({
                                                 id : item.attrs.id,
-                                                type : item.attrs.type
+                                                type : item.attrs.type,
+                                                attrs: item.attrs
                                             }))
                                         }}
                                     />)

@@ -1,10 +1,44 @@
 import {Label , TextInput} from 'flowbite-react';
-import { useState } from 'react';
 import ColorPicker from '../../Layout/ColorPicker';
+
+import {useDispatch , useSelector} from 'react-redux';
+import { updateSelected } from '../../../app/features/canvas/selectSlice';
+
 
 export default function ShapeSettings(){
 
-    const [fill , setFill] = useState();
+    const dispatch = useDispatch();
+
+    const {attrs} = useSelector(state => state.selected.item)
+    
+
+    const handleInputChange = (e) => {
+        const {name , value} = e.target;
+        dispatch(updateSelected({
+            attrs : {
+                ...attrs,
+                [name]: value
+            }
+        }))
+    }
+
+    const handleFillChange = (color) => {
+        dispatch(updateSelected({
+            attrs : {
+                ...attrs,
+                fill: color
+            }
+        }))
+    }
+
+    const handleStrokeChange = (color) => {
+        dispatch(updateSelected({
+            attrs : {
+                ...attrs,
+                stroke : color
+            }
+        }))
+    }
 
     return (
         <div>
@@ -15,29 +49,35 @@ export default function ShapeSettings(){
                     <div className='input-group'>
                         <div className="mb-2 block">
                             <Label
-                                htmlFor="X"
+                                htmlFor="x"
                                 value="X"
                                 className='text-white'
                             />
                         </div>
                             <TextInput
-                            id="x"
-                            type="number"
-                            placeholder="X position"
+                                value={attrs.x || 0}
+                                id="x"
+                                type="number"
+                                name='x'
+                                placeholder="X position"
+                                onChange={handleInputChange}
                         />
                     </div>
                     <div className='input-group'>
                         <div className="mb-2 block">
                             <Label
-                                htmlFor="Y"
+                                htmlFor="y"
                                 value="Y"
                                 className='text-white'
                             />
                         </div>
                         <TextInput
+                            value={attrs.y || 0}
                             id="y"
                             type="number"
+                            name='y'
                             placeholder="Y position"
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -46,29 +86,35 @@ export default function ShapeSettings(){
                     <div className='input-group'>
                         <div className="mb-2 block">
                             <Label
-                                htmlFor="Height"
+                                htmlFor="height"
                                 value="Height"
                                 className='text-white'
                             />
                         </div>
                         <TextInput
+                            value={attrs.height || 0}
                             id="height"
                             type="number"
+                            name='height'
                             placeholder="Height"
+                            onChange={handleInputChange}
                         />
                     </div>
                     <div className='input-group'>
                         <div className="mb-2 block">
                             <Label
-                                htmlFor="Width"
+                                htmlFor="width"
                                 value="Width"
                                 className='text-white'
                             />
                         </div>
                         <TextInput
+                            value={attrs.width || 0}
                             id="width"
                             type="number"
+                            name='width'
                             placeholder="Width"
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -85,7 +131,7 @@ export default function ShapeSettings(){
                     </div>
 
                     <div>
-                        <ColorPicker fill = {fill} setFill = {setFill} position = "bottom"/>
+                        <ColorPicker fill = {attrs.fill || '#000000'} onChange = {handleFillChange} position = "bottom"/>
                     </div>
                 </div>
 
@@ -95,15 +141,18 @@ export default function ShapeSettings(){
                     <div className='input-group w-full'>
                         <div className="mb-2 block">
                             <Label
-                                htmlFor="Border Radius"
+                                htmlFor="radius"
                                 value="Border Radius"
                                 className='text-white'
                             />
                         </div>
                             <TextInput
+                                value={attrs.radius || 0}
                                 id="radius"
                                 type="number"
+                                name='radius'
                                 placeholder="Border Radius"
+                                onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -117,20 +166,23 @@ export default function ShapeSettings(){
                                 className='text-white'
                             />
                         </div>
-                        <ColorPicker fill = {fill} setFill = {setFill} position = "top"/>
+                        <ColorPicker fill = {attrs.stroke || '#000000'} onChange = {handleStrokeChange} position = "top"/>
                     </div>
                     <div className='input-group'>
                         <div className="mb-2 block">
                             <Label
-                                htmlFor="Stroke"
+                                htmlFor="stroke"
                                 value="Stroke"
                                 className='text-white'
                             />
                         </div>
                             <TextInput
+                                value = {attrs.strokeWidth || 0}
                                 id="stroke"
+                                name='strokeWidth'
                                 type="number"
-                                placeholder="Stroke"
+                                placeholder="Stroke Width"
+                                onChange={handleInputChange}
                         />
                     </div>
                 </div>

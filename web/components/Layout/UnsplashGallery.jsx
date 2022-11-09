@@ -27,7 +27,7 @@ export default function UnsplashGallery ({widget}) {
                 },
                 params : {
                     query : keyword,
-                    per_page : 20,
+                    per_page : 21,
                     page : pageParam
                 }
             });

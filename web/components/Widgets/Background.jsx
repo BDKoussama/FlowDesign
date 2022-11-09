@@ -7,18 +7,10 @@ import {useDispatch} from 'react-redux'
 import { setStageBackground } from "../../app/features/canvas/stageSlice";
 import {QueryClient , QueryClientProvider } from 'react-query';
 import UnsplashGallery from "../Layout/UnsplashGallery";
-
+import useIsMounted from '../../hooks/useIsMounted';
 
 const queryClient = new QueryClient();
 
-const useIsMounted = () => {
-    const isMountRef = useRef(true);
-    useEffect(() => {
-        isMountRef.current = false;
-    },[])
-
-    return isMountRef.current
-}
 
 export default function Background(){
 

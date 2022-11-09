@@ -1,25 +1,25 @@
 import { ColorPicker as ColorPickerPallete, useColor } from "react-color-palette";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 
-export default function ColorPicker({fill , setFill , position}){
+export default function ColorPicker({onChange , position , fill}){
 
-    const [color, setColor] = useColor("hex", "#121212");
+    const [color, setColor] = useColor("hex", fill);
 
     const [toggle , setToggle] = useState(false);
 
-    useColor(() => {
-        setFill(color.hex)
+    useEffect(() => {
+        onChange(color.hex)
     },[color])
 
     return (
         <div className="relative">
                     <div className="w-32 h-full bg-white rounded p-1 flex items-center">
-                        <button className= {`h-8 w-8 rounded flex justify-center items-center mr-4`} 
+                        <button className= {`h-8 w-8 rounded flex justify-center items-center mr-3`} 
                                 onClick={() => setToggle(!toggle)}
-                                style = {{ backgroundColor : color.hex}}
+                                style = {{ backgroundColor : fill}}
                         >
                         </button>
-                        <span className="text-black block">{color.hex}</span>
+                        <span className="text-black block text-sm">{fill}</span>
                     </div>
  
 

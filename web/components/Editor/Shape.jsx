@@ -1,7 +1,7 @@
 import { useRef , useEffect } from 'react'
 import {Text , Rect , Circle , Transformer} from 'react-konva'
 import {useDispatch} from 'react-redux';
-import { setDragProps, setTransformProps } from '../../app/features/canvas/stageSlice';
+import { setDragProps, setTransformProps } from '../../app/features/canvas/selectSlice';
 
 export default function Shape({type , attrs , isSelected , onSelect}){
 
@@ -45,7 +45,6 @@ export default function Shape({type , attrs , isSelected , onSelect}){
             }
 
             dispatch(setTransformProps({
-                id : attrs.id,
                 size : {
                     width: size.width,
                     height: size.height
@@ -61,7 +60,6 @@ export default function Shape({type , attrs , isSelected , onSelect}){
         }
 
         dispatch(setDragProps({
-            id : attrs.id,
             position
         }))
     }

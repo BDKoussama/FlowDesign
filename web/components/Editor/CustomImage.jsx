@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import {Spinner} from 'flowbite-react';
 import {getCrop} from '../../utils/cropImage';
 import { useDispatch } from 'react-redux';
-import { setDragProps, setTransformProps } from '../../app/features/canvas/stageSlice';
+import { setDragProps, setTransformProps } from '../../app/features/canvas/selectSlice';
 
 export default function CustomImage({url , attrs , isSelected , onSelect }){
     const [image] = useImage(url , "anonymous");
@@ -119,7 +119,6 @@ export default function CustomImage({url , attrs , isSelected , onSelect }){
       }
 
       dispatch(setTransformProps({
-        id : attrs.id,
         size : {
           width: size.width,
           height: size.height
@@ -140,7 +139,6 @@ export default function CustomImage({url , attrs , isSelected , onSelect }){
       }
 
       dispatch(setDragProps({
-        id : attrs.id,
         position
       }))
 

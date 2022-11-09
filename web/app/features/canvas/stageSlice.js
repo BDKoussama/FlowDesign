@@ -72,37 +72,23 @@ const stageSlice = createSlice({
                 ...action.payload
             }
         },
-        setTransformProps(state , action){
+        updateElement(state , action){
             // updates height & width & scalex , scaley
             const children = state.children.map((item => item.attrs.id !== action.payload.id ? item : 
-                    {
-                        ...item,
-                        attrs : {
-                            ...item.attrs,
-                            ...action.payload.size,
-                            ...(item.attrs.type === 'Image' ? {...action.payload.other} : {})
+                        {
+                            ...item,
+                            attrs : {
+                                ...item.attrs,
+                                ...action.payload.attrs,
+                                ...(item.attrs.type === 'Image' ? {...action.payload.other} : {})
+                            }
                         }
-                    }
-                ))
-            state.children = children
-
-        },
-        setDragProps(state , action){
-            //updates x & y
-            const children = state.children.map((item => item.attrs.id !== action.payload.id ? item : 
-                {
-                    ...item,
-                    attrs : {
-                        ...item.attrs,
-                        ...action.payload.position
-                    }
-                }
-            ))
-        state.children = children
+                    ))
+            state.children = children  
         }
     }
 })
 
-export const { setStageSize , scaleStage , addShape , setStageBackground , setTransformProps , setDragProps} = stageSlice.actions;
+export const { setStageSize , scaleStage , addShape , setStageBackground , updateElement} = stageSlice.actions;
 
 export default stageSlice.reducer;
