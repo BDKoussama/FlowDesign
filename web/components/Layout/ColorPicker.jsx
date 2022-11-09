@@ -1,14 +1,19 @@
 import { ColorPicker as ColorPickerPallete, useColor } from "react-color-palette";
 import { useState , useEffect} from "react";
+import useIsMounted from '../../hooks/useIsMounted';
 
 export default function ColorPicker({onChange , position , fill}){
 
     const [color, setColor] = useColor("hex", fill);
 
+    const isMounted = useIsMounted();
+
     const [toggle , setToggle] = useState(false);
 
     useEffect(() => {
-        onChange(color.hex)
+        if(!isMounted){
+            onChange(color.hex)
+        }
     },[color])
 
     return (
