@@ -43,7 +43,7 @@ export default function ShapeSettings(){
     }
 
     return (
-        <div>
+        <div className='p-4'>
             <div className="w-full mt-10">
                 <span className='text-2xl font-bold'>Layout</span>
 

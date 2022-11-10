@@ -1,6 +1,6 @@
 export default function Templates(){
     return(
-        <div>
+        <div className="p-4">
             Templates
         </div>
     )

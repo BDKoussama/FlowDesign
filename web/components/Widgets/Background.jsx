@@ -49,7 +49,7 @@ export default function Background(){
 
 
     return(
-        <div>
+        <div className="p-4">
             <h3>Backgrounds</h3>
             <div className="mt-10">
                 <div className="colors-list">

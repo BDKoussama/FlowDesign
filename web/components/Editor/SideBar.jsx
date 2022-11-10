@@ -8,6 +8,7 @@ import { PhotoIcon } from '@heroicons/react/24/outline'
 import { Squares2X2Icon } from '@heroicons/react/24/outline'
 import { CloudArrowDownIcon } from '@heroicons/react/24/outline'
 import { ArrowsPointingOutIcon } from '@heroicons/react/24/outline'
+import { Square3Stack3DIcon } from '@heroicons/react/24/outline'
 
 export default function SideBar(){
 
@@ -109,6 +110,20 @@ export default function SideBar(){
                                     <CloudArrowDownIcon className="h-6 w-6 text-white"/>
                                     <div className="custom-radio_text">
                                         <span>Upload</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </li> 
+
+                    <li className='sidebar-menu_list-item'>
+                        <div className='list-item_content text-center text-sm font-normal'>
+                            <label className="custom-radio" htmlFor="layers">
+                                <input checked = {template === 'layers'} type="radio" value='layers' name="layers" id="layers" onChange = {handleChange} />
+                                <div className="custom-radio_content">
+                                    <Square3Stack3DIcon className="h-6 w-6 text-white"/>
+                                    <div className="custom-radio_text">
+                                        <span>Layers</span>
                                     </div>
                                 </div>
                             </label>

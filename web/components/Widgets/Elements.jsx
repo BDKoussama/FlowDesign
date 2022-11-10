@@ -44,7 +44,7 @@ export default function Elements(){
                 return (<ShapeSettings/>)
             }else{
                 return (
-                    <div>
+                    <div className='p-4'>
                         <h3>Elements & Shapes</h3>
                         <div className="elements-widget mt-10 h-full flex flex-wrap">
                             <div className="element-item_wrapper p-2 flex justify-center items-center m-1">

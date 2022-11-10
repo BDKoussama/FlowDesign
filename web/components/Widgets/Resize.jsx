@@ -129,7 +129,7 @@ export default function Resize(){
     },[value])
 
     return(
-        <div>
+        <div className='p-4'>
             <h3>
                 Resize
             </h3>

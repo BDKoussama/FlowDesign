@@ -79,7 +79,7 @@ export default function TextSettings(){
     }
 
     return (
-        <div className='h-screen overflow-y-scroll pb-10'>
+        <div className='h-screen overflow-y-scroll pb-10 p-4'>
             <div className="w-full mt-10">
                 <span className='text-2xl font-bold'>Layout</span>
 

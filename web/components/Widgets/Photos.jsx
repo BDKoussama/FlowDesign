@@ -6,7 +6,7 @@ const queryClient = new QueryClient();
 
 export default function Photos(){
     return(
-        <div>
+        <div className="p-4">
             <h3>Add Photos</h3>
             <div className="mt-10">
                 <QueryClientProvider   QueryClientProvider client={queryClient}>

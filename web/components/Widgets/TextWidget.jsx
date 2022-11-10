@@ -50,6 +50,7 @@ export default function TextWidget(){
             draggable : true,
             id,
             fontStyle : 'normal',
+            fontFamily : 'Arial',
             textDecoration : 'normal',
             align: 'center',
             stroke : '#000000',
@@ -76,7 +77,7 @@ export default function TextWidget(){
         return (<TextSettings />)
     }else{
         return(
-            <div>
+            <div className='p-4'>
                 <h3>Create Text Element</h3>
                 <div className='text-widget mt-10'>
                     <ul>
