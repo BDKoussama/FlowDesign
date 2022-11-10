@@ -1,7 +1,8 @@
 
-import {useDispatch} from 'react-redux';
+import {useDispatch , useSelector} from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addShape } from '../../app/features/canvas/stageSlice';
+import TextSettings from './Settings/TextSettings';
 
 const buttonSettings = [
     {   
@@ -31,6 +32,9 @@ const buttonSettings = [
 export default function TextWidget(){
     
     const dispatch = useDispatch();
+
+    const selectedItem = useSelector(state => state.selected.item);
+
 
     const addTextElement = (props) => {
 
@@ -66,23 +70,28 @@ export default function TextWidget(){
         }))
     }
 
-    return(
-        <div>
-            <h3>Create Text Element</h3>
-            <div className='text-widget mt-10'>
-                <ul>
-                    {buttonSettings.map(item => (
-                        <li className="my-2 text-center rounded bg-[#313f45]" key = {item.id}>
-                            <button 
-                                className= {`${item.size} w-full py-3`} 
-                                onClick={() => addTextElement({fontSize : item.fontSize  , text : item.text})}
-                            >
-                                { item.title }
-                            </button>
-                        </li>
-                    ))}
-                </ul>
+
+    if(selectedItem.id !== null && selectedItem.type === "Text"){
+        return (<TextSettings />)
+    }else{
+        return(
+            <div>
+                <h3>Create Text Element</h3>
+                <div className='text-widget mt-10'>
+                    <ul>
+                        {buttonSettings.map(item => (
+                            <li className="my-2 text-center rounded bg-gray-700 hover:bg-gray-900" key = {item.id}>
+                                <button 
+                                    className= {`${item.size} w-full py-3`} 
+                                    onClick={() => addTextElement({fontSize : item.fontSize  , text : item.text})}
+                                >
+                                    { item.title }
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }

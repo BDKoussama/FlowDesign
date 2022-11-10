@@ -143,16 +143,16 @@ export default function ShapeSettings(){
                     <div className='input-group w-full'>
                         <div className="mb-2 block">
                             <Label
-                                htmlFor="radius"
+                                htmlFor="cornerRadius"
                                 value="Border Radius"
                                 className='text-white'
                             />
                         </div>
                             <TextInput
-                                value={attrs.radius || 0}
-                                id="radius"
+                                value={attrs.cornerRadius || 0}
+                                id="cornerRadius"
                                 type="number"
-                                name='radius'
+                                name='cornerRadius'
                                 placeholder="Border Radius"
                                 onChange={handleInputChange}
                         />

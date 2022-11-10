@@ -21,6 +21,7 @@ export default function Elements(){
             height: 150,
             fill: fill ?  '#162132' : '#eaf1fe',
             radius : type === 'Circle' ? 50 : null,
+            cornerRadius : 0,
             strokeEnabled : true,
             stroke : '#162132',
             strokeWidth: fill ? 0 : 3,
