@@ -49,8 +49,8 @@ export default function TextWidget(){
             width: 400,
             draggable : true,
             id,
-            fontStyle : '  ',
-            textDecoration : '',
+            fontStyle : 'normal',
+            textDecoration : 'normal',
             align: 'center',
             stroke : '#000000',
             strokeWidth : 0,
@@ -60,7 +60,8 @@ export default function TextWidget(){
             scaleY : 1,
             shadowColor : '#000000',
             shadowBlur : 0,
-            shadowOffset : { x: 0 , y : 0},
+            shadowOffsetX : 0,
+            shadowOffsetY : 0,
             name : 'object',
         }
 
