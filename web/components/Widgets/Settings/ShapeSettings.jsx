@@ -14,10 +14,12 @@ export default function ShapeSettings(){
 
     const handleInputChange = (e) => {
         const {name , value} = e.target;
+
+        console.log(typeof value)
         dispatch(updateSelected({
             attrs : {
                 ...attrs,
-                [name]: value
+                [name]: Number(value)
             }
         }))
     }

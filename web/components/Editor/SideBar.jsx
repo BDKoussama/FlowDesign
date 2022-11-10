@@ -24,7 +24,7 @@ export default function SideBar(){
     },[template , setWidget])
 
     return (
-        <div className='editor-navbar flex flex-col'>
+        <div className='editor-navbar flex flex-col bg-gray-900'>
             <div className="logo-wrapper h-12 w-12 bg-white mt-6 mx-auto rounded-full">
             </div>
 

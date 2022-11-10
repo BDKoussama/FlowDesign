@@ -18,13 +18,13 @@ export default function ColorPicker({onChange , position , fill}){
 
     return (
         <div className="relative">
-                    <div className="w-32 h-full bg-white rounded p-1 flex items-center">
+                    <div className="w-32 h-full bg-gray-700 border-gray-600 border rounded p-1 flex items-center">
                         <button className= {`h-8 w-8 rounded flex justify-center items-center mr-3`} 
                                 onClick={() => setToggle(!toggle)}
                                 style = {{ backgroundColor : fill}}
                         >
                         </button>
-                        <span className="text-black block text-sm">{fill}</span>
+                        <span className="block text-sm text-white">{fill}</span>
                     </div>
  
 

@@ -37,12 +37,10 @@ a {
 .editor-navbar{
   width: 100px;
   height: 100%;
-  background-color: #0e1214;
   z-index: 1;
 }
 
 /** ------------------------ Editor Layout Styles End ------------------------------ **/
-
 
 
 /** ----------------------- Editor Widget Styles -----------------------------------**/
@@ -53,7 +51,6 @@ a {
   transition: all 0.4s ease-in-out; 
   will-change: margin;
   position: relative;
-  background-color: #1f282c;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,7 +118,7 @@ a {
 }
 
 .custom-radio .custom-radio_content:hover {
-  background-color: #1f282c;
+  background-color: rgb(31 41 55);
 }
 
 .custom-radio .custom-radio_text {
@@ -135,7 +132,7 @@ a {
 }
 
 .custom-radio input[type="radio"]:checked + .custom-radio_content {
-  background-color: #1f282c;
+  background-color: rgb(31 41 55);
   color: #fff;
   -webkit-transition: ease-in 0.3s;
   -o-transition: ease-in 0.3s;
