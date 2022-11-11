@@ -1,7 +1,8 @@
 import { EyeIcon, Square2StackIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useSelector , useDispatch} from "react-redux"
 import { setSelected , updateSelected} from "../../app/features/canvas/selectSlice";
-import {deleteElement} from '../../app/features/canvas/stageSlice';
+import {deleteElement , addShape} from '../../app/features/canvas/stageSlice';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Layers(){
 
@@ -31,7 +32,7 @@ export default function Layers(){
                                     <span className="block text-sm text-gray-400">{ item.className }</span>
                                 </div>
 
-                                <div className="flex justify-between items-center w-20">
+                                <div className="flex justify-end items-center w-20">
                                     <span className="block cursor-pointer hover:bg-gray-700 p-1 rounded-full" 
                                         onClick={(e) => { 
                                             e.stopPropagation();
@@ -51,25 +52,35 @@ export default function Layers(){
                                     <span className="block  cursor-pointer hover:bg-gray-700 p-1 rounded-full"
                                         onClick={(e) => { 
                                             e.stopPropagation();
-                                            console.log('Duplicate') 
+                                            const id = uuidv4()
+                                            dispatch(addShape({
+                                                className : item.attrs.type,
+                                                attrs : {
+                                                    ...item.attrs,
+                                                    id
+                                                }
+                                            })) 
                                         }}
                                     >
                                         <Square2StackIcon className="h-4 w-4 text-white"/>
                                     </span>
-
-                                    <span className="block cursor-pointer hover:bg-gray-700 p-1 rounded-full"
-                                        onClick={(e) => { 
-                                            e.stopPropagation();
-                                            dispatch(updateSelected({
-                                                attrs : {
-                                                    ...item.attrs,
-                                                    visible : !item.attrs.visible
-                                                }
-                                            }))
-                                        }}
-                                    >
-                                        <EyeIcon className= { `h-4 w-4 ${item.attrs.visible ? 'text-white' : 'text-gray-500'}` }/>
-                                    </span>
+                                    
+                                    { item.attrs.id === selected.item.id && (
+                                        <span className="block cursor-pointer hover:bg-gray-700 p-1 rounded-full"
+                                            onClick={(e) => { 
+                                                e.stopPropagation();
+                                                dispatch(updateSelected({
+                                                    attrs : {
+                                                        ...item.attrs,
+                                                        visible : !item.attrs.visible
+                                                    }
+                                                }))
+                                            }}
+                                        >
+                                            <EyeIcon className= { `h-4 w-4 ${item.attrs.visible ? 'text-white' : 'text-gray-500'}` }/>
+                                        </span>
+                                    ) }
+                                    
 
                                 </div>
                             </button>
