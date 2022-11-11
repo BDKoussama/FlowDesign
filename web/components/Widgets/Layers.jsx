@@ -3,6 +3,7 @@ import { useSelector , useDispatch} from "react-redux"
 import { setSelected , updateSelected} from "../../app/features/canvas/selectSlice";
 import {deleteElement , addShape} from '../../app/features/canvas/stageSlice';
 import { v4 as uuidv4 } from 'uuid';
+import {Tooltip} from 'flowbite-react';
 
 export default function Layers(){
 
@@ -33,52 +34,59 @@ export default function Layers(){
                                 </div>
 
                                 <div className="flex justify-end items-center w-20">
-                                    <span className="block cursor-pointer hover:bg-gray-700 p-1 rounded-full" 
-                                        onClick={(e) => { 
-                                            e.stopPropagation();
-                                            dispatch(deleteElement({
-                                                id : item.attrs.id
-                                            }))
-                                            dispatch(setSelected({
-                                                type : "",
-                                                id : null,
-                                                attrs : {}
-                                            }))
-                                        }} 
-                                    >
-                                        <TrashIcon className="h-4 w-4 text-white"/>
-                                    </span>
-
-                                    <span className="block  cursor-pointer hover:bg-gray-700 p-1 rounded-full"
-                                        onClick={(e) => { 
-                                            e.stopPropagation();
-                                            const id = uuidv4()
-                                            dispatch(addShape({
-                                                className : item.attrs.type,
-                                                attrs : {
-                                                    ...item.attrs,
-                                                    id
-                                                }
-                                            })) 
-                                        }}
-                                    >
-                                        <Square2StackIcon className="h-4 w-4 text-white"/>
-                                    </span>
-                                    
-                                    { item.attrs.id === selected.item.id && (
-                                        <span className="block cursor-pointer hover:bg-gray-700 p-1 rounded-full"
+                                    <Tooltip content = "Delete">
+                                        <span className="block cursor-pointer hover:bg-gray-700 p-1 rounded-full" 
                                             onClick={(e) => { 
                                                 e.stopPropagation();
-                                                dispatch(updateSelected({
+                                                dispatch(deleteElement({
+                                                    id : item.attrs.id
+                                                }))
+                                                dispatch(setSelected({
+                                                    type : "",
+                                                    id : null,
+                                                    attrs : {}
+                                                }))
+                                            }} 
+                                        >
+                                            <TrashIcon className="h-4 w-4 text-white"/>
+                                        </span>
+                                    </Tooltip>
+                                    
+                                    <Tooltip content = "Duplicate">
+                                        <span className="block  cursor-pointer hover:bg-gray-700 p-1 rounded-full"
+                                            onClick={(e) => { 
+                                                e.stopPropagation();
+                                                const id = uuidv4()
+                                                dispatch(addShape({
+                                                    className : item.attrs.type,
                                                     attrs : {
                                                         ...item.attrs,
-                                                        visible : !item.attrs.visible
+                                                        id
                                                     }
-                                                }))
+                                                })) 
                                             }}
                                         >
-                                            <EyeIcon className= { `h-4 w-4 ${item.attrs.visible ? 'text-white' : 'text-gray-500'}` }/>
+                                            <Square2StackIcon className="h-4 w-4 text-white"/>
                                         </span>
+                                    </Tooltip>
+                                    
+                                    { item.attrs.id === selected.item.id && (
+                                        <Tooltip content = { `${item.attrs.visible ? 'Hide' : 'Show'}` }>
+                                            <span className="block cursor-pointer hover:bg-gray-700 p-1 rounded-full"
+                                                onClick={(e) => { 
+                                                    e.stopPropagation();
+                                                    dispatch(updateSelected({
+                                                        attrs : {
+                                                            ...item.attrs,
+                                                            visible : !item.attrs.visible
+                                                        }
+                                                    }))
+                                                }}
+                                            >
+                                            <EyeIcon className= { `h-4 w-4 ${item.attrs.visible ? 'text-white' : 'text-gray-500'}` }/>
+                                            </span>
+                                        </Tooltip>
+                                        
                                     ) }
                                     
 
