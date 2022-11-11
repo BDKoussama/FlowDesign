@@ -7,6 +7,13 @@ import ItalicText from './ItallicText'
 import StrikeText from './StrikeText'
 import Underline from './Underline'
 import UpperCase from './UpperCase'
+import AlignLeft from './AlignLeft'
+import AlignRight from './AlignRight'
+import AlignTop from './AlignTop'
+import AlignBottom from './AlignBottom'
+import AlignCenter from './AlignCenter'
+import AlignMiddle from './AlignMiddle'
+
 export {
     Facebook , 
     Twitter,
@@ -16,5 +23,11 @@ export {
     ItalicText,
     StrikeText,
     Underline,
-    UpperCase
+    UpperCase,
+    AlignBottom,
+    AlignCenter,
+    AlignLeft,
+    AlignMiddle,
+    AlignRight,
+    AlignTop
 }

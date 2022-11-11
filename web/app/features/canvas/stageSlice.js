@@ -89,9 +89,43 @@ const stageSlice = createSlice({
         deleteElement(state , action){
             state.children = state.children.filter(item => item.attrs.id !== action.payload.id)
         },
+        setElementZindex(state , action){
+            const {position , id} = action.payload;
+            //create a copy of elements array
+            const items = state.children.slice();
+            //find the selected element 
+            const item = items.find(i => i.attrs.id === id)
+            //get the index of the selected item 
+            const index = items.indexOf(item);
+            //remove from the list 
+            items.splice(index, 1)
+
+            switch (position) {
+                case "FORWARD":
+                    // add at the end or the top of array
+                   items.push(item);
+               break;                    
+               case "BOTTOM":
+                   //add element at the beginning if the array 
+                   items.unshift(item)
+               break;
+               case "UP":
+                   // increment element position to the top 
+                   items.splice(index + 1 , 0 , item)
+               break;
+               case "DOWN":
+                   // decrement element position to the bottom 
+                   items.splice(index - 1 , 0 , item)
+               break;
+               default:
+                   return state;
+            }
+
+            state.children = items
+        }
     }
 })
 
-export const { setStageSize , scaleStage , addShape , setStageBackground , updateElement , deleteElement} = stageSlice.actions;
+export const { setStageSize , scaleStage , addShape , setStageBackground , updateElement , deleteElement , setElementZindex} = stageSlice.actions;
 
 export default stageSlice.reducer;
