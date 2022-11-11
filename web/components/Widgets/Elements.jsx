@@ -30,6 +30,7 @@ export default function Elements(){
             scaleY : 1,
             draggable : true ,
             rotation : 0,
+            visible : true,
             name : 'object',
         }
 

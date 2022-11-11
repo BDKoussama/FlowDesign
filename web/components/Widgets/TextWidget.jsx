@@ -63,6 +63,7 @@ export default function TextWidget(){
             shadowBlur : 0,
             shadowOffsetX : 0,
             shadowOffsetY : 0,
+            visible : true,
             name : 'object',
         }
 

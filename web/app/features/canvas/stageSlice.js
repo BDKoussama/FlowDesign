@@ -85,10 +85,13 @@ const stageSlice = createSlice({
                         }
                     ))
             state.children = children  
-        }
+        },
+        deleteElement(state , action){
+            state.children = state.children.filter(item => item.attrs.id !== action.payload.id)
+        },
     }
 })
 
-export const { setStageSize , scaleStage , addShape , setStageBackground , updateElement} = stageSlice.actions;
+export const { setStageSize , scaleStage , addShape , setStageBackground , updateElement , deleteElement} = stageSlice.actions;
 
 export default stageSlice.reducer;

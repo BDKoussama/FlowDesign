@@ -34,6 +34,7 @@ export default function GalleryItem({photo , widget}){
                 blurRadius : 0,
                 brightness: 0,
                 sepia : 0,
+                visible : true,
                 toggleBlur : false ,
                 name : 'object'
             }

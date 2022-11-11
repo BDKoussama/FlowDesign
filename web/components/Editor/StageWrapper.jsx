@@ -78,7 +78,8 @@ export default function StageWrapper({toggle}){
         if (clickedOnEmpty || clickedOnBg) {
             dispatch(setSelected({
                 type : "",
-                id : null
+                id : null,
+                attrs : {}
             }))
         }
     }
