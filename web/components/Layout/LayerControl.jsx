@@ -4,8 +4,9 @@ import { Tooltip} from 'flowbite-react';
 import { useState } from "react";
 import {AlignLeft , AlignBottom , AlignCenter , AlignRight , AlignMiddle , AlignTop} from '../Svg/index';
 import {useSelector , useDispatch} from 'react-redux';
-import {updateSelected} from '../../app/features/canvas/selectSlice';
-import { setElementZindex } from '../../app/features/canvas/stageSlice';
+import {updateSelected , setSelected} from '../../app/features/canvas/selectSlice';
+import { setElementZindex , deleteElement , addShape } from '../../app/features/canvas/stageSlice';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function LayerControl(){
 
@@ -69,14 +70,36 @@ export default function LayerControl(){
                     <ul>
                         <li className="inline-block mr-1"> 
                             <Tooltip content = "Delete">
-                                <button className="text-white hover:bg-gray-700 rounded-full p-1">  
+                                <button className="text-white hover:bg-gray-700 rounded-full p-1"
+                                    onClick={() => {
+                                        dispatch(deleteElement({
+                                            id : currentElement.id
+                                        }))
+                                        dispatch(setSelected({
+                                            type : "",
+                                            id : null,
+                                            attrs : {}
+                                        }))
+                                    }}
+                                >  
                                     <TrashIcon className="h-5 w-5" />
                                 </button> 
                             </Tooltip>
                         </li>
                         <li className="inline-block mr-1">
                             <Tooltip content = "Duplicate">
-                                <button className="text-white hover:bg-gray-700 rounded-full p-1">  
+                                <button className="text-white hover:bg-gray-700 rounded-full p-1"
+                                    onClick={() => {
+                                            const id = uuidv4()
+                                            dispatch(addShape({
+                                                className : currentElement.type,
+                                                attrs : {
+                                                    ...currentElement.attrs,
+                                                    id
+                                                }
+                                            })) 
+                                    }}
+                                >  
                                     <Square2StackIcon className="h-5 w-5" />
                                 </button> 
                             </Tooltip>
