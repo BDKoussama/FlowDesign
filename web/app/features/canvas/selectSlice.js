@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import undoable from 'redux-undo'
 
 const initialState = {
     item : {
@@ -53,4 +54,4 @@ const selectSlice = createSlice({
 
 export const {setSelected , updateSelected , setTransformProps , setDragProps } = selectSlice.actions;
 
-export default selectSlice.reducer;
+export default undoable(selectSlice.reducer);

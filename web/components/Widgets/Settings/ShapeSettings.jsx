@@ -9,7 +9,7 @@ export default function ShapeSettings(){
 
     const dispatch = useDispatch();
 
-    const {attrs} = useSelector(state => state.selected.item)
+    const {attrs} = useSelector(state => state.selected.present.item)
     
 
     const handleInputChange = (e) => {

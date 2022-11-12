@@ -1,9 +1,9 @@
 import { useRef , useEffect } from 'react'
 import {Text , Rect , Circle , Transformer} from 'react-konva'
 import {useDispatch} from 'react-redux';
-import { setDragProps, setTransformProps } from '../../app/features/canvas/selectSlice';
+import { setDragProps, setSelected, setTransformProps } from '../../app/features/canvas/selectSlice';
 
-export default function Shape({type , attrs , isSelected , onSelect}){
+export default function Shape({type , attrs , isSelected , onSelect , onSnap}){
 
     const trRef = useRef();
     const elRef = useRef();
@@ -14,6 +14,8 @@ export default function Shape({type , attrs , isSelected , onSelect}){
           //trRef.current.rotateAnchorOffset(0);
           // we need to attach transformer manually
           trRef.current.nodes([elRef.current]);
+          trRef.current.attachTo(elRef.current);
+
           //trRef.current.getLayer().batchDraw();
         }
     }, [isSelected]);
@@ -21,8 +23,8 @@ export default function Shape({type , attrs , isSelected , onSelect}){
 
     const onTransform = (e) => {
         if(elRef.current !== null){
+            //onSnap(e)
             const element = elRef.current;
-
             const size = {
                 width: element.width() * element.scaleX(),
                 height: element.height() * element.scaleY()
@@ -54,6 +56,9 @@ export default function Shape({type , attrs , isSelected , onSelect}){
 
 
     const onDragEnd = (e) => {
+
+        //elRef.current.name('object');
+
         const position = {
             x : Math.floor(e.target.x()),
             y: Math.floor(e.target.y())
@@ -85,7 +90,7 @@ export default function Shape({type , attrs , isSelected , onSelect}){
                 <Rect 
                     {...attrs} 
                     ref = {elRef}
-                    onDragMove = {() => {}} 
+                    onDragMove = {onSnap} 
                     onDragEnd = {onDragEnd}  
                     onDragStart = {() => {}} 
                     onClick = {onSelect}
@@ -121,7 +126,6 @@ export default function Shape({type , attrs , isSelected , onSelect}){
                 anchorFill = '#eaf1fe'
                 anchorCornerRadius = {50}
                 anchorSize={10}
-                name = "object"
                 anchorStroke = '#216ee0'
                 borderDash={[3,3]}
                 rotateEnabled={false}

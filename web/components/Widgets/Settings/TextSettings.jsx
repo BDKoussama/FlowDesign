@@ -8,7 +8,7 @@ import { updateSelected } from '../../../app/features/canvas/selectSlice';
 export default function TextSettings(){
 
     const dispatch = useDispatch();
-    const {attrs} = useSelector(state => state.selected.item)
+    const {attrs} = useSelector(state => state.selected.present.item)
 
 
     const handleNumbersChange = (e) => {

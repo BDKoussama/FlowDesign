@@ -14,11 +14,11 @@ export default function LayerControl(){
 
     const dispatch = useDispatch();
 
-    const {height , width} = useSelector(state => state.stage.size)
+    const {height , width} = useSelector(state => state.stage.present.size)
 
-    const {children} = useSelector(state => state.stage)
+    const {children} = useSelector(state => state.stage.present)
    
-    const {item : currentElement} = useSelector(state => state.selected)
+    const {item : currentElement} = useSelector(state => state.selected.present)
 
     const item = children.find(el => el.attrs.id === currentElement.id)
 
@@ -66,7 +66,7 @@ export default function LayerControl(){
     }
 
     return(
-        <div className="layer-control">
+        <div className="layer-control w-44">
                     <ul>
                         <li className="inline-block mr-1"> 
                             <Tooltip content = "Delete">

@@ -12,7 +12,7 @@ export default function CustomImage({url , attrs , isSelected , onSelect }){
     const imgRef = useRef();
     const spinRef = useRef();
     const trRef = useRef();
-    const [isLoading , setIsLoading] = useState(false);
+    const [isLoading , setIsLoading] = useState(true);
 
     const dispatch = useDispatch()
 

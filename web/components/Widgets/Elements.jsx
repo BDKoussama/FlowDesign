@@ -7,7 +7,7 @@ export default function Elements(){
 
     const dispatch = useDispatch();
 
-    const selectedItem = useSelector(state => state.selected.item);
+    const selectedItem = useSelector(state => state.selected.present.item);
 
     const addElement = (type , fill) => {
         const id = uuidv4()

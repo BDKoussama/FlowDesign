@@ -8,6 +8,7 @@ import { addShape, setStageBackground } from '../../app/features/canvas/stageSli
 export default function GalleryItem({photo , widget}){
 
     const imgRef = useRef();
+    
     const dispatch = useDispatch()
 
 

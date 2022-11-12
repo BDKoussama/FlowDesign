@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import undoable from 'redux-undo'
 
 
 const initialState = {
@@ -128,4 +129,4 @@ const stageSlice = createSlice({
 
 export const { setStageSize , scaleStage , addShape , setStageBackground , updateElement , deleteElement , setElementZindex} = stageSlice.actions;
 
-export default stageSlice.reducer;
+export default undoable(stageSlice.reducer);

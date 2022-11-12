@@ -33,7 +33,7 @@ export default function TextWidget(){
     
     const dispatch = useDispatch();
 
-    const selectedItem = useSelector(state => state.selected.item);
+    const selectedItem = useSelector(state => state.selected.present.item);
 
 
     const addTextElement = (props) => {

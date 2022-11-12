@@ -113,7 +113,7 @@ const sizes = {
 
 export default function Resize(){
 
-    const {size} = useSelector((state) => state.stage)
+    const {size} = useSelector((state) => state.stage.present)
     const dispatch = useDispatch()
 
     const [value , setValue] = useState(size.type)
