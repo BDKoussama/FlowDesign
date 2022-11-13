@@ -7,8 +7,8 @@ import {Tooltip} from 'flowbite-react';
 
 export default function Layers(){
 
-    const {children} = useSelector(state => state.stage)
-    const selected = useSelector(state => state.selected)
+    const {children} = useSelector(state => state.stage.present)
+    const selected = useSelector(state => state.selected.present)
 
     const dispatch = useDispatch();
 
