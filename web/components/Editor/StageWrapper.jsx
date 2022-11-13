@@ -357,6 +357,7 @@ export default function StageWrapper({toggle}){
                                             attrs = {item.attrs} 
                                             url = {item.attrs.url}
                                             isSelected = {item.attrs.id === selected.item.id}
+                                            onSnap = {layerDragMove}
                                             onSelect = {() => {
                                                 dispatch(setSelected({
                                                     id : item.attrs.id,

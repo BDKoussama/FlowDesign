@@ -76,7 +76,7 @@ export default function Shape({type , attrs , isSelected , onSelect , onSnap}){
                 <Text 
                     {...attrs} 
                     ref = {elRef}
-                    onDragMove = {() => {}} 
+                    onDragMove = {onSnap} 
                     onDragEnd = {onDragEnd}  
                     onDragStart = {() => {}} 
                     onClick = {onSelect}
@@ -104,7 +104,7 @@ export default function Shape({type , attrs , isSelected , onSelect , onSnap}){
                 <Circle 
                     {...attrs} 
                     ref = {elRef}
-                    onDragMove = {() => {}} 
+                    onDragMove = {onSnap} 
                     onDragEnd = {onDragEnd}  
                     onDragStart = {() => {}} 
                     onClick = {onSelect}

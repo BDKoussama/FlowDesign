@@ -7,7 +7,7 @@ import {getCrop} from '../../utils/cropImage';
 import { useDispatch } from 'react-redux';
 import { setDragProps, setTransformProps } from '../../app/features/canvas/selectSlice';
 
-export default function CustomImage({url , attrs , isSelected , onSelect }){
+export default function CustomImage({url , attrs , isSelected , onSelect , onSnap}){
     const [image] = useImage(url , "anonymous");
     const imgRef = useRef();
     const spinRef = useRef();
@@ -155,7 +155,7 @@ export default function CustomImage({url , attrs , isSelected , onSelect }){
                 onDragEnd = {onDragEnd}
                 onTransform = {onTransform}
                 onTransformEnd = {onTransformEnd}
-                onDragMove = {() => {}}
+                onDragMove = {onSnap}
                 onDragStart = {() => {}}
                 draggable = {true}
                 onClick = {onSelect}
