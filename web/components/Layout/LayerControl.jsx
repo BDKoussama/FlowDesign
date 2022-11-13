@@ -1,8 +1,8 @@
 
-import { ChevronDoubleDownIcon, ChevronDoubleUpIcon, ChevronDownIcon, ChevronUpIcon, LockClosedIcon, Square2StackIcon, Square3Stack3DIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { ArrowPathRoundedSquareIcon, ChevronDoubleDownIcon, ChevronDoubleUpIcon, ChevronDownIcon, ChevronUpIcon, LockClosedIcon, Square2StackIcon, Square3Stack3DIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { Tooltip} from 'flowbite-react';
 import { useState } from "react";
-import {AlignLeft , AlignBottom , AlignCenter , AlignRight , AlignMiddle , AlignTop} from '../Svg/index';
+import {AlignLeft , AlignBottom , AlignCenter , AlignRight , AlignMiddle , AlignTop, Flip, FlipH, FlipV} from '../Svg/index';
 import {useSelector , useDispatch} from 'react-redux';
 import {updateSelected , setSelected} from '../../app/features/canvas/selectSlice';
 import { setElementZindex , deleteElement , addShape } from '../../app/features/canvas/stageSlice';
@@ -11,6 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 export default function LayerControl(){
 
     const [toggle , setToggle] = useState(false);
+    const [flip , setFlip] = useState(false)
 
     const dispatch = useDispatch();
 
@@ -62,6 +63,25 @@ export default function LayerControl(){
         dispatch(setElementZindex({
             id : currentElement.id,
             position
+        }))
+    }
+
+
+    const flipH = () => {
+        dispatch(updateSelected({
+            attrs : {
+                ...currentElement.attrs,
+                scaleX : -currentElement.attrs.scaleX
+            }
+        }))
+    }
+
+    const flipV = () => {
+        dispatch(updateSelected({
+            attrs : {
+                ...currentElement.attrs,
+                scaleY : -currentElement.attrs.scaleY
+            }
         }))
     }
 
@@ -120,6 +140,7 @@ export default function LayerControl(){
                             {toggle && (
                                 <div className='bg-gray-700 w-44 absolute py-2 rounded text-white'>
                                     <ul>
+                                        <li className="px-3 py-2"><span className="block text-md"> Layering </span></li>
                                         <li>
                                             <button className='px-3 py-2 flex justify-start items-center w-full hover:bg-gray-600 disabled:text-gray-500' 
                                                     disabled = { index === children.length - 1 }  
@@ -159,6 +180,8 @@ export default function LayerControl(){
                                         <li>
                                             <span className='block h-0.5 w-full bg-gray-600'></span>
                                         </li>
+                                        <li className="px-3 py-2"><span className="block text-md"> Position </span></li>
+
                                         <li>
                                             <button className='px-3 py-2 flex justify-start items-center w-full hover:bg-gray-600' onClick={() => setAlignment('left')}>
                                                 <AlignLeft height="24px" width="24px" fill="#ffffff"/>
@@ -193,6 +216,37 @@ export default function LayerControl(){
                                             <button className='px-3 py-2 flex justify-start items-center w-full hover:bg-gray-600' onClick={() => setAlignment('bottom')}>
                                                 <AlignBottom height="24px" width="24px" fill="#ffffff"/>
                                                 <span className='ml-3 block'>Align Bottom </span>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            )}
+
+                        </li>
+
+                        <li className="inline-block mr-1 relative">
+                            <Tooltip content = "Flip">
+                                <button className="text-white hover:bg-gray-700 rounded-full p-1" onClick={() => { setFlip(!flip) }}>  
+                                    <Flip height= "22px" width = "22px" fill = "#ffffff"/>
+                                </button> 
+                            </Tooltip>
+                            {flip && (
+                                <div className='bg-gray-700 w-44 absolute py-2 rounded text-white'>
+                                    <ul>
+                                        <li>
+                                            <button className='px-3 py-2 flex justify-start items-center w-full hover:bg-gray-600 disabled:text-gray-500' 
+                                                    onClick={flipH}
+                                            >
+                                                <FlipH height= "20px" width = "20px" fill = "#ffffff"/>
+                                                <span className='block ml-3'>Flip Horizontally</span>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button className='px-3 py-2 flex justify-start items-center w-full hover:bg-gray-600 disabled:text-gray-500'
+                                                    onClick={flipV}
+                                            >
+                                                <FlipV height= "20px" width = "20px" fill = "#ffffff"/>
+                                                <span className='block ml-3'>Flip Vertically</span>
                                             </button>
                                         </li>
                                     </ul>

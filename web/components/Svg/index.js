@@ -13,6 +13,9 @@ import AlignTop from './AlignTop'
 import AlignBottom from './AlignBottom'
 import AlignCenter from './AlignCenter'
 import AlignMiddle from './AlignMiddle'
+import Flip from './Flip'
+import FlipH from './FlipH'
+import FlipV from './FlipV'
 
 export {
     Facebook , 
@@ -29,5 +32,8 @@ export {
     AlignLeft,
     AlignMiddle,
     AlignRight,
-    AlignTop
+    AlignTop,
+    Flip,
+    FlipH,
+    FlipV
 }
