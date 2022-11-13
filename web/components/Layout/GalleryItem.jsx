@@ -28,6 +28,7 @@ export default function GalleryItem({photo , widget}){
                 width : width + 50,
                 height : height + 50,
                 stroke : '#000000',
+                opacity : 1,
                 strokeWidth : 0,
                 blurRadius : 0,
                 brightness: 0,

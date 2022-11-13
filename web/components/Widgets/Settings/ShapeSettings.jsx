@@ -22,11 +22,21 @@ export default function ShapeSettings(){
         }))
     }
 
+
     const handleFillChange = (color) => {
         dispatch(updateSelected({
             attrs : {
                 ...attrs,
                 fill: color
+            }
+        }))
+    }
+
+    const handleShadowChange = (color) => {
+        dispatch(updateSelected({
+            attrs : {
+                ...attrs,
+                shadowColor: color
             }
         }))
     }
@@ -41,7 +51,7 @@ export default function ShapeSettings(){
     }
 
     return (
-        <div className='p-4'>
+        <div className='h-screen overflow-y-scroll pb-10 p-4'>
             <div className="w-full mt-10">
                 <span className='text-2xl font-bold'>Layout</span>
 
@@ -157,6 +167,37 @@ export default function ShapeSettings(){
                     </div>
                 </div>
 
+                <div className='my-4'>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="opacity"
+                            value="Opacity"
+                        />
+                    </div>
+                    <TextInput
+                        value = {attrs.opacity || 1}
+                        id="opacity"
+                        name='opacity'
+                        type="number"
+                        step={0.01}
+                        min={0} 
+                        max={1}
+                        placeholder="Text Opacity"
+                        onChange={(e) => { 
+                            const {name , value} = e.target;
+                            const opacity = parseFloat(value)
+                            if(!isNaN(opacity) && opacity <= 1){
+                                dispatch(updateSelected({
+                                    attrs : {
+                                        ...attrs,
+                                        [name]: opacity
+                                    }
+                                }))
+                            }
+                         }}
+                    />  
+                </div>
+
                 <div className='flex justify-between items-center gap-5 my-4'>
                     <div className='input-group'>
                         <div className="mb-2 block">
@@ -187,6 +228,75 @@ export default function ShapeSettings(){
                     </div>
                 </div>
 
+                <div className='my-4'>
+                    <div className='input-group'>
+                        <div className="mb-2 block">
+                            <Label
+                                htmlFor="ShadowColor"
+                                value="Shadow Color"
+                                className='text-white'
+                            />
+                        </div>
+                        <ColorPicker fill = {attrs.shadowColor || '#000000'} onChange = {handleShadowChange} position = "top"/>
+                    </div> 
+                </div>
+
+                <div className='flex justify-between items-center my-4 gap-5'>
+                    <div className='input-group'>
+                        <div className="mb-2 block">
+                            <Label
+                                htmlFor="shadowBlur"
+                                value="Blur"
+                                className='text-white'
+                            />
+                        </div>
+                            <TextInput
+                                value = {attrs.shadowBlur || 0}
+                                id="shadowBlur"
+                                name='shadowBlur'
+                                type="number"
+                                placeholder="blur"
+                                onChange={handleInputChange}
+                        />
+                    </div>
+
+                    <div className='input-group'>
+                        <div className="mb-2 block">
+                            <Label
+                                htmlFor="shadowOffsetX"
+                                value="Offset X"
+                                className='text-white'
+                            />
+                        </div>
+                            <TextInput
+                                value = {attrs.shadowOffsetX || 0}
+                                id="offsetx"
+                                name='shadowOffsetX'
+                                type="number"
+                                placeholder="offset x"
+                                onChange={handleInputChange}
+                        />
+                    </div>
+
+                    <div className='input-group'>
+                        <div className="mb-2 block">
+                            <Label
+                                htmlFor="shadowOffsetY"
+                                value="Offset Y"
+                                className='text-white'
+                            />
+                        </div>
+                            <TextInput
+                                value = {attrs.shadowOffsetY || 0}
+                                id="offsety"
+                                name='shadowOffsetY'
+                                type="number"
+                                placeholder="offset y"
+                                onChange={handleInputChange}
+                        />
+                    </div>
+
+                </div>
             </div>
         </div>
     )

@@ -38,7 +38,7 @@ export default function ImageSettings(){
     }
 
     return (
-        <div className="p-4"> 
+        <div className="h-screen overflow-y-scroll pb-10 p-4"> 
             <div className="w-full mt-10">
                 <span className='text-2xl font-bold'>Layout</span>
 
@@ -146,6 +146,37 @@ export default function ImageSettings(){
                                 onChange={handleInputChange}
                         />
                     </div>
+                </div>
+
+                <div className='my-4'>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="opacity"
+                            value="Opacity"
+                        />
+                    </div>
+                    <TextInput
+                        value = {attrs.opacity || 1}
+                        id="opacity"
+                        name='opacity'
+                        type="number"
+                        step={0.01}
+                        min={0} 
+                        max={1}
+                        placeholder="Text Opacity"
+                        onChange={(e) => { 
+                            const {name , value} = e.target;
+                            const opacity = parseFloat(value)
+                            if(!isNaN(opacity) && opacity <= 1){
+                                dispatch(updateSelected({
+                                    attrs : {
+                                        ...attrs,
+                                        [name]: opacity
+                                    }
+                                }))
+                            }
+                         }}
+                    />  
                 </div>
 
                 <div className='my-4'>
