@@ -21,6 +21,7 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
         imgRef.current.cache();
     },[image , attrs])
 
+
     useEffect(() => {
       if (isSelected && trRef.current !== null) {
         //trRef.current.rotateAnchorOffset(0);
@@ -29,6 +30,8 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
         trRef.current.getLayer().batchDraw();
       }
   }, [isSelected]);
+
+
 
     const displaySpinner = () => {
         if(imgRef.current && imgRef.current !== null) {
@@ -44,7 +47,7 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
     
             media.crossOrigin = 'anonymous'
             media.src = url
-    
+            
             media.onload = _ => {
               setIsLoading(false)
             }

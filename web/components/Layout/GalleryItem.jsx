@@ -4,13 +4,13 @@ import {useRef} from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import {useDispatch} from 'react-redux'
 import { addShape, setStageBackground } from '../../app/features/canvas/stageSlice';
+import {getCrop} from '../../utils/cropImage';
 
 export default function GalleryItem({photo , widget}){
 
     const imgRef = useRef();
     
     const dispatch = useDispatch()
-
 
     const handleClick = (url) => {
 
@@ -19,37 +19,57 @@ export default function GalleryItem({photo , widget}){
         const id = uuidv4()
 
         if(widget === "photos"){
-            const attrs = {
-                id,
-                url,
-                type: 'Image',
-                x : 150,
-                y : 150,
-                width : width,
-                height : height,
-                scaleX: 1,
-                scaleY: 1,
-                offsetX : width / 2,
-                offsetY: height  / 2,
-                stroke : '#000000',
-                opacity : 1,
-                strokeWidth : 0,
-                blurRadius : 0,
-                brightness: 0,
-                sepia : 0,
-                shadowColor : '#000000',
-                shadowBlur : 0,
-                shadowOffsetX : 0,
-                shadowOffsetY : 0,
-                visible : true,
-                toggleBlur : false ,
-                name : 'object'
+
+            const size  = {
+                height : height + 100,
+                width : width + 100
             }
 
-            dispatch(addShape({
-                className : 'Image',
-                attrs
-            }))
+            const image = new window.Image()
+
+            image.src = url;
+
+            image.onload = () => {
+
+                const crop = getCrop( image , { 
+                    height : size.height, 
+                    width : size.width 
+                })
+
+                const attrs = {
+                    id,
+                    url,
+                    type: 'Image',
+                    x : 150,
+                    y : 150,
+                    width : size.width,
+                    height : size.height,
+                    scaleX: 1,
+                    scaleY: 1,
+                    offsetX : size.width / 2,
+                    offsetY: size.height / 2,
+                    stroke : '#000000',
+                    opacity : 1,
+                    strokeWidth : 0,
+                    blurRadius : 0,
+                    brightness: 0,
+                    sepia : 0,
+                    shadowColor : '#000000',
+                    shadowBlur : 0,
+                    shadowOffsetX : 0,
+                    shadowOffsetY : 0,
+                    visible : true,
+                    toggleBlur : false ,
+                    ...crop,
+                    name : 'object'
+                }
+    
+                dispatch(addShape({
+                    className : 'Image',
+                    attrs
+                }))
+            }
+
         }else{
             // dispatch setStageBackground
             dispatch(setStageBackground({

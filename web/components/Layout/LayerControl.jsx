@@ -33,7 +33,7 @@ export default function LayerControl(){
                 newPosition = { x : 0 } 
             break;
             case 'center':
-                newPosition = {x : width / 2 - currentElement.attrs.width / 2}
+                newPosition = {x : width / 2}
             break
             case 'right':
                 newPosition = {x : width - currentElement.attrs.width}
@@ -45,7 +45,7 @@ export default function LayerControl(){
                 newPosition  = { y : height - currentElement.attrs.height }
             break;
             case 'middle':
-                newPosition = {y : height / 2 - currentElement.attrs.height / 2}
+                newPosition = {y : height / 2}
             break
             default:
             break;

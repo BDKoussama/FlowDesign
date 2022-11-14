@@ -9,16 +9,23 @@ export default function Elements(){
 
     const selectedItem = useSelector(state => state.selected.present.item);
 
+    const {height , width} = useSelector(state => state.stage.present.size)
+
     const addElement = (type , fill) => {
         const id = uuidv4()
+
+        const size = {
+            height : 200 , 
+            width : 200
+        }
 
         const attrs = {
             id,
             type,
-            x: 100,
-            y : 100,
-            width: 150,
-            height: 150,
+            x: width / 2,
+            y : height / 2,
+            width: size.width,
+            height: size.height,
             fill: fill ?  '#162132' : '#eaf1fe',
             radius : type === 'Circle' ? 50 : null,
             cornerRadius : 0,
@@ -32,6 +39,8 @@ export default function Elements(){
             opacity : 1,
             scaleX : 1 , 
             scaleY : 1,
+            offsetX : size.width / 2,
+            offsetY: size.height / 2,
             draggable : true ,
             rotation : 0,
             visible : true,
