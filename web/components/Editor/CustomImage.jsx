@@ -91,9 +91,10 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
         img.setAttr('lastCropUsed', pos);
 
         const crop = getCrop(
-        img.image(),
-        { width: img.width(), height: img.height() },
-        pos
+          img.image(),
+          { width: img.width(), 
+            height: img.height() },
+          pos
         );
         imgRef.current.cache();
         img.setAttrs({

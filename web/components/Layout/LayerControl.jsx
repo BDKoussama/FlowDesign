@@ -228,7 +228,8 @@ export default function LayerControl(){
 
                         </li>
 
-                        <li className="inline-block mr-1 relative">
+                        { currentElement.type !== 'Text' && (
+                            <li className="inline-block mr-1 relative">
                             <Tooltip content = "Flip">
                                 <button className="text-white hover:bg-gray-700 rounded-full p-1" onClick={() => { setFlip(!flip) }}>  
                                     <Flip height= "22px" width = "22px" fill = "#ffffff"/>
@@ -256,8 +257,8 @@ export default function LayerControl(){
                                     </ul>
                                 </div>
                             )}
-
                         </li>
+                        ) }
                     </ul>
                 </div>
     )

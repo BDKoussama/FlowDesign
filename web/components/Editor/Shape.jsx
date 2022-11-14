@@ -26,17 +26,26 @@ export default function Shape({type , attrs , isSelected , onSelect , onSnap}){
         if(elRef.current !== null){
             //onSnap(e)
             const element = elRef.current;
+
             const size = {
                 width: element.width() * element.scaleX(),
                 height: element.height() * element.scaleY()
             }
 
-        element.setAttrs({
-            width: size.width,
-            ...(type !== 'Text' ? {height : size.height} : {}),
-            scaleX : 1,
-            ...(type !== 'Text'? {scaleY: 1}: {}),
-        })
+            element.setAttrs({
+                width: Math.abs(size.width),
+                ...(type !== 'Text' ? 
+                    { 
+                        height : Math.abs(size.height)
+                    } : {}),
+                scaleX : element.scaleX() < 0 ? -1 : 1,
+                ...(type !== 'Text'? 
+                    { 
+                        scaleY: element.scaleY() < 0 ? -1 : 1,
+                    }: {}),
+                offsetX : Math.abs(size.width / 2),
+                offsetY : Math.abs(size.height / 2)
+            })
         }
     }
 
@@ -50,7 +59,10 @@ export default function Shape({type , attrs , isSelected , onSelect , onSnap}){
             dispatch(setTransformProps({
                 size : {
                     width: size.width,
-                    height: size.height
+                    ...(type !== 'Text' ? 
+                    { 
+                        height : size.height
+                    } : {}),
                 }
             }))
     }
