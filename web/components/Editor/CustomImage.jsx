@@ -34,10 +34,10 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
         if(imgRef.current && imgRef.current !== null) {
         
             var imgPosition = imgRef.current.getAbsolutePosition();
-    
+
             var areaPosition = {
-              x:  imgPosition.x,
-              y: imgPosition.y,
+              x:  attrs.x - (attrs.width / 2 ),
+              y: attrs.y - (attrs.height / 2)
             };
             
             const media = new window.Image()
@@ -94,10 +94,12 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
         );
         imgRef.current.cache();
         img.setAttrs({
-          width: newWidth,
-          height: newHeight,
-          scaleY : 1,
-          scaleX: 1,
+          width: Math.abs(newWidth),
+          height: Math.abs(newHeight),
+          offsetX : Math.abs(newWidth / 2),
+          offsetY : Math.abs(newHeight / 2) ,
+          scaleY : imgRef.current.scaleY() < 0 ? -1 : 1,
+          scaleX: imgRef.current.scaleX() < 0 ? -1 : 1,
           ...crop
         });
       }
@@ -111,12 +113,14 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
       }
 
       const newAttrs = {
-        scaleX : imgRef.current.scaleX(),
-        scaleY : imgRef.current.scaleY(),
+        scaleY : imgRef.current.scaleY() ,
+        scaleX: imgRef.current.scaleX() ,
         cropHeight : imgRef.current.cropHeight(),
         cropWidth : imgRef.current.cropWidth(),
         cropX: imgRef.current.cropX(),
         cropY: imgRef.current.cropY(),
+        offsetX : imgRef.current.offsetX(),
+        offsetY : imgRef.current.offsetY(),
       }
 
       dispatch(setTransformProps({
@@ -182,11 +186,12 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
                 borderDash={[3,3]}
                 rotateEnabled={false}
                 boundBoxFunc={(oldBox, newBox) => {
-                    // limit resize
-                    if (newBox.width < 100) {
-                      return oldBox;
-                    }
-                    return newBox;
+                  const newTooSmall = newBox.width < 1 || newBox.height < 1;
+                  const oldTooSmall = oldBox.width < 1 || oldBox.height < 1;
+                  if (newTooSmall && !oldTooSmall) {
+                    return oldBox;
+                  }
+                  return newBox;
                 }}
             /> }
         </>

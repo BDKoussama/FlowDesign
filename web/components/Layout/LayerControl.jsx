@@ -71,7 +71,9 @@ export default function LayerControl(){
         dispatch(updateSelected({
             attrs : {
                 ...currentElement.attrs,
-                scaleX : -currentElement.attrs.scaleX
+                offsetX : currentElement.attrs.width / 2,
+                offsetY: currentElement.attrs.height / 2,
+                scaleX : -currentElement.attrs.scaleX,
             }
         }))
     }
@@ -80,7 +82,9 @@ export default function LayerControl(){
         dispatch(updateSelected({
             attrs : {
                 ...currentElement.attrs,
-                scaleY : -currentElement.attrs.scaleY
+                offsetX : currentElement.attrs.width / 2,
+                offsetY: currentElement.attrs.height / 2,
+                scaleY : -currentElement.attrs.scaleY,
             }
         }))
     }
