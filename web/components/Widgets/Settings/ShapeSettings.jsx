@@ -198,6 +198,27 @@ export default function ShapeSettings(){
                     />  
                 </div>
 
+                <div className='my-4'>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="rotatio"
+                            value="Rotation"
+                        />
+                    </div>
+                    <TextInput
+                        value = {attrs.rotation || 0}
+                        id="rotation"
+                        name='rotation'
+                        type="number"
+                        step={1}
+                        min={0} 
+                        max={360}
+                        placeholder="Shape Rotation"
+                        onChange={handleInputChange}
+                    />
+                     
+                </div>
+
                 <div className='flex justify-between items-center gap-5 my-4'>
                     <div className='input-group'>
                         <div className="mb-2 block">

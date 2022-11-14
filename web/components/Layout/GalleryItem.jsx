@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link'
 import {useRef} from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import {useDispatch} from 'react-redux'
+import {useDispatch , useSelector} from 'react-redux'
 import { addShape, setStageBackground } from '../../app/features/canvas/stageSlice';
 import {getCrop} from '../../utils/cropImage';
 
@@ -12,6 +12,8 @@ export default function GalleryItem({photo , widget}){
     
     const dispatch = useDispatch()
 
+    const {height : stageHeight , width : stageWidth} = useSelector(state => state.stage.present.size)
+    
     const handleClick = (url) => {
 
         const {height , width}  = imgRef.current.getBoundingClientRect();
@@ -40,8 +42,8 @@ export default function GalleryItem({photo , widget}){
                     id,
                     url,
                     type: 'Image',
-                    x : 150,
-                    y : 150,
+                    x : stageWidth / 2,
+                    y : stageHeight / 2,
                     width : size.width,
                     height : size.height,
                     scaleX: 1,
@@ -58,6 +60,7 @@ export default function GalleryItem({photo , widget}){
                     shadowBlur : 0,
                     shadowOffsetX : 0,
                     shadowOffsetY : 0,
+                    rotation : 0 ,
                     visible : true,
                     toggleBlur : false ,
                     ...crop,

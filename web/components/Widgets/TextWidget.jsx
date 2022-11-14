@@ -35,6 +35,7 @@ export default function TextWidget(){
 
     const selectedItem = useSelector(state => state.selected.present.item);
 
+    const { height , width } = useSelector(state => state.stage.present.size)
 
     const addTextElement = (props) => {
 
@@ -44,8 +45,8 @@ export default function TextWidget(){
             ...props , 
             fill : '#000000',
             type : 'Text',
-            y : 200,
-            x : 200,
+            y : height / 2,
+            x : width / 2,
             width: 400,
             offsetX : 400 / 2,
             draggable : true,
@@ -65,6 +66,7 @@ export default function TextWidget(){
             shadowOffsetX : 0,
             shadowOffsetY : 0,
             visible : true,
+            rotation: 0,
             name : 'object',
         }
 

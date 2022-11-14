@@ -328,6 +328,27 @@ export default function TextSettings(){
                 </div>
 
                 <div className='my-4'>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="rotatio"
+                            value="Rotation"
+                        />
+                    </div>
+                    <TextInput
+                        value = {attrs.rotation || 0}
+                        id="rotation"
+                        name='rotation'
+                        type="number"
+                        step={1}
+                        min={0} 
+                        max={360}
+                        placeholder="Text Rotation"
+                        onChange={handleNumbersChange}
+                    />
+                     
+                </div>
+
+                <div className='my-4'>
                     <div className='input-group'>
                         <div className="mb-2 block">
                             <Label
