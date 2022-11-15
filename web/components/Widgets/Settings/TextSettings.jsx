@@ -340,7 +340,7 @@ export default function TextSettings(){
                         name='rotation'
                         type="number"
                         step={1}
-                        min={0} 
+                        min={-360} 
                         max={360}
                         placeholder="Text Rotation"
                         onChange={handleNumbersChange}

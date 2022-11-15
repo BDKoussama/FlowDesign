@@ -161,7 +161,7 @@ export default function ImageSettings(){
                         name='rotation'
                         type="number"
                         step={1}
-                        min={0} 
+                        min={-360} 
                         max={360}
                         placeholder="Image Rotation"
                         onChange={handleInputChange}
