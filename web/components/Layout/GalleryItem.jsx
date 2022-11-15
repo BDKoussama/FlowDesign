@@ -56,6 +56,7 @@ export default function GalleryItem({photo , widget}){
                     blurRadius : 0,
                     brightness: 0,
                     sepia : 0,
+                    grayScale : false,
                     shadowColor : '#000000',
                     shadowBlur : 0,
                     shadowOffsetX : 0,

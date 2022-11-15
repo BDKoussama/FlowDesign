@@ -220,6 +220,8 @@ export default function TextSettings(){
                             value={attrs.lineHeight || 0}
                             id="lineHeight"
                             type="number"
+                            step={0.1}
+                            min={0} 
                             name='lineHeight'
                             placeholder="Line Height"
                             onChange={handleNumbersChange}

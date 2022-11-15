@@ -7,6 +7,7 @@ import {getCrop} from '../../utils/cropImage';
 import { useDispatch } from 'react-redux';
 import { setDragProps, setTransformProps } from '../../app/features/canvas/selectSlice';
 import { updateElement } from '../../app/features/canvas/stageSlice';
+import Konva from 'konva';
 
 export default function CustomImage({url , attrs , isSelected , onSelect , onSnap}){
     const [image] = useImage(url , "anonymous");
@@ -30,7 +31,6 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
         trRef.current.getLayer().batchDraw();
       }
   }, [isSelected]);
-
 
 
     const displaySpinner = () => {
@@ -163,7 +163,6 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
 
     }
 
-
     return(
         <>
             {isLoading ? displaySpinner() : null}
@@ -179,6 +178,11 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
                 draggable = {true}
                 onClick = {onSelect}
                 onTap = {onSelect}
+                filters = {[
+                  Konva.Filters.Blur,
+                  Konva.Filters.Brighten,
+                  attrs.grayScale ? Konva.Filters.Grayscale : {}
+                ]}
             />
             { isSelected && 
             <Transformer

@@ -120,6 +120,7 @@ export default function StageWrapper({toggle}){
       }
     }
 
+
     const handleKeyboardEvents = (e) => {
       e.preventDefault();
       const DELTA = 4;
@@ -159,8 +160,7 @@ export default function StageWrapper({toggle}){
         } else if( (e.ctrlKey || e.metaKey) && e.keyCode === 67){
             ctrlC(selected.item)
         } else if ((e.ctrlKey || e.metaKey) && e.keyCode === 86) {
-          console.log('CTRL + V')
-          ctrlV()
+            ctrlV()
         } else {
           return;
         }

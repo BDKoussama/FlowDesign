@@ -1,4 +1,4 @@
-import {Label , TextInput} from 'flowbite-react'
+import {Label , TextInput , ToggleSwitch} from 'flowbite-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateSelected } from '../../../app/features/canvas/selectSlice';
 import ColorPicker from '../../Layout/ColorPicker';
@@ -267,6 +267,69 @@ export default function ImageSettings(){
                                 onChange={handleInputChange}
                         />
                     </div>
+
+                </div>
+
+                <div className='my-4'>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="blurRadius"
+                            value="Blur Radius"
+                        />
+                    </div>
+                    <TextInput
+                        value = {attrs.blurRadius || 0}
+                        id="blurRadius"
+                        name='blurRadius'
+                        type="number"
+                        step={1}
+                        min={0} 
+                        max={50}
+                        placeholder="Blur Radius"
+                        onChange={handleInputChange}
+                    />
+                     
+                </div>
+
+                <div className='my-4'>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="brightness"
+                            value="Brightness"
+                        />
+                    </div>
+                    <TextInput
+                        value = {attrs.brightness || 0}
+                        id="brightness"
+                        name='brightness'
+                        type="number"
+                        step={0.1}
+                        min={-1} 
+                        max={1}
+                        placeholder="Brightness"
+                        onChange={handleInputChange}
+                    />    
+                </div>
+                
+                <div className='my-4'>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="grayScale"
+                            value="Gray Scale"
+                        />
+                    </div>
+                    <ToggleSwitch
+                        checked={attrs.grayScale || false}
+                        label="Gray Scale"
+                        onChange={() => {
+                            dispatch(updateSelected({
+                                attrs : {
+                                    ...attrs,
+                                    grayScale : !attrs.grayScale
+                                }
+                            }))
+                        }}
+                    />
 
                 </div>
 
