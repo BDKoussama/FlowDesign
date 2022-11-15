@@ -7,6 +7,11 @@ const initialState = {
         id: null , 
         attrs: {},
         
+    },
+    copiedItem : {
+        type : '',
+        id: null,
+        attrs : {}
     }
 }
 
@@ -47,11 +52,17 @@ const selectSlice = createSlice({
                     ...action.payload.attrs
                 }
             }
+        },
+        setCopiedItem(state , action){
+            state.copiedItem = {
+                ...state.copiedItem,
+                ...action.payload
+            }
         }
     }
 })
 
 
-export const {setSelected , updateSelected , setTransformProps , setDragProps } = selectSlice.actions;
+export const {setSelected , updateSelected , setTransformProps , setDragProps , setCopiedItem} = selectSlice.actions;
 
 export default undoable(selectSlice.reducer);

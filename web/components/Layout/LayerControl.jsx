@@ -25,6 +25,7 @@ export default function LayerControl(){
 
     const index = children.indexOf(item)
 
+    
     const setAlignment = (direction) => {
         const newPosition = {}
 

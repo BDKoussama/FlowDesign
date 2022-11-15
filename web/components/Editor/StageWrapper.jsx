@@ -5,11 +5,12 @@ import { useState } from 'react';
 import { useLayoutEffect } from 'react';
 import Zoom from './Zoom';
 import { useDispatch, useSelector } from 'react-redux';
-import { scaleStage, updateElement } from '../../app/features/canvas/stageSlice';
+import { addShape, deleteElement, scaleStage, updateElement } from '../../app/features/canvas/stageSlice';
 import Shape from './Shape';
 import CustomImage from './CustomImage';
-import { setSelected } from '../../app/features/canvas/selectSlice';
+import { setCopiedItem, setDragProps, setSelected } from '../../app/features/canvas/selectSlice';
 import Konva from 'konva';
+import { v4 as uuidv4 } from 'uuid';
 
 const  GUIDELINE_OFFSET = 10;
 
@@ -72,6 +73,99 @@ export default function StageWrapper({toggle}){
         }
     },[selected.item])
 
+    useEffect(() => {
+      if(stageRef.current && stageRef.current !== null) {
+        const container = stageRef.current.container();
+        container.focus() 
+      }
+    },[])
+
+
+    const moveElement = (position) => {
+      dispatch(setDragProps({
+        position
+      }))
+    }
+
+    const deleteKey = (id) => {
+
+      dispatch(deleteElement({
+        id 
+      }))
+
+      dispatch(setSelected({
+          type : "",
+          id : null,
+          attrs : {}
+      }))
+
+    }
+
+    const ctrlC = (item) => {
+      dispatch(setCopiedItem({
+        ...item
+      }))
+    }
+
+    const ctrlV = () =>{
+      const id = uuidv4()
+      if(selected.copiedItem.id !== null) {
+        dispatch(addShape({
+          className : selected.copiedItem.type,
+          attrs : {
+              ...selected.copiedItem.attrs,
+              id
+          }
+      })) 
+      }
+    }
+
+    const handleKeyboardEvents = (e) => {
+      e.preventDefault();
+      const DELTA = 4;
+
+      if(selected.item.id !== null){
+        if (e.keyCode === 37) {
+
+          moveElement({
+            x : selected.item.attrs.x - DELTA,
+            y : selected.item.attrs.y
+          })
+
+        } else if (e.keyCode === 38) {
+
+          moveElement({ 
+            x : selected.item.attrs.x,
+            y : selected.item.attrs.y - DELTA
+          })
+
+        } else if (e.keyCode === 39) {
+
+          moveElement({
+                x : selected.item.attrs.x + DELTA,
+                y : selected.item.attrs.y
+          })
+
+        } else if (e.keyCode === 40) {
+          
+          moveElement({
+            x : selected.item.attrs.x ,
+            y : selected.item.attrs.y + DELTA
+          })
+
+        } else if (e.keyCode === 8) {
+          // delete element
+          deleteKey(selected.item.id)
+        } else if( (e.ctrlKey || e.metaKey) && e.keyCode === 67){
+            ctrlC(selected.item)
+        } else if ((e.ctrlKey || e.metaKey) && e.keyCode === 86) {
+          console.log('CTRL + V')
+          ctrlV()
+        } else {
+          return;
+        }
+      }
+    }
     //deselect all items
     const checkDeslect = (e) => {
         // deselect when clicked on empty area
@@ -322,9 +416,9 @@ export default function StageWrapper({toggle}){
     return(
         <div className={`stage-wrapper ${( parentSize.height >= initialHeight && parentSize.width >= initialWidth ) ? 'center-stage' : '' }`}  ref={wrapper}>
             <Zoom scale = {scale.x} zoom = {zoom} />
-            <div className='stage' style = {{ height : `${initialHeight}px` , width : `${initialWidth}px`}} >
+            <div tabIndex={1} onKeyDown = {handleKeyboardEvents} className='stage' style = {{ height : `${initialHeight}px` , width : `${initialWidth}px`}} >
                 <Stage 
-                    ref={stageRef}
+                    ref={stageRef}  
                     width={initialWidth} 
                     height={initialHeight} 
                     scaleX = {scale.x} 
