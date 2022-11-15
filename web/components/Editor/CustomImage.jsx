@@ -15,11 +15,17 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
     const spinRef = useRef();
     const trRef = useRef();
     const [isLoading , setIsLoading] = useState(true);
+    const [filters , setFilters] = useState([Konva.Filters.Blur, Konva.Filters.Brighten]);
 
     const dispatch = useDispatch()
 
     useEffect(() => {
         imgRef.current.cache();
+        if(attrs.grayScale){
+          setFilters([...filters , Konva.Filters.Grayscale])
+        }else{
+          setFilters([Konva.Filters.Blur, Konva.Filters.Brighten])
+        }
     },[image , attrs])
 
 
@@ -178,11 +184,7 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
                 draggable = {true}
                 onClick = {onSelect}
                 onTap = {onSelect}
-                filters = {[
-                  Konva.Filters.Blur,
-                  Konva.Filters.Brighten,
-                  attrs.grayScale ? Konva.Filters.Grayscale : {}
-                ]}
+                filters = {filters}
             />
             { isSelected && 
             <Transformer

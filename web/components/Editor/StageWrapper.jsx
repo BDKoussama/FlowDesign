@@ -11,6 +11,7 @@ import CustomImage from './CustomImage';
 import { setCopiedItem, setDragProps, setSelected } from '../../app/features/canvas/selectSlice';
 import Konva from 'konva';
 import { v4 as uuidv4 } from 'uuid';
+import {Button} from 'flowbite-react';
 
 const  GUIDELINE_OFFSET = 10;
 
@@ -412,10 +413,21 @@ export default function StageWrapper({toggle}){
         layerRef.current.find(".guid-line").forEach((l) => l.destroy());
       };
     
+      const serializeStage = () => {
+        if(stageRef.current && stageRef.current !== null){
+          const json = stageRef.current.toJSON();
+          console.log(json);
+        }
+      }
 
     return(
         <div className={`stage-wrapper ${( parentSize.height >= initialHeight && parentSize.width >= initialWidth ) ? 'center-stage' : '' }`}  ref={wrapper}>
             <Zoom scale = {scale.x} zoom = {zoom} />
+            <div className="serialize-stage absolute right-10 bottom-10">
+                    <Button onClick={serializeStage}>
+                        Serialize
+                    </Button>
+              </div>
             <div tabIndex={1} onKeyDown = {handleKeyboardEvents} className='stage' style = {{ height : `${initialHeight}px` , width : `${initialWidth}px`}} >
                 <Stage 
                     ref={stageRef}  
