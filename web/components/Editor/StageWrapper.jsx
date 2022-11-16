@@ -415,7 +415,12 @@ export default function StageWrapper({toggle}){
     
       const serializeStage = () => {
         if(stageRef.current && stageRef.current !== null){
-          const json = stageRef.current.toJSON();
+          const stage = stageRef.current;
+          stage.width(width)
+          stage.height(height)
+          stage.scaleX(1)
+          stage.scaleY(1)
+          const json = stage.toJSON();
           console.log(json);
         }
       }
