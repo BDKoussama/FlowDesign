@@ -36,11 +36,11 @@
 
 .zoom-control{
     height: 30px;
-    background-color: black;
     z-index: 2;
     position: absolute;
-    left: 5%;
-    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 3%;
     border-radius: 20px;
     display: flex;
     justify-content: space-around;

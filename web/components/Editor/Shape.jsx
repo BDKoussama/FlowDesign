@@ -24,13 +24,13 @@ export default function Shape({type , attrs , isSelected , onSelect , onSnap}){
 
     const onTransform = (e) => {
         if(elRef.current !== null){
-            //onSnap(e)
             const element = elRef.current;
 
             const size = {
                 width: element.width() * element.scaleX(),
                 height: element.height() * element.scaleY()
             }
+
 
             element.setAttrs({
                 width: Math.abs(size.width),
@@ -63,7 +63,8 @@ export default function Shape({type , attrs , isSelected , onSelect , onSnap}){
                     { 
                         height : size.height
                     } : {}),
-                }
+                    rotation : Math.floor(e.target.rotation())
+                },
             }))
     }
 
@@ -152,7 +153,7 @@ export default function Shape({type , attrs , isSelected , onSelect , onSnap}){
                 anchorSize={10}
                 anchorStroke = '#216ee0'
                 borderDash={[3,3]}
-                rotateEnabled={false}
+                rotateEnabled={true}
                 enabledAnchors={type === 'Text' ? ['middle-left', 'middle-right'] : undefined}
                 boundBoxFunc={(oldBox, newBox) => newBox.width < 25 || newBox.height < 5 ? oldBox : newBox}
             />}

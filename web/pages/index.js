@@ -26,7 +26,7 @@ export default function Home() {
 
 
                 <div className='relative w-full '>
-                    <div className='absolute -left-50'>
+                    <div className='absolute -left-50 -z-10'>
                         <BlobLeft />
                     </div>
                     <Container>
@@ -41,7 +41,7 @@ export default function Home() {
                         </div>
                     </Container>
                     <Container>
-                          <div className='hero w-full text-center'>
+                          <div className='hero w-full text-center z-2'>
                               <h1 className='text-[5.5vw] font-bold mt-0 leading-snug w-10/12 mx-auto'> Create social media graphics that make you stand out </h1>
                               <p className='mt-5 w-6/12 mx-auto text-xl'>
                                 Easily make unique social media designs in a flash using free templates, images, trending design assets, and more.
@@ -64,7 +64,7 @@ export default function Home() {
 
                   
 
-                    <div className='w-full text-center pt-20 relative border border-black '>
+                    <div className='w-full text-center pt-20 relative'>
 
                         <div className='absolute right-0 top-0 z-0'>
                             <BlobRight />
@@ -145,6 +145,7 @@ export default function Home() {
                           <div className='w-full mt-20 w-9/12 mx-auto'>
                                 <Accordion />
                           </div>
+
                       </div>
                   </Container>
                 

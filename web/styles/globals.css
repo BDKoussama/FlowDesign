@@ -69,7 +69,8 @@ a {
 .editor-widget--wrapper .editor-widget--toggle {
   height: 40px;
   width: 40px;
-  background-color: #0e1214;
+  
+  background-color: #111827;
   cursor: pointer;
   border-radius: 50%; 
   display: flex;
@@ -81,6 +82,7 @@ a {
 
 .transform-btn {
   transform: rotate(-180deg);
+  background-color: #1f2937;
 }
 
 .editor-widget--content{

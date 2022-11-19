@@ -24,7 +24,7 @@ export default function TextSettings(){
 
     const handleInputChange = (e) =>{
         const {name , value} = e.target;
-
+        
         dispatch(updateSelected({
             attrs : {
                 ...attrs,
@@ -184,11 +184,13 @@ export default function TextSettings(){
                         />
                     </div>
 
-                    <Select id="fontFamily">
-                        <option>Roboto</option>
-                        <option> Satoshi </option>
-                        <option>Helvetica NNeue</option>
-                        <option> Raleway</option>
+                    <Select id="fontFamily" name='fontFamily' onChange={handleInputChange}>
+                        <option value = "roboto">Roboto</option>
+                        <option value = "satoshi"> Satoshi </option>
+                        <option value = "Helvetica Neue">Helvetica Neue</option>
+                        <option value = "Montserrat">Montserrat</option>
+                        <option value = "Raleway">Raleway</option>
+                        <option value = "George X">George x</option>
                     </Select>
                     
                 </div>
