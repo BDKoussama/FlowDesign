@@ -9,9 +9,15 @@ import Description from '../components/Landing/Description';
 import Section from '../components/Landing/Section';
 import BlobLeft from '../components/Landing/BlobLeft';
 import BlobRight from '../components/Landing/BlobRight';
+import { ChevronDownIcon , ChevronUpIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react';
+import Accordion from '../components/Landing/Accordion';
+
 
 export default function Home() {
-  
+    
+    const [toggle , setToggle] = useState(false);
+
   return (
         <>
                 <Head>
@@ -135,6 +141,10 @@ export default function Home() {
 
                       <div className='my-60 text-center'>
                           <Title text="Frequently asked questions" />
+
+                          <div className='w-full mt-20 w-9/12 mx-auto'>
+                                <Accordion />
+                          </div>
                       </div>
                   </Container>
                 
