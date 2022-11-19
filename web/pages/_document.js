@@ -4,16 +4,17 @@ export default function Document() {
   return (
     <Html lang="en" className='dark'> {/* Add whichever language you want here */}
       <Head>
+      
         <link
             rel="preload"
-            href="/fonts/Satoshi-Regular.woff"
+            href="/fonts/Montserrat/Montserrat-Black.woff"
             as="font"
             type="font/woff"
             crossOrigin="anonymous"
         />
          <link
             rel="preload"
-            href="/fonts/Satoshi-Regular.woff2"
+            href="/fonts/Montserrat/Montserrat-Black.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
@@ -21,28 +22,44 @@ export default function Document() {
 
         <link
             rel="preload"
-            href="/fonts/Satoshi-Medium.woff"
+            href="/fonts/Montserrat/Montserrat-Medium.woff"
             as="font"
             type="font/woff"
             crossOrigin="anonymous"
         />
          <link
             rel="preload"
-            href="/fonts/Satoshi-Medium.woff2"
+            href="/fonts/Montserrat/Montserrat-Medium.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
         />
+
         <link
             rel="preload"
-            href="/fonts/Satoshi-Bold.woff"
+            href="/fonts/Montserrat/Montserrat-Regular.woff"
             as="font"
             type="font/woff"
             crossOrigin="anonymous"
         />
          <link
             rel="preload"
-            href="/fonts/Satoshi-Bold.woff2"
+            href="/fonts/Montserrat/Montserrat-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+        />
+
+        <link
+            rel="preload"
+            href="/fonts/Montserrat/Montserrat-SemiBold.woff"
+            as="font"
+            type="font/woff"
+            crossOrigin="anonymous"
+        />
+         <link
+            rel="preload"
+            href="/fonts/Montserrat/Montserrat-SemiBold.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"

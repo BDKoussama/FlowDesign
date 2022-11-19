@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Inter: ["Satoshi", ...defaultTheme.fontFamily.sans],
+        Montserrat: ["Montserrat", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         main : "#F8F8F8",

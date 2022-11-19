@@ -16,6 +16,7 @@ import AlignMiddle from './AlignMiddle'
 import Flip from './Flip'
 import FlipH from './FlipH'
 import FlipV from './FlipV'
+import Logo from './Logo'
 
 export {
     Facebook , 
@@ -35,5 +36,6 @@ export {
     AlignTop,
     Flip,
     FlipH,
-    FlipV
+    FlipV,
+    Logo
 }
