@@ -1,9 +1,6 @@
 
 /* ----------------------- Stage Styles --------------------------------------- */
 .editor-scene--wrapper{
-    height: 100%;
-    flex: 1;
-    flex-grow: 1;
     overflow: hidden;
     display: flex;
     justify-content: center;

@@ -43,7 +43,7 @@ export default function Widget({toggle , setToggle}){
     }
 
     return (
-        <div className='editor-widget--wrapper bg-gray-800' style={{ marginLeft : `${ toggle ? -350  : 0}px` }}>
+        <div className='hidden md:flex items-center justify-center editor-widget--wrapper bg-gray-800' style={{ marginLeft : `${ toggle ? -350  : 0}px` }}>
             <div className='editor-widget--content text-white overflow-hidden'>
                 {handleRender()}
             </div>

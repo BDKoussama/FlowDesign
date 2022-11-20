@@ -65,7 +65,7 @@ export default function Document() {
             crossOrigin="anonymous"
         />
       </Head>
-      <body className='bg-main' id = "app">
+      <body className='bg-main overflow-hidden' id = "app">
         <Main />
         <NextScript />
       </body>

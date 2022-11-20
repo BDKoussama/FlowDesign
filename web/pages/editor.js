@@ -5,7 +5,7 @@ import Widget  from '../components/Editor/Widget';
 import Scene from '../components/Scene';
 import WidgetContextProvider from '../context/WidgetContext';
 
-export default function Editor() {
+export default function Editor() {  
 
   const [toggle , setToggle] = useState(false);
   
@@ -15,7 +15,7 @@ export default function Editor() {
               <title>Editor App</title>
           </Head>
 
-          <div  className='editor'>
+          <div  className='editor flex flex-col-reverse md:flex-row h-[100%] md:h-[100vh]'>
               <WidgetContextProvider>
                   <SideBar />
                   <Widget toggle = {toggle} setToggle = {setToggle} />

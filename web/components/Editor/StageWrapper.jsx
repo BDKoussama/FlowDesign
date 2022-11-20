@@ -429,7 +429,7 @@ export default function StageWrapper({toggle}){
         <div className={`stage-wrapper ${( parentSize.height >= initialHeight && parentSize.width >= initialWidth ) ? 'center-stage' : '' }`}  ref={wrapper}>
             <Zoom scale = {scale.x} zoom = {zoom} />
             <div className="serialize-stage absolute right-10 bottom-10">
-                    <Button onClick={serializeStage}>
+                    <Button onClick={serializeStage} className = "hidden">
                         Serialize
                     </Button>
               </div>

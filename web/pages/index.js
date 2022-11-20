@@ -1,5 +1,6 @@
 
 import Head from 'next/head'
+import Image from 'next/image';
 import Container from '../components/Layout/Container';
 import {Title , BlobLeft , BlobRight , Button , Description , Section , Accordion , Navbar , Hero} from '../components/Landing/index';
 
@@ -12,12 +13,37 @@ export default function Home() {
                 </Head>
 
 
-                <div className='relative w-full '>
+                <div className='relative w-full border border-black'>
                     <div className='absolute -left-50 -z-10'>
                         <BlobLeft />
                     </div>
-                    <Navbar />
-                    <Hero />
+                    <Navbar/>
+                    <Hero/>
+                    <div className='h-20 w-20 absolute top-40 left-32'>
+                        <div className='h-full w-full relative'>
+                            <Image src="/images/icons/facebook.png" alt = "facebook icon" layout='fill' />
+                        </div>
+                    </div>
+
+                    <div className='h-20 w-20 absolute top-[25%] right-[20%]'>
+                        <div className='h-full w-full relative'>
+                            <Image src="/images/icons/instagram-logo.png" alt = "Instagram icon" layout='fill' />
+                        </div>
+                    </div>
+
+                    <div className='h-16 w-16 absolute top-40 right-32'>
+                        <div className='h-full w-full relative'>
+                            <Image src="/images/icons/twitter.png" alt = "Twitter icon" layout='fill' />
+                        </div>
+                    </div>
+
+                    <div className='h-16 w-16 absolute top-[28%] left-72'>
+                        <div className='h-full w-full relative'>
+                            <Image src="/images/icons/youtube-logo.png" alt = "youtube icon" layout='fill' />
+                        </div>
+                    </div>
+
+                   
                 </div>
 
                   

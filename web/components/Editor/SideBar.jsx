@@ -26,15 +26,16 @@ export default function SideBar(){
     },[template , setWidget])
 
     return (
-        <div className='editor-navbar flex flex-col bg-gray-900'>
-            <div className="logo-wrapper h-12 w-12 flex items-center justify-center mt-6 mx-auto">
+        <div className='editor-navbar flex flex-col bg-gray-900 w-full h-auto md:w-[100px] md:h-full overflow-hidden'>
+
+            <div className="logo-wrapper h-12 w-12 md:flex items-center hidden justify-center mt-6 mx-auto">
                 <Logo />
             </div>
 
-            <div className='editor-sidebar_menu w-full mt-6 h-full'>
-                <ul className='sidebar-menu_list'>
+            <div className='editor-sidebar_menu w-full md:mt-6 h-full overflow-x-scroll'>
+                <ul className='sidebar-menu_list flex w-[200%] md:block md:w-full'>
 
-                    <li className='sidebar-menu_list-item '> 
+                    <li className='sidebar-menu_list-item w-[90px] md:w-auto'> 
                         <div className='list-item_content text-center text-sm font-normal'>
                             <label className="custom-radio" htmlFor="template">
                                 <input checked = {template === 'template'} type="radio" value='template' name="plan" id="template"  onChange = {handleChange} />
@@ -48,7 +49,7 @@ export default function SideBar(){
                         </div>
                     </li>
 
-                    <li className='sidebar-menu_list-item'>
+                    <li className='sidebar-menu_list-item w-[90px] md:w-auto'>
                         <div className='list-item_content text-center text-sm font-normal'>
                             <label className="custom-radio" htmlFor="text">
                                 <input checked = {template === 'text'} type="radio" value='text' name="plan" id="text" onChange = {handleChange} />
@@ -62,7 +63,7 @@ export default function SideBar(){
                         </div>
                     </li> 
 
-                    <li className='sidebar-menu_list-item'>
+                    <li className='sidebar-menu_list-item w-[90px] md:w-auto'>
                         <div className='list-item_content text-center text-sm font-normal'>
                             <label className="custom-radio" htmlFor="elements">
                                 <input checked = {template === 'elements'} type="radio" value='elements' name="elements" id="elements" onChange = {handleChange} />
@@ -76,7 +77,7 @@ export default function SideBar(){
                         </div>
                     </li>
 
-                     <li className='sidebar-menu_list-item'>
+                     <li className='sidebar-menu_list-item w-[90px] md:w-auto'>
                         <div className='list-item_content text-center text-sm font-normal'>
                             <label className="custom-radio" htmlFor="photos">
                                 <input checked = {template === 'photos'} type="radio" value='photos' name="photos" id="photos" onChange = {handleChange} />
@@ -90,7 +91,7 @@ export default function SideBar(){
                         </div>
                     </li> 
 
-                    <li className='sidebar-menu_list-item'>
+                    <li className='sidebar-menu_list-item w-[90px] md:w-auto'>
                         <div className='list-item_content text-center text-sm font-normal'>
                             <label className="custom-radio" htmlFor="background">
                                 <input checked = {template === 'background'} type="radio" value='background' name="background" id="background" onChange = {handleChange} />
@@ -104,7 +105,7 @@ export default function SideBar(){
                         </div>
                     </li> 
 
-                    <li className='sidebar-menu_list-item'>
+                    <li className='sidebar-menu_list-item w-[90px] md:w-auto'>
                         <div className='list-item_content text-center text-sm font-normal'>
                             <label className="custom-radio" htmlFor="upload">
                                 <input checked = {template === 'upload'} type="radio" value='upload' name="upload" id="upload" onChange = {handleChange} />
@@ -118,7 +119,7 @@ export default function SideBar(){
                         </div>
                     </li> 
 
-                    <li className='sidebar-menu_list-item'>
+                    <li className='sidebar-menu_list-item w-[90px] md:w-auto'>
                         <div className='list-item_content text-center text-sm font-normal'>
                             <label className="custom-radio" htmlFor="layers">
                                 <input checked = {template === 'layers'} type="radio" value='layers' name="layers" id="layers" onChange = {handleChange} />
@@ -132,7 +133,7 @@ export default function SideBar(){
                         </div>
                     </li> 
 
-                    <li className='sidebar-menu_list-item'>
+                    <li className='sidebar-menu_list-item w-[90px] md:w-auto'>
                         <div className='list-item_content text-center text-sm font-normal'>
                             <label className="custom-radio" htmlFor="resize">
                                 <input checked = {template === 'resize'} type="radio" value='resize' name="resize" id="resize" onChange = {handleChange} />
