@@ -9,6 +9,7 @@ import { Squares2X2Icon } from '@heroicons/react/24/outline'
 import { CloudArrowDownIcon } from '@heroicons/react/24/outline'
 import { ArrowsPointingOutIcon } from '@heroicons/react/24/outline'
 import { Square3Stack3DIcon } from '@heroicons/react/24/outline'
+import Logo from '../../components/Svg/Logo';
 
 export default function SideBar(){
 
@@ -26,7 +27,8 @@ export default function SideBar(){
 
     return (
         <div className='editor-navbar flex flex-col bg-gray-900'>
-            <div className="logo-wrapper h-12 w-12 bg-white mt-6 mx-auto rounded-full">
+            <div className="logo-wrapper h-12 w-12 flex items-center justify-center mt-6 mx-auto">
+                <Logo />
             </div>
 
             <div className='editor-sidebar_menu w-full mt-6 h-full'>

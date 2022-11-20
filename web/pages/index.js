@@ -1,27 +1,14 @@
 
 import Head from 'next/head'
-import Image from 'next/image'
 import Container from '../components/Layout/Container';
-import Logo from '../components/Svg/Logo';
-import Button from '../components/Landing/Button'
-import Title from '../components/Landing/Title'
-import Description from '../components/Landing/Description';
-import Section from '../components/Landing/Section';
-import BlobLeft from '../components/Landing/BlobLeft';
-import BlobRight from '../components/Landing/BlobRight';
-import { ChevronDownIcon , ChevronUpIcon } from '@heroicons/react/24/outline'
-import { useState } from 'react';
-import Accordion from '../components/Landing/Accordion';
-
+import {Title , BlobLeft , BlobRight , Button , Description , Section , Accordion , Navbar , Hero} from '../components/Landing/index';
 
 export default function Home() {
     
-    const [toggle , setToggle] = useState(false);
-
   return (
         <>
                 <Head>
-                    <title>Home Page</title>
+                    <title>Design.Io | Social media graphics</title>
                 </Head>
 
 
@@ -29,47 +16,16 @@ export default function Home() {
                     <div className='absolute -left-50 -z-10'>
                         <BlobLeft />
                     </div>
-                    <Container>
-                        <div className='py-10 z-2'>
-                            <nav className='flex items-center justify-between'>
-                                <span className='logo flex justify-center items-center h-12 w-12'> 
-                                  <Logo />
-                                </span>
-
-                                <Button text= "Get Started" url = '/editor' />
-                            </nav>
-                        </div>
-                    </Container>
-                    <Container>
-                          <div className='hero w-full text-center z-2'>
-                              <h1 className='text-[5.5vw] font-bold mt-0 leading-snug w-10/12 mx-auto'> Create social media graphics that make you stand out </h1>
-                              <p className='mt-5 w-6/12 mx-auto text-xl'>
-                                Easily make unique social media designs in a flash using free templates, images, trending design assets, and more.
-                              </p>
-                              <Button text= "Create your social graphic now" url = '/editor' style= "mt-10" />
-                          </div>
-
-                          <div className='w-full mt-20 relative'>
-                              <Image 
-                                  layout='responsive'
-                                  height="70%"
-                                  width="100%"
-                                  objectFit='contain'
-                                  src = '/images/APP.webp'
-                                  alt = 'designo app screen'
-                              />
-                          </div>
-                  </Container>
+                    <Navbar />
+                    <Hero />
                 </div>
 
                   
 
                     <div className='w-full text-center pt-20 relative'>
-
                         <div className='absolute right-0 top-0 z-0'>
                             <BlobRight />
                         </div>
-
                         <Title text = "Explore eye-catching templates" />
                         <Description text="Browse through thousands of professionally designed templates for social posts, banners, campaigns, and more. Specify your search based on platform, aesthetic, mood, color, event, or theme." />
                         <div className='w-full overflow-hidden h-[80vh] flex items-center justify-center my-20'>
