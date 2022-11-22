@@ -18,7 +18,7 @@ export default function Hero(){
                     height="70%"
                     width="100%"
                     objectFit='contain'
-                    src = '/images/APP.webp'
+                    src = '/images/App.png'
                     alt = 'designo app screen'
                 />
              </div>

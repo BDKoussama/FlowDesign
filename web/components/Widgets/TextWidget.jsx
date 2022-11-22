@@ -51,7 +51,7 @@ export default function TextWidget(){
             offsetX : 400 / 2,
             draggable : true,
             id,
-            fontStyle : 'normal',
+            fontStyle : '',
             fontFamily : 'Arial',
             textDecoration : 'normal',
             align: 'center',

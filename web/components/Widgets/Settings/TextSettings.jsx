@@ -78,6 +78,35 @@ export default function TextSettings(){
         }))
     }
 
+    const handleFontstyle = (style) => {
+
+       const fontStyle = attrs.fontStyle;
+
+       let newFontStyle = ''
+
+       if(style === fontStyle &&  style === 'bold'){
+            newFontStyle = ''
+       }else if((style === "bold" && fontStyle === '') || (style === "italic" && fontStyle === '')){
+            newFontStyle = style
+       }else if(style === fontStyle &&  style === 'italic'){
+            newFontStyle = ''
+       }else if((style === 'bold' && fontStyle === 'italic') || (style === 'italic' && fontStyle === 'bold')){
+            newFontStyle = 'italic bold'
+       }else if(style === 'bold' && fontStyle === 'italic bold') {
+            newFontStyle = 'italic'
+       }else if(style === 'italic' && fontStyle === 'italic bold'){
+            newFontStyle = 'bold'
+       }
+        
+       dispatch(updateSelected({
+            attrs : {
+                ...attrs,
+                fontStyle: newFontStyle
+            }
+        }))
+
+    } 
+
     return (
         <div className='h-screen overflow-y-scroll pb-10 p-4'>
             <div className="w-full mt-10">
@@ -191,6 +220,8 @@ export default function TextSettings(){
                         <option value = "Montserrat">Montserrat</option>
                         <option value = "Raleway">Raleway</option>
                         <option value = "George X">George x</option>
+                        <option value = "Druk Text Wide">Druke Text Wide</option>
+                        <option value = "anton">Anton</option>
                     </Select>
                     
                 </div>
@@ -257,10 +288,10 @@ export default function TextSettings(){
                             <Label htmlFor='textStyle' value = "Text Style" />
                         </div>
                         <Button.Group>
-                            <Button color="gray">
+                            <Button color="gray" onClick={() => handleFontstyle('bold')} style = {{ backgroundColor : `${ (attrs.fontStyle === 'bold' || attrs.fontStyle === 'italic bold' ) ? 'rgb(55 65 81)' : ''}` }}>
                                 <Bold fill = '#fff' height= "16px" width= "16px" />
                             </Button>
-                            <Button color="gray">
+                            <Button color="gray" onClick={() => handleFontstyle('italic')} style = {{ backgroundColor : `${(attrs.fontStyle === 'italic' || attrs.fontStyle === 'italic bold') ? 'rgb(55 65 81)' : ''}` }}>
                                 <ItalicText fill = '#fff' height= "16px" width= "16px" />
                             </Button>
                         </Button.Group>

@@ -8,7 +8,9 @@ function MyApp({ Component, pageProps}) {
 
   return (
     <Provider store={store}>
-      <Component {...pageProps}/>
+      <div className='overflow-hidden'>
+          <Component {...pageProps}/>
+      </div>
     </Provider>
   )
       

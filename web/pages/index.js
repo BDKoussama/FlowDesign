@@ -13,31 +13,31 @@ export default function Home() {
                 </Head>
 
 
-                <div className='relative w-full border border-black'>
+                <div className='relative w-full'>
                     <div className='absolute -left-50 -z-10'>
                         <BlobLeft />
                     </div>
                     <Navbar/>
                     <Hero/>
-                    <div className='h-20 w-20 absolute top-40 left-32'>
+                    <div className='h-16 w-16 md:h-20 md:w-20 absolute top-20 md:top-40 left-16 md:left-32'>
                         <div className='h-full w-full relative'>
                             <Image src="/images/icons/facebook.png" alt = "facebook icon" layout='fill' />
                         </div>
                     </div>
 
-                    <div className='h-20 w-20 absolute top-[25%] right-[20%]'>
+                    <div className='h-16 w-16 md:h-20 md:w-20 absolute top-[35%] right-[8%] md:top-[25%] md:right-[20%]'>
                         <div className='h-full w-full relative'>
                             <Image src="/images/icons/instagram-logo.png" alt = "Instagram icon" layout='fill' />
                         </div>
                     </div>
 
-                    <div className='h-16 w-16 absolute top-40 right-32'>
+                    <div className='h-12 w-12 md:h-16 md:w-16 absolute top-40 right-8   md:top-40 md:right-32'>
                         <div className='h-full w-full relative'>
                             <Image src="/images/icons/twitter.png" alt = "Twitter icon" layout='fill' />
                         </div>
                     </div>
 
-                    <div className='h-16 w-16 absolute top-[28%] left-72'>
+                    <div className='h-12 w-12 md:h-16 md:w-16 absolute top-[35%] left-12 md:top-[28%] md:left-72 ' >
                         <div className='h-full w-full relative'>
                             <Image src="/images/icons/youtube-logo.png" alt = "youtube icon" layout='fill' />
                         </div>
@@ -69,19 +69,19 @@ export default function Home() {
                       <div className='w-full text-center mt-60 relative '>
                           <Title text = "We didin't reinvent the wheel" />
                           <Description text="Just Launch Designo for free on your desktop or mobile device to start creating your graphic" />
-                          <div className='w-full flex justify-between items-center mt-20  p-5'>
+                          <div className='w-full flex flex-col md:flex-row justify-between items-center mt-20  p-5'>
 
-                              <div className='text-center flex flex-col items-center flex-1'>
+                              <div className='text-center flex flex-col items-center flex-1 mt-0 md:mt-0'>
                                   <div className='h-24 w-24 bg-gray-200 rounded-full'></div>
                                   <p className='mt-10 text-xl font-medium w-10/12 mx-auto'> Social media templates that are easy to adjust </p>
                               </div>
 
-                              <div className='text-center flex flex-col items-center flex-1'>
+                              <div className='text-center flex flex-col items-center flex-1 mt-10 md:mt-0'>
                                   <div className='h-24 w-24 bg-gray-200 rounded-full'></div>
                                   <p className='mt-10 text-xl font-medium w-10/12 mx-auto'> Upload your own images and brand colorsand create engaging social media posts </p>
                               </div>
 
-                              <div className='text-center flex flex-col items-center flex-1'>
+                              <div className='text-center flex flex-col items-center flex-1 mt-10 md:mt-0'>
                                   <div className='h-24 w-24 bg-gray-200 rounded-full'></div>
                                   <p className='mt-10 text-xl font-medium w-10/12 mx-auto'> High-quality stock photos and other amazing design elements</p>
                               </div>

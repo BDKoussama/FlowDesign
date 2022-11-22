@@ -2,7 +2,7 @@ import Button from "./Button";
 
 export default function Section({ direction , title , description , subtitle , style }){
     return (
-        <div className={`w-full h-screen my-40 flex justify-between items-center ${direction}`}>
+        <div className={`w-full h-screen my-40 flex flex-col md:flex-row justify-between items-center ${direction}`}>
             <div className='flex-1 '>    
                 <span className="inline-block uppercase text-[#644595] font-medium mb-5 ">
                     {subtitle}
