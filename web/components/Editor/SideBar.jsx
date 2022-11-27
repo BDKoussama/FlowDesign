@@ -9,6 +9,8 @@ import { Squares2X2Icon } from '@heroicons/react/24/outline'
 import { CloudArrowDownIcon } from '@heroicons/react/24/outline'
 import { ArrowsPointingOutIcon } from '@heroicons/react/24/outline'
 import { Square3Stack3DIcon } from '@heroicons/react/24/outline'
+import { FaceSmileIcon } from '@heroicons/react/24/outline'
+
 import Logo from '../../components/Svg/Logo';
 
 export default function SideBar(){
@@ -85,6 +87,20 @@ export default function SideBar(){
                                     <PhotoIcon className="h-6 w-6 text-white"/>
                                     <div className="custom-radio_text">
                                         <span>Photos</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </li> 
+
+                    <li className='sidebar-menu_list-item w-[90px] md:w-auto'>
+                        <div className='list-item_content text-center text-sm font-normal'>
+                            <label className="custom-radio" htmlFor="stickers">
+                                <input checked = {template === 'stickers'} type="radio" value='stickers' name="stickers" id="stickers" onChange = {handleChange} />
+                                <div className="custom-radio_content">
+                                    <FaceSmileIcon className="h-6 w-6 text-white"/>
+                                    <div className="custom-radio_text">
+                                        <span>Sticker</span>
                                     </div>
                                 </div>
                             </label>

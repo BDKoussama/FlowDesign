@@ -2,7 +2,7 @@ import { ChevronRightIcon } from '@heroicons/react/24/outline'
 import { useEffect } from 'react';
 import { useContext } from 'react'
 import { WidgetContext } from '../../context/WidgetContext';
-import {Templates , TextWidget , Photos , Elements , Upload , Background , Layers , Resize } from '../Widgets/index';
+import {Templates , TextWidget , Photos , Elements , Upload , Background , Layers , Resize , Stickers } from '../Widgets/index';
 
 export default function Widget({toggle , setToggle}){
 
@@ -37,6 +37,8 @@ export default function Widget({toggle , setToggle}){
             
             case 'resize':
                 return <Resize/>
+            case 'stickers':
+                return <Stickers/>
             default: 
                 return <Templates/>
         }

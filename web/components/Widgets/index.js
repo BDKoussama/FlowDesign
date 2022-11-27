@@ -6,7 +6,7 @@ import Resize from './Resize';
 import Templates from './Templates';
 import TextWidget from './TextWidget';
 import Upload from './Upload';
-
+import Stickers from './Stickers'
 
 export {
     Background,
@@ -16,5 +16,6 @@ export {
     Resize,
     Templates,
     TextWidget,
-    Upload
+    Upload,
+    Stickers
 }

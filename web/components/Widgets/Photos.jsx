@@ -9,7 +9,6 @@ export default function Photos(){
 
     const {item} = useSelector(state => state.selected.present)
 
-
     if(item.id !== null & item.type === "Image"){
         return (<ImageSettings />)
     }else {
