@@ -4,12 +4,18 @@ import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import { useRef, useState } from 'react';
 import GalleryItem from './GalleryItem';
 import {Spinner} from 'flowbite-react'
+import IconItem from './IconItem';
 
 export default function FlaticonGallery({widget}) {
 
     const [search , setSearch] = useState('')
 
     const [keyword , setKeyWord] = useState('arrow')
+
+
+    const lastElement = (icon) => {
+        return icon.raster_sizes[icon.raster_sizes.length - 1]
+    }   
 
     const {
         status , 
@@ -20,16 +26,12 @@ export default function FlaticonGallery({widget}) {
         fetchNextPage,
         hasNextPage,
     } = useInfiniteQuery(['images' , keyword], 
-        async ({ pageParam = 1 }) => {
-            const res = await axios.get("https://iconfinder-api-auth.herokuapp.com/v4/https://api.iconfinder.com/v4/icons/search", {
-                headers : {
-                    'Content-Type': 'application/json',
-                    'Authorization' : `Bearer ${process.env.NEXT_PUBLIC_ICON_FINDER_API_KEY}`,
-                },
+        async ({ pageParam = 0 }) => {
+            const res = await axios.get("https://api-auth-server-iconfinder.herokuapp.com/v4/icons/search", {
                 params : {
                     query : keyword ,
-                    count : 21,
-                    page : pageParam
+                    count : 90,
+                    offset: pageParam,
                 }
             });
             const results = {
@@ -85,8 +87,8 @@ export default function FlaticonGallery({widget}) {
                                 data.pages.map((page , i) => (
                                     <div key={i.toString()} className = "flex flex-row flex-wrap justify-start">
                                         {
-                                            page.results.map((photo => (
-                                                <GalleryItem key={photo.id} photo = {photo} widget = {widget} />
+                                            page.icons.map((icon => ( 
+                                                <IconItem key={icon.icon_id} photo = {lastElement(icon)} />   
                                             )))
                                         }
                                     </div>
