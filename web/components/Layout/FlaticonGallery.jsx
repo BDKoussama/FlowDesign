@@ -10,7 +10,7 @@ export default function FlaticonGallery({widget}) {
 
     const [search , setSearch] = useState('')
 
-    const [keyword , setKeyWord] = useState('arrow')
+    const [keyword , setKeyWord] = useState('social')
 
 
     const lastElement = (icon) => {
@@ -27,22 +27,27 @@ export default function FlaticonGallery({widget}) {
         hasNextPage,
     } = useInfiniteQuery(['images' , keyword], 
         async ({ pageParam = 0 }) => {
+
+            const count = 50;
+            const offset = pageParam * count;
             const res = await axios.get("https://api-auth-server-iconfinder.herokuapp.com/v4/icons/search", {
                 params : {
                     query : keyword ,
-                    count : 90,
-                    offset: pageParam,
+                    count,
+                    offset,
                 }
             });
             const results = {
                 ...res.data,
-                nextPage : pageParam + 1
+                offset,
+                count
             }
             return results;
         } , {
-        getNextPageParam: (lastPage , pages) => {
-            if (lastPage.nextPage < lastPage.total_pages) return lastPage.nextPage;
-            return false;
+        getNextPageParam: (lastPage) => {
+            const totalPages = Math.floor(lastPage.total_count / lastPage.count)
+            const actualPage = lastPage.offset / lastPage.count
+            return actualPage < totalPages ? actualPage + 1 : undefined // By returning undefined if there are no more pages, hasNextPage boolean will be set to false
         }
     })
 
