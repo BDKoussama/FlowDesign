@@ -4,7 +4,7 @@ import { Html } from 'react-konva-utils';
 import { useEffect, useRef, useState } from 'react';
 import {Spinner} from 'flowbite-react';
 import {getCrop} from '../../utils/cropImage';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setDragProps, setTransformProps } from '../../app/features/canvas/selectSlice';
 import { updateElement } from '../../app/features/canvas/stageSlice';
 import Konva from 'konva';
@@ -17,6 +17,8 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
     const [isLoading , setIsLoading] = useState(true);
     const [filters , setFilters] = useState([Konva.Filters.Blur, Konva.Filters.Brighten]);
 
+    const { scale } = useSelector((state) => state.stage.present.size)
+
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -27,7 +29,6 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
           setFilters([Konva.Filters.Blur, Konva.Filters.Brighten])
         }
     },[image , attrs])
-
 
     useEffect(() => {
       if (isSelected && trRef.current !== null) {
@@ -42,12 +43,17 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
     const displaySpinner = () => {
         if(imgRef.current && imgRef.current !== null) {
         
-            var imgPosition = imgRef.current.getAbsolutePosition();
+            const imgPosition = imgRef.current.getAbsolutePosition();
 
-            var areaPosition = {
-              x:  attrs.x - (attrs.width / 2 ),
-              y: attrs.y - (attrs.height / 2)
-            };
+            const imgSize = {
+              height : scale.y * attrs.height,
+              width : scale.x * attrs.width,
+            }
+
+            const areaPosition = {
+              x : imgPosition.x - (imgSize.width / 2) ,
+              y: imgPosition.y - (imgSize.height / 2)
+            }
             
             const media = new window.Image()
     

@@ -2,7 +2,6 @@ import {useInfiniteQuery} from 'react-query';
 import axios from 'axios';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import { useRef, useState } from 'react';
-import GalleryItem from './GalleryItem';
 import {Spinner} from 'flowbite-react'
 import IconItem from './IconItem';
 
@@ -10,7 +9,7 @@ export default function FlaticonGallery({widget}) {
 
     const [search , setSearch] = useState('')
 
-    const [keyword , setKeyWord] = useState('social')
+    const [keyword , setKeyWord] = useState('emoji')
 
 
     const lastElement = (icon) => {
@@ -42,6 +41,7 @@ export default function FlaticonGallery({widget}) {
                 offset,
                 count
             }
+            console.log(results.offset)
             return results;
         } , {
         getNextPageParam: (lastPage) => {

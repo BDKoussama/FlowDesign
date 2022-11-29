@@ -15,16 +15,14 @@ export default function IconItem({photo}){
     const {height : stageHeight , width : stageWidth} = useSelector(state => state.stage.present.size)
     
     const handleClick = (url) => {
-
-        console.log(url);
         
         const {height , width}  = imgRef.current.getBoundingClientRect();
 
         const id = uuidv4()
 
             const size  = {
-                height : height + 300,
-                width : width + 300
+                height : photo.size / 2,
+                width : photo.size / 2
             }
 
             const image = new window.Image()
@@ -34,8 +32,8 @@ export default function IconItem({photo}){
             image.onload = () => {
 
                 const crop = getCrop( image , { 
-                    height : photo.size || size.height + 100, 
-                    width : photo.size || size.width  + 100 
+                    height : size.height, 
+                    width :  size.width  
                 })
 
                 const attrs = {
@@ -43,13 +41,13 @@ export default function IconItem({photo}){
                     url,
                     type: 'Image',
                     x : stageWidth / 2,
-                    y : stageHeight / 2,
-                    width : photo.size / 2 || size.width,
-                    height : photo.size / 2 ||  size.height,
+                    y :   stageWidth / 2,
+                    width : size.width,
+                    height : size.height,
                     scaleX: 1,
                     scaleY: 1,
-                    offsetX :  photo.size / 2 || size.width / 2,
-                    offsetY: photo.size / 2 || size.height / 2,
+                    offsetX :  size.width / 2,
+                    offsetY: size.height / 2,
                     stroke : '#000000',
                     opacity : 1,
                     strokeWidth : 0,
