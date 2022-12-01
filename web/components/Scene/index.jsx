@@ -13,13 +13,17 @@ export default function Scene({toggle}){
 
     const stageRef = useRef();
 
+    const scaleStage = (width , height) => {
+        const stage = stageRef.current;
+        stage.width(width)
+        stage.height(height)
+        stage.scaleX(1)
+        stage.scaleY(1)
+    }
+
     const downloadAsPng = (width , height) => {
         if(stageRef.current && stageRef.current !== null){
-            const stage = stageRef.current;
-            stage.width(width)
-            stage.height(height)
-            stage.scaleX(1)
-            stage.scaleY(1)
+            scaleStage(width , height)
             const uri = stageRef.current.toDataURL();
             const link = document.createElement('a');
             link.download = name;
@@ -31,14 +35,9 @@ export default function Scene({toggle}){
 
     const downloadAsJson = (width , height) => {
         if(stageRef.current && stageRef.current !== null){
-          const stage = stageRef.current;
-          stage.width(width)
-          stage.height(height)
-          stage.scaleX(1)
-          stage.scaleY(1)
-          const json = stage.toJSON();
-          const fileData = JSON.stringify(json);
-          const blob = new Blob([fileData], {type: "text/plain"});
+            scaleStage(width , height)
+          const fileData = stageRef.current.toJSON();
+          const blob = new Blob([fileData], {type: "application/json"});
           const url = URL.createObjectURL(blob);
           const link = document.createElement('a');
           link.download = `test.json`;
