@@ -15,10 +15,10 @@ import {Button} from 'flowbite-react';
 
 const  GUIDELINE_OFFSET = 10;
 
-export default function StageWrapper({toggle}){
+export default function StageWrapper({toggle , stageRef}){
 
     const wrapper = useRef();
-    const stageRef = useRef();
+    //const stageRef = useRef();
     const layerRef = useRef();
 
     const [parentSize , setParentSize] = useState({
@@ -413,26 +413,10 @@ export default function StageWrapper({toggle}){
         layerRef.current.find(".guid-line").forEach((l) => l.destroy());
       };
     
-      const serializeStage = () => {
-        if(stageRef.current && stageRef.current !== null){
-          const stage = stageRef.current;
-          stage.width(width)
-          stage.height(height)
-          stage.scaleX(1)
-          stage.scaleY(1)
-          const json = stage.toJSON();
-          console.log(json);
-        }
-      }
 
     return(
         <div className={`stage-wrapper ${( parentSize.height >= initialHeight && parentSize.width >= initialWidth ) ? 'center-stage' : '' }`}  ref={wrapper}>
             <Zoom scale = {scale.x} zoom = {zoom} />
-            <div className="serialize-stage absolute right-10 bottom-10">
-                    <Button onClick={serializeStage} className = "hidden">
-                        Serialize
-                    </Button>
-              </div>
             <div tabIndex={1} onKeyDown = {handleKeyboardEvents} className='stage' style = {{ height : `${initialHeight}px` , width : `${initialWidth}px`}} >
                 <Stage 
                     ref={stageRef}  

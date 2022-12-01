@@ -4,16 +4,19 @@ import {useSelector , useDispatch} from 'react-redux';
 import LayerControl from '../Layout/LayerControl';
 import { ActionCreators as UndoActionCreators } from 'redux-undo'
 
-export default function StageHeader(){
+export default function StageHeader({downloadAsJson , downloadAsPng}){
 
     const {item} = useSelector(state => state.selected.present)
+
+    const {height , width } = useSelector((state) => state.stage.present.size)
+
     const dispatch = useDispatch()
 
     const canUndo = useSelector(state => state.selected.past).length > 0
     const canRedo = useSelector(state => state.selected.future).length > 0
 
     return (
-        <div className='stage-header  rounded  w-11/12 h-[70px] bg-gray-800 absolute top-10 z-10 py-2 px-3 '>
+        <div className='stage-header w-full h-[70px] bg-gray-800  z-10 py-2 px-3 '>
             <div className="h-full w-full flex flex-row justify-between items-center">
                 
                 <div className='w-44'>
@@ -35,9 +38,13 @@ export default function StageHeader(){
                     </Tooltip>
                 </div>
 
-                <div className="download-stage">
-                    <Button className='rounded-full'>
-                        Download
+                <div className="download-stage flex ">
+                    <Button className='rounded-full mx-1' onClick={() => downloadAsJson(width , height)}>
+                        Json
+                    </Button>
+
+                    <Button className='rounded-full mx-1' onClick={() => downloadAsPng(width , height)}>
+                        Png
                     </Button>
                 </div>
             </div>

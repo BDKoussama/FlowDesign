@@ -28,13 +28,13 @@ export default function SideBar(){
     },[template , setWidget])
 
     return (
-        <div className='editor-navbar flex flex-col bg-gray-900 w-full h-auto md:w-[100px] md:h-full overflow-hidden'>
+        <div className='editor-navbar flex flex-col bg-gray-900 w-full h-auto md:w-[100px] md:h-[100vh] overflow-hidden'>
 
-            <div className="logo-wrapper h-12 w-12 md:flex items-center hidden justify-center mt-6 mx-auto">
-                <Logo />
+            <div className="logo-wrapper h-20 w-12 md:flex items-center hidden justify-center  mx-auto">
+                <Logo />    
             </div>
 
-            <div className='editor-sidebar_menu w-full md:mt-6 h-full overflow-x-scroll'>
+            <div className='editor-sidebar_menu w-full md:mt-0 h-full overflow-x-scroll'>
                 <ul className='sidebar-menu_list flex w-[200%] md:block md:w-full'>
 
                     <li className='sidebar-menu_list-item w-[90px] md:w-auto'> 
