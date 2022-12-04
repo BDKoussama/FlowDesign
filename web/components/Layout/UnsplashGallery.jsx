@@ -9,7 +9,7 @@ export default function UnsplashGallery ({widget}) {
 
     const [search , setSearch] = useState('')
 
-    const [keyword , setKeyWord] = useState('random')
+    const [keyword , setKeyWord] = useState(widget === "background" ? 'art' : 'nature')
 
     const {
         status , 

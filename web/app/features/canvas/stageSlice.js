@@ -64,6 +64,23 @@ const stageSlice = createSlice({
                 scale: scale
             }
         },
+        setTemplate(state , action){
+            const {template} = action.payload
+            const layer = template.children[0]
+            const background = layer.children.filter(item => item.attrs.name === 'background')
+            console.log(template)
+
+            return state = {
+                ...state , 
+                //size :{} 
+                background: {
+                    fill : background[0].className === "Rect" ?  background[0].attrs.fill : "",
+                    fillPatternImage : background[0].className === "Image"? background[0].attrs.url : "",
+                    type : background[0].className === "Image" ? "image" : "color"
+                },
+                children : layer.children
+            }
+        },
         addShape(state , action){
             state.children.push(action.payload)
         },
@@ -127,6 +144,6 @@ const stageSlice = createSlice({
     }
 })
 
-export const { setStageSize , scaleStage , addShape , setStageBackground , updateElement , deleteElement , setElementZindex} = stageSlice.actions;
+export const { setStageSize , scaleStage , addShape , setStageBackground , updateElement , deleteElement , setElementZindex , setTemplate} = stageSlice.actions;
 
 export default undoable(stageSlice.reducer);
