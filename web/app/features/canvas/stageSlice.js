@@ -68,17 +68,17 @@ const stageSlice = createSlice({
             const {template} = action.payload
             const layer = template.children[0]
             const background = layer.children.filter(item => item.attrs.name === 'background')
-            console.log(template)
+            const children = layer.children.filter(item => item.attrs.name !== 'background')
 
             return state = {
                 ...state , 
                 //size :{} 
-                background: {
+                background: {   
                     fill : background[0].className === "Rect" ?  background[0].attrs.fill : "",
                     fillPatternImage : background[0].className === "Image"? background[0].attrs.url : "",
                     type : background[0].className === "Image" ? "image" : "color"
                 },
-                children : layer.children
+                children : children
             }
         },
         addShape(state , action){
