@@ -16,6 +16,7 @@
     "flowbite": "^1.5.3",
     "flowbite-react": "^0.3.4",
     "konva": "^8.3.13",
+    "locomotive-scroll": "^4.1.4",
     "lodash": "^4.17.21",
     "next": "12.1.6",
     "next-transpile-modules": "^9.0.0",

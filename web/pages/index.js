@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image';
 import Container from '../components/Layout/Container';
 import {Title , BlobLeft , BlobRight , Button , Description , Section , Accordion , Navbar , Hero} from '../components/Landing/index';
+import  {SmoothScrollProvider} from '../context/SmoothScrollContext';
 
 export default function Home() {
     
@@ -11,10 +12,12 @@ export default function Home() {
                 <Head>
                     <title>Design.Io | Social media graphics</title>
                 </Head>
-
-
+                
+            
+            <div data-scroll-container>
+            <SmoothScrollProvider>
                 <div className='relative w-full'>
-                    <div className='absolute -left-50 -z-10'>
+                    <div className='absolute -left-50 -z-10 hidden'>
                         <BlobLeft />
                     </div>
                     <Navbar/>
@@ -49,7 +52,7 @@ export default function Home() {
                   
 
                     <div className='w-full text-center pt-20 relative'>
-                        <div className='absolute right-0 top-0 z-0'>
+                        <div className='absolute right-0 top-0 z-0 hidden       '>
                             <BlobRight />
                         </div>
                         <Title text = "Explore eye-catching templates" />
@@ -92,8 +95,8 @@ export default function Home() {
                         title= "Select from professionally designed social media templates "
                         subtitle = "get started fast"
                         description= "Browse through thousands of professionally designed templates for social posts, banners, campaigns, and more. Specify your search based on platform, aesthetic, mood, color, event, or theme."
-                        direction= "flex-row-reverse"
-                        style= "mr-28"
+                        direction= "lg:flex-row"
+                        style= "lg:ml-28 mt-10 lg:mt-0"
                       />
 
 
@@ -101,35 +104,38 @@ export default function Home() {
                         title= "Customize your social graphic templates with a few clicks"
                         subtitle = "easy-to-use interface"
                         description= "Easily modify your design for any of your social platforms. Drag & drop different shapes , images and text"
-                        direction= "flex-row"
-                        style= "ml-10"
+                        direction= "lg:flex-row-reverse"
+                        style= "lg:mr-28 mt-10 lg:mt-0"
                       />
 
                       <Section 
                         title= "Search across any keyword and select from photos , stickers and icons"
                         subtitle = "FULLY CUSTOMIZABLE"
                         description= "An extensive collection of high-resolution photos to help marketers spice up their social graphics and create images that bring lifee to their social media presence."
-                        direction= "flex-row-reverse"
-                        style= "mr-28"
+                        direction= "lg:flex-row"
+                        style= "lg:ml-28 mt-10 lg:mt-0"
                       />
 
                       <Section 
                         title= "Save and share your social media graphics"
                         subtitle = "ONE CLICK AWAY FROM THE WORLD"
                         description= "Instantly download your finished product to your device and you’re ready to share.  Keep your branding consistent across future social graphic designs by duplicating your design and updating the content."
-                        direction= "flex-row"
-                        style= "ml-10"
+                        direction= "lg:flex-row-reverse"
+                        style= "lg:mr-28 mt-10 lg:mt-0"
                       />
 
                       <div className='my-60 text-center'>
                           <Title text="Frequently asked questions" />
 
-                          <div className='w-full mt-20 w-9/12 mx-auto'>
+                          <div className='w-full mt-20 lg:w-9/12 mx-auto mb-96'>
                                 <Accordion />
                           </div>
 
                       </div>
                   </Container>
+                
+                </SmoothScrollProvider>
+            </div>
                 
         </>
   )
