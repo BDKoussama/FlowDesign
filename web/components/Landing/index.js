@@ -7,6 +7,9 @@ import Button from './Button';
 import BlobLeft from './BlobLeft';
 import BlobRight from './BlobRight';
 import Accordion from './Accordion';
+import Faq from './Faq';
+import Features from './Features';
+import Templates from './Templates';
 
 export {
     Hero,
@@ -17,5 +20,8 @@ export {
     Button,
     BlobLeft,
     BlobRight,
-    Accordion
+    Accordion,
+    Faq,
+    Templates,
+    Features
 }

@@ -7,7 +7,7 @@ export default function Hero(){
         <Container>
             <div className='hero w-full text-center z-2'>
                 <h1 className='text-[5.5vw] font-bold mt-0 leading-snug w-10/12 mx-auto'> Create social media graphics that make you stand out </h1>
-                <p className='mt-5 w-6/12 mx-auto text-xl'>
+                <p className='mt-5 w-11/12 lg:w-6/12 mx-auto text-md lg:text-xl'>
                   Easily make unique social media designs in a flash using free templates, images, trending design assets, and more.
                 </p>
                 <Button text= "Create your social graphic now" url = '/editor' style= "mt-10" />
