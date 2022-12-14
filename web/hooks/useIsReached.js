@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function useIsReached(ref) {
+export function useIsReached(ref) {
   const [isReached, setIsReached] = useState(false);
 
   useEffect(() => {

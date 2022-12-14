@@ -10,6 +10,7 @@ import Accordion from './Accordion';
 import Faq from './Faq';
 import Features from './Features';
 import Templates from './Templates';
+import Footer from './Footer';
 
 export {
     Hero,
@@ -23,5 +24,6 @@ export {
     Accordion,
     Faq,
     Templates,
-    Features
+    Features,
+    Footer
 }

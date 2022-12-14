@@ -1,6 +1,6 @@
-export default function Logo(){
+export default function Logo({ width = 20 , height = 35 }){
     return (
-        <svg width="20" height="35" viewBox="0 0 23 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width={width} height={height} viewBox="0 0 23 35" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5.29541 5H8.35867C16.4272 5 22.9681 11.5409 22.9681 19.6094C22.9681 27.678 16.4272 34.2188 8.35867 34.2188H5.29541V5Z" fill="url(#paint0_linear_1_1007)"/>
             <rect width="14.2952" height="19.872" fill="url(#paint1_linear_1_1007)"/>
             <defs>

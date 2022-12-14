@@ -1,7 +1,7 @@
 
 import Head from 'next/head'
 import Image from 'next/image';
-import { BlobLeft , Faq , Templates , Features  , Navbar , Hero} from '../components/Landing/index';
+import { BlobLeft , Faq , Templates , Features  , Navbar , Hero , Footer} from '../components/Landing/index';
 import  {SmoothScrollProvider} from '../context/SmoothScrollContext';
 
 export default function Home() {
@@ -55,6 +55,7 @@ export default function Home() {
                 <Templates />
                 <Features />
                 <Faq/>
+                <Footer />
                   
                 
                 </SmoothScrollProvider>

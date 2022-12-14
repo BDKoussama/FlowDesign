@@ -8,10 +8,16 @@ export default function Navbar(){
             <div className='py-10 z-2'>
                 <nav className='flex items-center justify-between'>
                     <span className='logo flex justify-center items-center h-12 w-12'> 
-                    <Logo />
+                        <Logo height={45} width = {30} />
                     </span>
 
-                    <Button text= "Get Started" url = '/editor' />
+                    <ul>
+                        <li className="inline-block mr-5"><span className="font-semibold">Home</span></li>
+                        <li className="inline-block mr-5"><span className="font-semibold">Templates</span></li>
+                        <li className="inline-block mr-5"><span className="font-semibold">Features</span></li>
+                        <li className="inline-block mr-5"><span className="font-semibold">Faq</span></li>
+                        <li className="inline-block mr-5"><Button text= "Get Started" url = '/editor' animate = {false} /></li>
+                    </ul>
                 </nav>
             </div>
         </Container> 

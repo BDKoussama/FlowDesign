@@ -16,6 +16,7 @@ export const SmoothScrollProvider = ({ children, options }) => {
           const scroll = new LocomotiveScroll({
             el: document.querySelector('[data-scroll-container]') ?? undefined,
               smooth: true,
+              lerp : 0.06,
               smoothMobile: true,
               getDirection: true,
               resetNativeScroll : true,
