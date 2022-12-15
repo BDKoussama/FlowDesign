@@ -4,8 +4,9 @@ import Button from "./Button";
 import gsap from 'gsap';
 
 export default function Section({ direction , title , description , subtitle , style , translate }){
+    
     const [inViewRef, inView] = useInView({
-        threshold : 0.2
+        threshold : 0
     });
 
     const ref = useRef();
@@ -23,34 +24,38 @@ export default function Section({ direction , title , description , subtitle , s
         [inViewRef],
     );
 
-
     useLayoutEffect(() => { 
        spans.current = title.split(' ')
     },[])
 
     if(inView){
-            timeline.current.add(gsap.to(ref.current.querySelector('.feature-cover') , {
-                translateZ : '1px',
-                translateX : 0,
+            timeline.current.add(
+            gsap.fromTo(ref.current.querySelector('.feature-cover') , {
+                translateX : `${translate}%`,
+                translateZ : '1px'
+            } ,
+             {
+                translateZ : '0px',
+                translateX : '0%',
                 ease : "power1.inOut",
-                    duration: 0.8,
+                duration: 0.8,
             }))
-        timeline.current.add(gsap.to(ref.current.querySelectorAll('span span') ,
+            timeline.current.add(gsap.to(ref.current.querySelectorAll('span span') ,
             {
                 stagger: 0.01,
                 translateZ : '0px',
-                translateY : 0,
+                translateY : "0%",
                 ease : "power1.inOut",
-                duration: 1.2
-            }),'-=0.4')
+                duration: 0.8
+            }),'-=0.6')
         timeline.current.add(gsap.to([ref.current.querySelector('.description') , ref.current.querySelector('.cta')] , {
                 autoAlpha : 1,
                 translateZ : '1px',
                 translateY : 0,
                 ease : "power1.inOut",
-                duration: 1.2,
+                duration: 0.8,
                 stagger: 0.1
-        }), '-=0.4')
+        }), '-=0.6')
         
        
     timeline.current.play();
@@ -77,7 +82,7 @@ export default function Section({ direction , title , description , subtitle , s
                     <Button text= "Create your social graphic now" url="/editor" animate = {false} />
                 </div>
             </div>
-            <div className={`bg-gray-200 will-change-transform feature-cover ${translate} w-full flex-1 h-[70vh] rounded-lg ${style}`}>
+            <div  className={`bg-gray-200 will-change-transform feature-cover w-full flex-1 h-[70vh] rounded-lg ${style}`}>
             </div>
         </div>
     )

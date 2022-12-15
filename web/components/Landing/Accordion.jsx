@@ -1,4 +1,6 @@
 import { useRef  , useEffect,useState } from "react";
+import gsap from 'gsap';
+import { useInView } from 'react-intersection-observer';
 
 
 const panels = [
@@ -28,6 +30,7 @@ const panels = [
 export function Panel({activeTab , index , label , content , activateTab}){
     
     const [height , setHeight] = useState(0);
+
     const ref = useRef();
 
     useEffect(() => {
@@ -39,6 +42,8 @@ export function Panel({activeTab , index , label , content , activateTab}){
         }
     },[])
 
+	
+
     const isActive = activeTab === index; 
 
     const innerStyle = {
@@ -46,7 +51,7 @@ export function Panel({activeTab , index , label , content , activateTab}){
     }
 
     return(
-        <div  ref = {ref} className='panel' role='tabpanel' aria-expanded={ isActive }>
+        <div  ref = {ref} className='panel will-change-transform translate-y-2/4 ' role='tabpanel' aria-expanded={ isActive }>
 			<button className='panel__label' role='tab' onClick={ activateTab }>
 				<h4 className="text-2xl text-black font-medium">{ label }</h4>
 			</button>
@@ -62,12 +67,28 @@ export default function Accordion(){
 
     const[activeTab , setActiveTab] = useState(0);
 
+	const { ref, inView, entry } = useInView({
+        threshold: 0.2
+    });
+
+
+    if(inView){
+        gsap.to(entry.target.querySelectorAll('.panel') ,
+            {
+            translateZ : '1px',
+            translateY : 0,
+            ease : "power1.inOut",
+            duration: 1.5,
+			stagger: 0.2
+        })
+    }
+
     const activateTab = (index) => {
         setActiveTab(activateTab === index ? -1 : index)
     }
    
     return(
-        <div className='accordion' role='tablist'>
+        <div className='accordion' role='tablist' ref = {ref}>
 				{panels.map((panel, index) =>
 					<Panel
 						key={ index }

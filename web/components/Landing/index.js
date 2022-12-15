@@ -11,6 +11,8 @@ import Faq from './Faq';
 import Features from './Features';
 import Templates from './Templates';
 import Footer from './Footer';
+import IconsGroup from './iconsGroup';
+
 
 export {
     Hero,
@@ -25,5 +27,6 @@ export {
     Faq,
     Templates,
     Features,
-    Footer
+    Footer,
+    IconsGroup
 }

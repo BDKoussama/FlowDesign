@@ -5,7 +5,7 @@ export default function Description({text , style}){
 
     
     const { ref, inView, entry } = useInView({
-        threshold: 1
+        threshold: 0.2
     });
 
     if(inView){

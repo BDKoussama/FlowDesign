@@ -5,7 +5,7 @@ import gsap from 'gsap';
 export default function Title({text , style}) {
 
     const [inViewRef, inView] = useInView({
-        threshold : 1
+        threshold : 0.2
     });
 
     const ref = useRef();

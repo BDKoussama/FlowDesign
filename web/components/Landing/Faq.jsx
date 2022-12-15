@@ -1,7 +1,6 @@
 import Container from "../Layout/Container";
 import Accordion from "./Accordion";
 import Title from "./Title";
-import {Logo} from '../Svg/index';
 
 export default function Faq(){
     return(

@@ -5,7 +5,7 @@ import gsap from 'gsap';
 export default function Button({ text , url , style , animate = true}){
 
     const { ref, inView, entry } = useInView({
-        threshold: 1
+        threshold: 0.2
     });
 
     if(inView && animate){
