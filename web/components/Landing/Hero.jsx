@@ -36,7 +36,7 @@ export default function Hero({heading , description}){
                 </h1>
                 <p className='mt-5 w-11/12 lg:w-6/12 mx-auto text-md lg:text-xl h-d' >
                     {descSpans.current.length !== 0 && descSpans.current.map((item , index)  => (
-                        <span className="mx-1 overflow-hidden inline-block " key={`${item}-${index}`}>
+                        <span className="mx-0.5 overflow-hidden inline-block " key={`${item}-${index}`}>
                             <span className="translate-y-[110%] block translate-z-px will-change-transform">{item}</span>
                         </span>
                     ))} 

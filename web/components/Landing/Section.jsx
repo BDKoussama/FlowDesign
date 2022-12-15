@@ -82,7 +82,7 @@ export default function Section({ direction , title , description , subtitle , s
                     <Button text= "Create your social graphic now" url="/editor" animate = {false} />
                 </div>
             </div>
-            <div  className={`bg-gray-200 will-change-transform feature-cover w-full flex-1 h-[70vh] rounded-lg ${style}`}>
+            <div  className={`bg-gray-200 will-change-transform feature-cover w-full h-[60vh] lg:flex-1 lg:h-[70vh] rounded-lg ${style}`}>
             </div>
         </div>
     )

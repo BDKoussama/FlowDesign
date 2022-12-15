@@ -51,7 +51,7 @@ export function Panel({activeTab , index , label , content , activateTab}){
     }
 
     return(
-        <div  ref = {ref} className='panel will-change-transform translate-y-2/4 ' role='tabpanel' aria-expanded={ isActive }>
+        <div  ref = {ref} className='panel will-change-transform translate-y-full ' role='tabpanel' aria-expanded={ isActive }>
 			<button className='panel__label' role='tab' onClick={ activateTab }>
 				<h4 className="text-2xl text-black font-medium">{ label }</h4>
 			</button>
@@ -78,7 +78,7 @@ export default function Accordion(){
             translateZ : '1px',
             translateY : 0,
             ease : "power1.inOut",
-            duration: 1.5,
+            duration: 1.2,
 			stagger: 0.2
         })
     }

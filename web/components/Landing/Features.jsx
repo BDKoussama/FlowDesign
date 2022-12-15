@@ -3,6 +3,8 @@ import Description from "./Description";
 import Section from "./Section";
 import Title from "./Title";
 import FeatureItem from "./FeatureItem";
+import { useInView } from 'react-intersection-observer';
+import gsap from 'gsap';
 
 export default function Features(){
 
@@ -12,9 +14,25 @@ export default function Features(){
         { text : "High-quality stock photos and other amazing design elements"}
     ]
 
+    const { ref, inView, entry } = useInView({
+        threshold: 1
+    });
+
+    if(inView){
+        gsap.to( entry.target.querySelectorAll('.feature-item') ,
+            {
+            autoAlpha : 1,
+            translateZ : '1px',
+            translateY : 0,
+            ease : "power1.inOut",
+            duration: 0.8,
+            stagger: 0.125
+        })
+    }
+
     return (
         <Container>
-            <div className='w-full text-center mt-60 relative '>
+            <div className='w-full text-center mt-60 relative ' ref = {ref}>
                 <Title text = "We didin't reinvent the wheel" />
                 <Description text="Just Launch Designo for free on your desktop or mobile device to start creating your graphic" />
                 <div className='w-full flex flex-col  items-center md:flex-row justify-between md:items-start mt-20  p-5'>
