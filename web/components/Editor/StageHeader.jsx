@@ -43,7 +43,7 @@ export default function StageHeader({downloadAsJson , downloadAsPng}){
                         Json
                     </Button>
 
-                    <Button className='rounded-full mx-1' onClick={() => downloadAsPng(size.width , size.height)}>
+                    <Button className='rounded-full mx-1' onClick={() => downloadAsPng(size)}>
                         Png
                     </Button>
                 </div>
