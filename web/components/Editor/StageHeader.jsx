@@ -8,7 +8,7 @@ export default function StageHeader({downloadAsJson , downloadAsPng}){
 
     const {item} = useSelector(state => state.selected.present)
 
-    const {height , width } = useSelector((state) => state.stage.present.size)
+    const { size } = useSelector((state) => state.stage.present)
 
     const dispatch = useDispatch()
 
@@ -39,11 +39,11 @@ export default function StageHeader({downloadAsJson , downloadAsPng}){
                 </div>
 
                 <div className="download-stage flex ">
-                    <Button className='rounded-full mx-1' onClick={() => downloadAsJson(width , height)}>
+                    <Button className='rounded-full mx-1' onClick={() => downloadAsJson(size)}>
                         Json
                     </Button>
 
-                    <Button className='rounded-full mx-1' onClick={() => downloadAsPng(width , height)}>
+                    <Button className='rounded-full mx-1' onClick={() => downloadAsPng(size.width , size.height)}>
                         Png
                     </Button>
                 </div>

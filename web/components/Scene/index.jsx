@@ -3,7 +3,7 @@ import React from "react"
 import dynamic from "next/dynamic";
 import StageHeader from "../Editor/StageHeader";
 import { useRef } from "react";
-import { useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 const Stage = dynamic(() => import("../Editor/StageWrapper"), {
     ssr: false,
@@ -22,25 +22,38 @@ export default function Scene({toggle}){
     }
 
     const downloadAsPng = (width , height) => {
+        const id = uuidv4()
+
         if(stageRef.current && stageRef.current !== null){
             scaleStage(width , height)
             const uri = stageRef.current.toDataURL();
             const link = document.createElement('a');
-            link.download = name;
+            link.download = `${id}.png`;
             link.href = uri;
             link.click();
         }
         
     }
 
-    const downloadAsJson = (width , height) => {
+    const downloadAsJson = (size) => {
+        const id = uuidv4()
+
         if(stageRef.current && stageRef.current !== null){
-            scaleStage(width , height)
+          scaleStage(size.width , size.height)
           const fileData = stageRef.current.toJSON();
-          const blob = new Blob([fileData], {type: "application/json"});
+          const obj = JSON.parse(fileData);
+          const data = {
+            thumbnail : "01.png",
+            ...obj,
+            attrs : {
+                ...obj.attrs,
+                ...size
+             },
+          }
+          const blob = new Blob([JSON.stringify(data)], {type: "application/json"});
           const url = URL.createObjectURL(blob);
           const link = document.createElement('a');
-          link.download = `test.json`;
+          link.download = `${id}.json`;
           link.href = url;
           link.click();
         }

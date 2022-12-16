@@ -6,7 +6,8 @@ import gsap from 'gsap';
 export default function Section({ direction , title , description , subtitle , style , translate }){
     
     const [inViewRef, inView] = useInView({
-        threshold : 0
+        threshold : 0,
+        triggerOnce: true
     });
 
     const ref = useRef();
@@ -29,7 +30,7 @@ export default function Section({ direction , title , description , subtitle , s
     },[])
 
     if(inView){
-            timeline.current.add(
+        timeline.current.add(
             gsap.fromTo(ref.current.querySelector('.feature-cover') , {
                 translateX : `${translate}%`,
                 translateZ : '1px'
