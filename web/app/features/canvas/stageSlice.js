@@ -70,9 +70,12 @@ const stageSlice = createSlice({
             const background = layer.children.filter(item => item.attrs.name === 'background')
             const children = layer.children.filter(item => item.attrs.name !== 'background')
 
+            console.log(template);
             return state = {
                 ...state , 
-                //size :{} 
+                size :{
+                    ...template.attrs
+                }, 
                 background: {   
                     fill : background[0].className === "Rect" ?  background[0].attrs.fill : "",
                     fillPatternImage : background[0].className === "Image"? background[0].attrs.url : "",

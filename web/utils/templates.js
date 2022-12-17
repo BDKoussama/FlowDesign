@@ -1,12 +1,18 @@
 export const templates = [
     {
         "thumbnail": "01.png",
-        "type": "ig-story",
         "attrs": {
-            "width": 1080,
             "height": 1920,
-            "scaleX" : 1,
-            "scaleY" : 1
+            "width": 1080,
+            "initialWidth" : 1080 ,
+            "initialHeight" : 1920,
+            "type" : 'ig-story',
+            "widthAmount" : 108,
+            "heightAmount": 192,
+            "scale" : {
+                "x" : 1 ,
+                "y" : 1
+            },
         },
         "className": "Stage",
         "children": [{
@@ -93,12 +99,18 @@ export const templates = [
     },
     {
         "thumbnail": "02.png",
-        "type" : "ig-story",
         "attrs": {
-            "width": 1080,
             "height": 1920,
-            "scaleX" : 1,
-            "scaleY" : 1
+            "width": 1080,
+            "initialWidth" : 1080 ,
+            "initialHeight" : 1920,
+            "type" : 'ig-story',
+            "widthAmount" : 108,
+            "heightAmount": 192,
+            "scale" : {
+                "x" : 1 ,
+                "y" : 1
+            },
         },
         "className": "Stage",
         "children": [{
@@ -228,12 +240,18 @@ export const templates = [
     },
     {
         "thumbnail": "03.png",
-        "type": "ig-story",
         "attrs": {
-            "width": 1080,
             "height": 1920,
-            "scaleX" : 1,
-            "scaleY" : 1
+            "width": 1080,
+            "initialWidth" : 1080 ,
+            "initialHeight" : 1920,
+            "type" : 'ig-story',
+            "widthAmount" : 108,
+            "heightAmount": 192,
+            "scale" : {
+                "x" : 1 ,
+                "y" : 1
+            },
         },
         "className": "Stage",
         "children": [{
@@ -426,8 +444,15 @@ export const templates = [
         "attrs": {
             "width": 1080,
             "height": 1080,
-            "scaleX" : 1,
-            "scaleY" : 1
+            "type": "ig-post",
+            "initialWidth": 540,
+            "initialHeight": 540,
+            "heightAmount": 108,
+            "widthAmount": 108,
+            "scale": {
+                "x": 0.5,
+                "y": 0.5
+            }
         },
         "className": "Stage",
         "children": [{
@@ -607,13 +632,19 @@ export const templates = [
         }]
     },
     {
-        "thumbnail" : "05.png",
-        "type" : "ig-post",
+        "thumbnail": "05.png",
         "attrs": {
             "width": 1080,
             "height": 1080,
-            "scaleX" : 1,
-            "scaleY" : 1
+            "type": "ig-post",
+            "initialWidth": 540,
+            "initialHeight": 540,
+            "heightAmount": 108,
+            "widthAmount": 108,
+            "scale": {
+                "x": 0.5,
+                "y": 0.5
+            }
         },
         "className": "Stage",
         "children": [{
