@@ -70,7 +70,6 @@ const stageSlice = createSlice({
             const background = layer.children.filter(item => item.attrs.name === 'background')
             const children = layer.children.filter(item => item.attrs.name !== 'background')
 
-            console.log(template);
             return state = {
                 ...state , 
                 size :{

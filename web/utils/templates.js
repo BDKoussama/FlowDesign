@@ -2,17 +2,17 @@ export const templates = [
     {
         "thumbnail": "01.png",
         "attrs": {
-            "height": 1920,
             "width": 1080,
-            "initialWidth" : 1080 ,
-            "initialHeight" : 1920,
-            "type" : 'ig-story',
-            "widthAmount" : 108,
+            "height": 1920,
+            "initialWidth": 324,
+            "initialHeight": 576,
+            "type": "ig-story",
+            "widthAmount": 108,
             "heightAmount": 192,
-            "scale" : {
-                "x" : 1 ,
-                "y" : 1
-            },
+            "scale": {
+                "x": 0.3,
+                "y": 0.3
+            }
         },
         "className": "Stage",
         "children": [{
@@ -100,17 +100,17 @@ export const templates = [
     {
         "thumbnail": "02.png",
         "attrs": {
-            "height": 1920,
             "width": 1080,
-            "initialWidth" : 1080 ,
-            "initialHeight" : 1920,
-            "type" : 'ig-story',
-            "widthAmount" : 108,
+            "height": 1920,
+            "initialWidth": 324,
+            "initialHeight": 576,
+            "type": "ig-story",
+            "widthAmount": 108,
             "heightAmount": 192,
-            "scale" : {
-                "x" : 1 ,
-                "y" : 1
-            },
+            "scale": {
+                "x": 0.3,
+                "y": 0.3
+            }
         },
         "className": "Stage",
         "children": [{
@@ -241,17 +241,17 @@ export const templates = [
     {
         "thumbnail": "03.png",
         "attrs": {
-            "height": 1920,
             "width": 1080,
-            "initialWidth" : 1080 ,
-            "initialHeight" : 1920,
-            "type" : 'ig-story',
-            "widthAmount" : 108,
+            "height": 1920,
+            "initialWidth": 324,
+            "initialHeight": 576,
+            "type": "ig-story",
+            "widthAmount": 108,
             "heightAmount": 192,
-            "scale" : {
-                "x" : 1 ,
-                "y" : 1
-            },
+            "scale": {
+                "x": 0.3,
+                "y": 0.3
+            }
         },
         "className": "Stage",
         "children": [{

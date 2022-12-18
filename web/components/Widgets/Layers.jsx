@@ -16,7 +16,7 @@ export default function Layers(){
         <div className="p-4">
             Layers
             <ul className="mt-10 w-full">
-                {children.length !== 0 && children.map(item => {
+                {children.length !== 0 && children.filter(item => item.className !== 'Transformer').map(item => {
                     return (
                         <li key={item.attrs.id} className = 'my-2' >
                             <button className="bg-gray-700 hover:bg-gray-900 w-full h-full p-2 rounded flex justify-between items-center"
