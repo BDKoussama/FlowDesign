@@ -63,7 +63,8 @@ export default function IconItem({photo}){
                     visible : true,
                     toggleBlur : false ,
                     ...crop,
-                    name : 'object'
+                    name : 'object',
+                    title : 'Icon'
                 }
     
                 dispatch(addShape({

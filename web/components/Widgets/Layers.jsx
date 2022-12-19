@@ -30,7 +30,15 @@ export default function Layers(){
                             }}>
 
                                 <div>
-                                    <span className="block text-sm text-gray-400">{ item.className }</span>
+                                    <input type="text" name = "name" onChange={((e) => {
+                                        e.stopPropagation()
+                                        dispatch(updateSelected({
+                                            attrs : {
+                                                ...item.attrs,
+                                                title: e.target.value
+                                            }
+                                        }))
+                                    })} value = {item.attrs.title} placeholder="" className="border-0 block text-sm text-gray-400 bg-transparent cursor-pointer" />
                                 </div>
 
                                 <div className="flex justify-end items-center w-20">

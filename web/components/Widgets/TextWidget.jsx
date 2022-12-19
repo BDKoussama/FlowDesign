@@ -68,6 +68,7 @@ export default function TextWidget(){
             visible : true,
             rotation: 0,
             name : 'object',
+            title : "Text"
         }
 
         dispatch(addShape({

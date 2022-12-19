@@ -65,7 +65,8 @@ export default function GalleryItem({photo , widget}){
                     visible : true,
                     toggleBlur : false ,
                     ...crop,
-                    name : 'object'
+                    name : 'object',
+                    title : "Image"
                 }
     
                 dispatch(addShape({

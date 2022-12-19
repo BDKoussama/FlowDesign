@@ -45,6 +45,7 @@ export default function Elements(){
             rotation : 0,
             visible : true,
             name : 'object',
+            title : "Shape"
         }
 
         dispatch(addShape({
