@@ -3,7 +3,7 @@ import { useLayoutEffect } from "react";
 import { useRef } from "react";
 import gsap from 'gsap';
 
-export default function IconsGroup(){
+export default function HeroiIcons(){
 
     const ref = useRef(null)
 

@@ -1,6 +1,6 @@
 
 import Head from 'next/head'
-import { BlobLeft , Faq , Templates , Features  , Navbar , Hero , Footer, IconsGroup} from '../components/Landing/index';
+import { BlobLeft , Faq , Templates , Features  , Navbar , Hero , Footer, HeroiIcons} from '../components/Landing/index';
 import  {SmoothScrollProvider} from '../context/SmoothScrollContext';
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
                             heading= "Create social media graphics that make you stand out "
                             description = "Easily make unique social media designs in a flash using free templates, images, trending design assets, and more."
                         />
-                        <IconsGroup />
+                        <HeroiIcons />
                     </div>
                     <Templates />
                     <Features />
