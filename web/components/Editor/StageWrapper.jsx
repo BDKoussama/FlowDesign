@@ -444,7 +444,8 @@ export default function StageWrapper({toggle , stageRef}){
                                 
                             }
                         {children.length !== 0 && (
-                            children.map(item => {
+                            children.filter(item => item.className !== 'Transformer').
+                                  map(item => {
                                 if(item.className === "Image"){
                                     return (
                                         <CustomImage 
