@@ -38,7 +38,7 @@ export default function Layers(){
                                                 title: e.target.value
                                             }
                                         }))
-                                    })} value = {item.attrs.title} placeholder="" className="border-0 block text-sm text-gray-400 bg-transparent cursor-pointer" />
+                                    })} value = {item.attrs.title || item.className} placeholder="" className="border-0 block text-sm text-gray-400 bg-transparent cursor-pointer" />
                                 </div>
 
                                 <div className="flex justify-end items-center w-20">
