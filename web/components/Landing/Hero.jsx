@@ -27,7 +27,7 @@ export default function Hero({heading , description}){
     return(
         <Container>
             <div className='hero w-full text-center z-2 ' ref = {hero}>
-                <h1 className='text-[5.5vw] font-bold mt-0 leading-snug w-10/12 mx-auto'> 
+                <h1 className='text-[4.5vw] font-bold mt-0 leading-snug w-10/12 mx-auto'> 
                     {headingSpans.current.length !== 0 && headingSpans.current.map((item , index)  => (
                         <span className="mx-2 overflow-hidden inline-block " key={`${item}-${index}`}>
                             <span className="translate-y-[110%] block translate-z-px will-change-transform">{item}</span>

@@ -18,7 +18,7 @@ export default function Home() {
                         </div>
                         <Navbar/>
                         <Hero   
-                            heading= "Create social media graphics that make you stand out "
+                            heading= "Design visually appealing social media graphics that set you apart"
                             description = "Easily make unique social media designs in a flash using free templates, images, trending design assets, and more."
                         />
                         <HeroiIcons />
