@@ -9,9 +9,9 @@ import gsap from 'gsap';
 export default function Features(){
 
     const data = [
-        { text : "Social media templates that are easy to adjust" },
-        { text : "Upload your own images and brand colorsand create engaging social media posts"},
-        { text : "High-quality stock photos and other amazing design elements"}
+        { text : "Social media templates that are easy to adjust" , icon : "grid" },
+        { text : "Upload your own images and brand colorsand create engaging social media posts" , icon : "upload"},
+        { text : "High-quality stock photos and other amazing design elements" , icon : "gallery"}
     ]
 
     const { ref, inView, entry } = useInView({
@@ -36,7 +36,7 @@ export default function Features(){
                 <Title text = "We didin't reinvent the wheel" />
                 <Description text="Just Launch Designo for free on your desktop or mobile device to start creating your graphic" />
                 <div className='w-full flex flex-col  items-center md:flex-row justify-between md:items-start mt-20  p-5'>
-                    { data.map((item , index) => ( <FeatureItem key={index.toString()} text = {item.text} /> )) }
+                    { data.map((item , index) => ( <FeatureItem key={index.toString()} text = {item.text} icon = {item.icon} /> )) }
                 </div>
             </div>
 
@@ -47,6 +47,7 @@ export default function Features(){
                 direction= "lg:flex-row"
                 style= "lg:ml-28 mt-10 lg:mt-0"
                 translate = {50}
+                image = "templates"
             />
 
 
@@ -57,6 +58,7 @@ export default function Features(){
                 direction= "lg:flex-row-reverse"
                 style= "lg:mr-28 mt-10 lg:mt-0"
                 translate = {-50}
+                image = "interface"
             />
 
             <Section 
@@ -66,6 +68,7 @@ export default function Features(){
                 direction= "lg:flex-row"
                 style= "lg:ml-28 mt-10 lg:mt-0"
                 translate = {50}
+                image = "photos"
             />
 
             <Section 
@@ -75,6 +78,7 @@ export default function Features(){
                 direction= "lg:flex-row-reverse"
                 style= "lg:mr-28 mt-10 lg:mt-0"
                 translate = {-50}
+                image = "download"
             />
 
         </Container>

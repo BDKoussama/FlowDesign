@@ -2,8 +2,9 @@ import { useCallback, useLayoutEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import Button from "./Button";
 import gsap from 'gsap';
+import Image from 'next/image';
 
-export default function Section({ direction , title , description , subtitle , style , translate }){
+export default function Section({ direction , title , description , subtitle , style , translate , image }){
     
     const [inViewRef, inView] = useInView({
         threshold : 0,
@@ -27,14 +28,15 @@ export default function Section({ direction , title , description , subtitle , s
 
     useLayoutEffect(() => { 
        spans.current = title.split(' ')
+       gsap.set(ref.current.querySelector('.feature-cover') , {
+            translateX : `${translate}%`,
+            translateZ : '1px'
+       })
     },[])
 
     if(inView){
         timeline.current.add(
-            gsap.fromTo(ref.current.querySelector('.feature-cover') , {
-                translateX : `${translate}%`,
-                translateZ : '1px'
-            } ,
+            gsap.to(ref.current.querySelector('.feature-cover') ,
              {
                 translateZ : '0px',
                 translateX : '0%',
@@ -83,7 +85,13 @@ export default function Section({ direction , title , description , subtitle , s
                     <Button text= "Create your social graphic now" url="/editor" animate = {false} />
                 </div>
             </div>
-            <div  className={`bg-gray-200 will-change-transform feature-cover w-full h-[60vh] lg:flex-1 lg:h-[70vh] rounded-lg ${style}`}>
+            <div  className={`will-change-transform relative feature-cover w-full h-[60vh] lg:flex-1 lg:h-[70vh] rounded-lg ${style}`}>
+                        <Image 
+                            layout='fill'
+                            objectFit='contain'
+                            src = {`/images/${image}.webp`}
+                            alt = {`${image} template image`}
+                        />
             </div>
         </div>
     )

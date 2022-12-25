@@ -25,7 +25,7 @@ export default function Hero({heading , description}){
     },[])
 
     return(
-        <Container>
+        <Container> 
             <div className='hero w-full text-center z-2 ' ref = {hero}>
                 <h1 className='text-[4.5vw] font-bold mt-0 leading-snug w-10/12 mx-auto'> 
                     {headingSpans.current.length !== 0 && headingSpans.current.map((item , index)  => (
