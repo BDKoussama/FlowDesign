@@ -89,16 +89,14 @@ export default function Footer({text = 'Create Unique social media graphics .'})
                                 <ul className="mr-10">
                                     <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white">
                                         <Link href = "/">
-                                            <a href="/">
+                                            <a>
                                                 <span className="font-semibold">Home</span>
                                             </a>
                                         </Link>
                                     </li>
-                                    <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white">
+                                    <li data-scroll-to className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white">
                                         <Link href = "#templates">
-                                            <a href="#templates" data-scroll-to>
-                                                <span className="font-semibold">Templates</span>
-                                            </a>
+                                            <a href = "#templates" data-scroll-to><span className="font-semibold">Templates</span></a>
                                         </Link>
                                     </li>
                                     <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white">

@@ -36,7 +36,7 @@ export default function Navbar(){
                     <ul ref={nav}>
                         <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
                             <Link href= "/">
-                                <a >
+                                <a>
                                     <span className="font-semibold">Home</span>
                                 </a>
                             </Link>
