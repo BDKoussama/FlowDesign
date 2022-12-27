@@ -1,6 +1,7 @@
 import { ColorPicker as ColorPickerPallete, useColor } from "react-color-palette";
 import { useState , useEffect} from "react";
 import useIsMounted from '../../hooks/useIsMounted';
+import useClickOutside from '../../hooks/useClickOutside';
 
 export default function ColorPicker({onChange , position , fill}){
 
@@ -9,6 +10,9 @@ export default function ColorPicker({onChange , position , fill}){
     const isMounted = useIsMounted();
 
     const [toggle , setToggle] = useState(false);
+
+    const ref = useClickOutside(() => { setToggle(false) });
+
 
     useEffect(() => {
         if(!isMounted){
@@ -28,7 +32,7 @@ export default function ColorPicker({onChange , position , fill}){
                     </div>
  
 
-                    {toggle && (<div className={`color-picker_wrapper absolute ${toggle ? 'show-color-picker' : ''}`} 
+                    {toggle && (<div ref={ref} className={`color-picker_wrapper absolute ${toggle ? 'show-color-picker' : ''}`} 
                                     style = {{ bottom : position === "top" ?  "100%" : 'unset' , top : position === 'bottom' ? "100%" : "unset" }}>
                                     <ColorPickerPallete width={250} height={100} color={color} alpha = {true} onChange={setColor} hideHSV dark />
                     </div>)}

@@ -7,10 +7,12 @@ import {useSelector , useDispatch} from 'react-redux';
 import {updateSelected , setSelected} from '../../app/features/canvas/selectSlice';
 import { setElementZindex , deleteElement , addShape } from '../../app/features/canvas/stageSlice';
 import { v4 as uuidv4 } from 'uuid';
+import useClickOutside from '../../hooks/useClickOutside';
 
 export default function LayerControl(){
 
     const [toggle , setToggle] = useState(false);
+
     const [flip , setFlip] = useState(false)
 
     const dispatch = useDispatch();
@@ -37,7 +39,7 @@ export default function LayerControl(){
                 newPosition = {x : width / 2}
             break
             case 'right':
-                newPosition = {x : width - currentElement.attrs.width / 2}
+                  newPosition = {x : width - currentElement.attrs.width / 2}
             break;
             case 'top':
                 newPosition  = { y: currentElement.attrs.height / 2 }
@@ -90,6 +92,11 @@ export default function LayerControl(){
         }))
     }
 
+
+    const ref = useClickOutside(() => { setToggle(false) });
+
+    const flipRef = useClickOutside(() => { setFlip(false) })
+
     return(
         <div className="layer-control w-44">
                     <ul>
@@ -104,7 +111,7 @@ export default function LayerControl(){
                                             type : "",
                                             id : null,
                                             attrs : {}
-                                        }))
+                                        })) 
                                     }}
                                 >  
                                     <TrashIcon className="h-5 w-5" />
@@ -143,7 +150,7 @@ export default function LayerControl(){
                                 </button> 
                             </Tooltip>
                             {toggle && (
-                                <div className='bg-gray-700 w-44 absolute py-2 rounded text-white'>
+                                <div className='bg-gray-700 w-44 absolute py-2 rounded text-white' ref={ref}>
                                     <ul>
                                         <li className="px-3 py-2"><span className="block text-md"> Layering </span></li>
                                         <li>
@@ -152,7 +159,7 @@ export default function LayerControl(){
                                                     onClick={() => { setZindex('FORWARD') }}
                                             >
                                                 <ChevronDoubleUpIcon className='h-5 w-5 mr-3' />
-                                                <span className='block'>To Forward</span>
+                                                <span className='block text-sm'>To Forward</span>
                                             </button>
                                         </li>
                                         <li>
@@ -161,7 +168,7 @@ export default function LayerControl(){
                                                     onClick={() => { setZindex('UP') }}
                                             >
                                                 <ChevronUpIcon  className='h-5 w-5  mr-3'/>
-                                                <span className='block'>Up</span>
+                                                <span className='block text-sm'>Up</span>
                                             </button>
                                         </li>
                                         <li>
@@ -170,7 +177,7 @@ export default function LayerControl(){
                                                     onClick={() => { setZindex('DOWN') }}
                                             >
                                                 <ChevronDownIcon  className='h-5 w-5  mr-3'/>
-                                                <span className='block'>Down</span>
+                                                <span className='block text-sm'>Down</span>
                                             </button>
                                         </li>
                                         <li>
@@ -179,7 +186,7 @@ export default function LayerControl(){
                                                     onClick={() => { setZindex('BOTTOM') }}
                                             >
                                                 <ChevronDoubleDownIcon className='h-5 w-5  mr-3'/>
-                                                <span className='block'>Bottom</span>
+                                                <span className='block text-sm'>Bottom</span>
                                             </button>
                                         </li>
                                         <li>
@@ -190,37 +197,37 @@ export default function LayerControl(){
                                         <li>
                                             <button className='px-3 py-2 flex justify-start items-center w-full hover:bg-gray-600' onClick={() => setAlignment('left')}>
                                                 <AlignLeft height="24px" width="24px" fill="#ffffff"/>
-                                                <span className='ml-3 block'>Align Left</span>
+                                                <span className='ml-3 block text-sm'>Align Left</span>
                                             </button>
                                         </li>
                                         <li>
                                             <button className='px-3 py-2 flex justify-start items-center w-full hover:bg-gray-600' onClick={() => setAlignment('center')}>
                                                 <AlignCenter height="24px" width="24px" fill="#ffffff"/>
-                                                <span className='ml-3 block'>Align Center</span>
+                                                <span className='ml-3 block text-sm'>Align Center</span>
                                             </button>
                                         </li>
                                         <li>
                                             <button className='px-3 py-2 flex justify-start items-center w-full hover:bg-gray-600' onClick={() => setAlignment('right')}>
                                                 <AlignRight height="24px" width="24px" fill="#ffffff"/>
-                                                <span className='ml-3 block'>Align Right</span>
+                                                <span className='ml-3 block text-sm'>Align Right</span>
                                             </button>
                                         </li>
                                         <li>
                                             <button className='px-3 py-2 flex justify-start items-center w-full hover:bg-gray-600' onClick={() => setAlignment('top')}>
                                                 <AlignTop height="24px" width="24px" fill="#ffffff"/>
-                                                <span className='ml-3 block'>Align Top</span>
+                                                <span className='ml-3 block text-sm'>Align Top</span>
                                             </button>
                                         </li>
                                         <li>
                                             <button className='px-3 py-2 flex justify-start items-center w-full hover:bg-gray-600' onClick={() => setAlignment('middle')}>
                                                 <AlignMiddle height="24px" width="24px" fill="#ffffff"/>
-                                                <span className='ml-3 block'>Align Middle</span>
+                                                <span className='ml-3 block text-sm'>Align Middle</span>
                                             </button>
                                         </li>
                                         <li>
                                             <button className='px-3 py-2 flex justify-start items-center w-full hover:bg-gray-600' onClick={() => setAlignment('bottom')}>
                                                 <AlignBottom height="24px" width="24px" fill="#ffffff"/>
-                                                <span className='ml-3 block'>Align Bottom </span>
+                                                <span className='ml-3 block text-sm'>Align Bottom </span>
                                             </button>
                                         </li>
                                     </ul>
@@ -237,14 +244,14 @@ export default function LayerControl(){
                                 </button> 
                             </Tooltip>
                             {flip && (
-                                <div className='bg-gray-700 w-44 absolute py-2 rounded text-white'>
+                                <div className='bg-gray-700 w-44 absolute py-2 rounded text-white' ref={flipRef}>
                                     <ul>
                                         <li>
                                             <button className='px-3 py-2 flex justify-start items-center w-full hover:bg-gray-600 disabled:text-gray-500' 
                                                     onClick={flipH}
                                             >
                                                 <FlipH height= "20px" width = "20px" fill = "#ffffff"/>
-                                                <span className='block ml-3'>Flip Horizontally</span>
+                                                <span className='block ml-3 text-sm'>Flip Horizontally</span>
                                             </button>
                                         </li>
                                         <li>
@@ -252,7 +259,7 @@ export default function LayerControl(){
                                                     onClick={flipV}
                                             >
                                                 <FlipV height= "20px" width = "20px" fill = "#ffffff"/>
-                                                <span className='block ml-3'>Flip Vertically</span>
+                                                <span className='block ml-3 text-sm'>Flip Vertically</span>
                                             </button>
                                         </li>
                                     </ul>
