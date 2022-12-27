@@ -31,19 +31,19 @@ export default function LayerControl(){
 
         switch (direction) {
             case 'left':
-                newPosition = { x : 0 } 
+                newPosition = { x : currentElement.attrs.width / 2 } 
             break;
             case 'center':
                 newPosition = {x : width / 2}
             break
             case 'right':
-                newPosition = {x : width - currentElement.attrs.width}
+                newPosition = {x : width - currentElement.attrs.width / 2}
             break;
             case 'top':
-                newPosition  = { y: 0 }
+                newPosition  = { y: currentElement.attrs.height / 2 }
             break;
             case 'bottom':
-                newPosition  = { y : height - currentElement.attrs.height }
+                newPosition  = { y : height - currentElement.attrs.height / 2 }
             break;
             case 'middle':
                 newPosition = {y : height / 2}

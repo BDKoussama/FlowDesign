@@ -1,6 +1,5 @@
 import {Label , TextInput} from 'flowbite-react';
 import ColorPicker from '../../Layout/ColorPicker';
-
 import {useDispatch , useSelector} from 'react-redux';
 import { updateSelected } from '../../../app/features/canvas/selectSlice';
 

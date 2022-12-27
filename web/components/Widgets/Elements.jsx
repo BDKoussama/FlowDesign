@@ -62,20 +62,20 @@ export default function Elements(){
                     <div className='p-4'>
                         <h3>Elements & Shapes</h3>
                         <div className="elements-widget mt-10 h-full flex flex-wrap">
-                            <div className="element-item_wrapper p-2 flex justify-center items-center m-1">
-                                <button className="h-16 w-16 bg-white" onClick={() => addElement('Rect' , true)}></button>
+                            <div className="element-item_wrapper p-2 flex justify-center items-center m-1 rounded-lg">
+                                <button className="h-16 w-16 bg-[#313f45]" onClick={() => addElement('Rect' , true)}></button>
                             </div>
             
-                            <div className="element-item_wrapper p-2 flex justify-center items-center m-1">
-                                <button className="h-16 w-16 bg-white rounded-full" onClick={() => addElement('Circle' , true)}></button>
+                            <div className="element-item_wrapper p-2 flex justify-center items-center m-1 rounded-lg">
+                                <button className="h-16 w-16 bg-[#313f45] rounded-full" onClick={() => addElement('Circle' , true)}></button>
                             </div>
             
-                            <div className="element-item_wrapper p-2 flex justify-center items-center m-1">
-                                <button className="h-16 w-16 bg-[#313f45] border border-4 border-[#0e1214] " onClick={() => addElement('Rect' , false)}></button>
+                            <div className="element-item_wrapper p-2 flex justify-center items-center m-1 rounded-lg">
+                                <button className="h-16 w-16 bg-white border border-3 border-[#0e1214] " onClick={() => addElement('Rect' , false)}></button>
                             </div>
             
-                            <div className="element-item_wrapper p-2 flex justify-center items-center m-1 ">
-                                <button className="h-16 w-16 bg-[#313f45] rounded-full border border-4 border-[#0e1214]" onClick={() => addElement('Circle' , false)}></button>
+                            <div className="element-item_wrapper p-2 flex justify-center items-center m-1 rounded-lg">
+                                <button className="h-16 w-16 bg-white rounded-full border border-3   border-[#0e1214]" onClick={() => addElement('Circle' , false)}></button>
                             </div>
             
                         </div>

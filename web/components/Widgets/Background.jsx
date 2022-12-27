@@ -1,52 +1,31 @@
-import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/lib/css/styles.css";
-import { PaintBrushIcon } from '@heroicons/react/24/outline'
-import { useState , useRef} from "react";
-import { useEffect } from "react";
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { setStageBackground } from "../../app/features/canvas/stageSlice";
 import {QueryClient , QueryClientProvider } from 'react-query';
 import UnsplashGallery from "../Layout/UnsplashGallery";
-import useIsMounted from '../../hooks/useIsMounted';
+import ColorPicker from '../Layout/ColorPicker';
 
 const queryClient = new QueryClient();
-
 
 export default function Background(){
 
     const dispatch = useDispatch();
 
-    const isMounted = useIsMounted();
-
-    const [color, setColor] = useColor("hex", "#121212");
-
-    const [value , setValue] = useState("");
-
-    const [toggle , setToggle] = useState(false);
+    const {fill} = useSelector(state => state.stage.present.background)
 
     const pickColor = (hex) => {
-        setToggle(false)
-        setValue(hex)
+        dispatch(setStageBackground({
+            type : 'color',
+            fill : hex
+        }))
     }
 
-    useEffect(() =>{
-        if(!isMounted){
-            setValue(color.hex)
-        }
-    },[color])
-
-    useEffect(() => {
-        if(!isMounted){
-            dispatch(setStageBackground({
-                type : 'color',
-                fill : value
-            }))
-        }
-    },[value])
-
-
-    
-
+    const  handleBgChange = (color) => {
+        dispatch(setStageBackground({
+            type : 'color',
+            fill : color
+        }))
+    }
 
     return(
         <div className="p-4">
@@ -55,20 +34,11 @@ export default function Background(){
                 <div className="colors-list">
                     <ul className="flex flex-row">
                         <li className="colors-list_item mr-1 relative"> 
-                            <button className="h-10 w-10 rounded bg-[#394757] flex justify-center items-center" onClick={() => setToggle(!toggle)}>
-                                <PaintBrushIcon className="h-5 w-5" color="#fff"/>
-                            </button> 
-
-                            {toggle && (<div className={`color-picker_wrapper absolute top-[100%] ${toggle ? 'show-color-picker' : ''}`}>
-                                <ColorPicker width={200} height={100} color={color} onChange={setColor} hideHSV dark />
-                            </div>)}
-
+                            <ColorPicker fill = {fill || '#ffffff'} onChange = {handleBgChange} position = "bottom"/>
                         </li>
                         <li className="colors-list_item mr-1"> <button className="h-10 w-10 rounded bg-[#cfca20]" onClick={() => pickColor('#cfca20')}></button> </li>
                         <li className="colors-list_item mr-1"> <button className="h-10 w-10 rounded bg-[#d17611]" onClick={() => pickColor('#d17611')}></button> </li>
                         <li className="colors-list_item mr-1"> <button className="h-10 w-10 rounded bg-[#75d66c]" onClick={() => pickColor('#75d66c')}></button> </li>
-                        <li className="colors-list_item mr-1"> <button className="h-10 w-10 rounded bg-[#43ab97]" onClick={() => pickColor('#43ab97')}></button> </li>
-                        <li className="colors-list_item mr-1"> <button className="h-10 w-10 rounded bg-[#4055a6]" onClick={() => pickColor('#4055a6')}></button> </li>
                         <li className="colors-list_item mr-1"> <button className="h-10 w-10 rounded bg-[#b060b8]" onClick={() => pickColor('#b060b8')}></button> </li>
                     </ul>
                 </div>

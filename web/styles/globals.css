@@ -244,12 +244,13 @@ cursor: grab;
 }
 
 .element-item_wrapper{
-  transition: background 0.3s ease-in-out;
+  background-color: #ffff;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
 
 .element-item_wrapper:hover{
-  background-color: #31434d;
+  box-shadow: 0px 0px 10px rgb(134, 142, 156);
 }
 
 .text-widget ul li {
