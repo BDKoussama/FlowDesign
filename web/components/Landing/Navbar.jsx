@@ -4,6 +4,7 @@ import Container from "../Layout/Container";
 import Logo from "../Svg/Logo";
 import Button from "./Button";
 import gsap from 'gsap';
+import Link from 'next/link';
 
 export default function Navbar(){
 
@@ -25,16 +26,45 @@ export default function Navbar(){
         <Container>
             <div className='py-10 z-2'>
                 <nav className='flex items-center justify-between'>
-                    <span className='logo flex justify-center items-center h-12 w-12'> 
-                        <Logo height={45} width = {30} />
-                    </span>
-
+                    <Link href= "/" >
+                        <a>
+                            <span className='logo flex justify-center items-center h-12 w-12'> 
+                                <Logo height={45} width = {30} />
+                            </span>
+                        </a>
+                    </Link>
                     <ul ref={nav}>
-                        <li className="inline-block mr-5 opacity-0 translate-x-[100px]"><span className="font-semibold">Home</span></li>
-                        <li className="inline-block mr-5 opacity-0 translate-x-[100px]"><span className="font-semibold">Templates</span></li>
-                        <li className="inline-block mr-5 opacity-0 translate-x-[100px]"><span className="font-semibold">Features</span></li>
-                        <li className="inline-block mr-5 opacity-0 translate-x-[100px]"><span className="font-semibold">Faq</span></li>
-                        <li className="hidden lg:inline-block mr-5 opacity-0 translate-x-[100px]"><Button text= "Get Started" url = '/editor' animate = {false} /></li>
+                        <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
+                            <Link href= "/">
+                                <a >
+                                    <span className="font-semibold">Home</span>
+                                </a>
+                            </Link>
+                        </li>
+                        <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
+                            <Link href= "#templates">
+                                <a href="#templates" data-scroll-to>
+                                    <span className="font-semibold">Templates</span>
+                                </a>
+                            </Link>
+                        </li>
+                        <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
+                            <Link href= "#features">
+                                <a href="#features" data-scroll-to>
+                                    <span className="font-semibold">Features</span>
+                                </a>
+                            </Link>
+                        </li>
+                        <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
+                            <Link href= "#faq">
+                                <a href="#faq" data-scroll-to>
+                                    <span className="font-semibold">Faq</span>
+                                </a>
+                            </Link>
+                        </li>
+                        <li className="hidden lg:inline-block mr-5 opacity-0 translate-x-[100px]">
+                            <Button text= "Get Started" url = '/editor' animate = {false} />
+                        </li>
                     </ul>
                 </nav>
             </div>

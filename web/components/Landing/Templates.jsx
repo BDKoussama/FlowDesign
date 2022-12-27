@@ -6,7 +6,7 @@ import Image from 'next/image';
 export default function Templates(){
 
     return (
-        <div className='w-full text-center pt-20 relative' >
+        <div className='w-full text-center pt-20 relative'  id = "templates">
             <Title text = "Explore eye-catching templates" />
             <Description text="Browse through thousands of professionally designed templates for social posts, banners, campaigns, and more. Specify your search based on platform, aesthetic, mood, color, event, or theme." />
             <div className='w-full overflow-hidden h-[80vh] flex items-center justify-center my-0 lg:my-20'>
@@ -17,6 +17,7 @@ export default function Templates(){
                             objectFit='cover'
                             src = '/images/02.webp'
                             alt = 'template image'
+                            priority
                         />
                     </div>
                     <div className='w-[80vw] h-[50vh] lg:h-[70vh] lg:w-[35vw] bg-gray-500 m-5 rounded-lg relative overflow-hidden'>
@@ -25,6 +26,7 @@ export default function Templates(){
                             objectFit='cover'
                             src = '/images/01.webp'
                             alt = 'template image'
+                            priority
                         />
                     </div>
                     <div className='w-[80vw] h-[50vh] lg:h-[70vh] lg:w-[35vw] bg-gray-500 m-5 rounded-lg relative overflow-hidden'>
@@ -33,6 +35,7 @@ export default function Templates(){
                             objectFit='cover'
                             src = '/images/03.webp'
                             alt = 'template image'
+                            priority
                         />
                     </div>
                     <div className='w-[80vw] h-[50vh] lg:h-[70vh] lg:w-[35vw] bg-gray-500 m-5 rounded-lg relative overflow-hidden'>
@@ -41,6 +44,7 @@ export default function Templates(){
                             objectFit='cover'
                             src = '/images/04.webp'
                             alt = 'template image'
+                            priority
                         />
                     </div>
                 </div>

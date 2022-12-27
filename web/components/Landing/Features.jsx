@@ -32,7 +32,7 @@ export default function Features(){
 
     return (
         <Container>
-            <div className='w-full text-center mt-60 relative ' ref = {ref}>
+            <div className='w-full text-center mt-60 relative ' ref = {ref} id = "features">
                 <Title text = "We didin't reinvent the wheel" />
                 <Description text="Just Launch Designo for free on your desktop or mobile device to start creating your graphic" />
                 <div className='w-full flex flex-col  items-center md:flex-row justify-between md:items-start mt-20  p-5'>
