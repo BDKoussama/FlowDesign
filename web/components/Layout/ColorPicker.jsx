@@ -24,13 +24,13 @@ export default function ColorPicker({onChange , position , fill}){
                                 style = {{ backgroundColor : fill}}
                         >
                         </button>
-                        <span className="block text-sm text-white">{fill}</span>
+                        <span className="block text-[11px] text-white">{fill}</span>
                     </div>
  
 
                     {toggle && (<div className={`color-picker_wrapper absolute ${toggle ? 'show-color-picker' : ''}`} 
                                     style = {{ bottom : position === "top" ?  "100%" : 'unset' , top : position === 'bottom' ? "100%" : "unset" }}>
-                        <ColorPickerPallete width={200} height={100} color={color} onChange={setColor} hideHSV dark />
+                                    <ColorPickerPallete width={250} height={100} color={color} alpha = {true} onChange={setColor} hideHSV dark />
                     </div>)}
         </div>
     )

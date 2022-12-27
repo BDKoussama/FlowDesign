@@ -130,17 +130,19 @@ export default function ShapeSettings(){
 
                 <span className='text-2xl font-bold'>Colors</span>
 
-                <div className='input-group my-4'>
-                    <div className="mb-2 block mt-2">
-                        <Label
-                            htmlFor="Fill"
-                            value="Fill"
-                            className='text-white'
-                        />
-                    </div>
+                <div className='flex justify-between items-center gap-5 my-4'>
+                    <div className='input-group my-4'>
+                        <div className="mb-2 block mt-2">
+                            <Label
+                                htmlFor="Fill"
+                                value="Fill"
+                                className='text-white'
+                            />
+                        </div>
 
-                    <div>
-                        <ColorPicker fill = {attrs.fill || '#000000'} onChange = {handleFillChange} position = "bottom"/>
+                        <div>
+                            <ColorPicker fill = {attrs.fill || '#000000'} onChange = {handleFillChange} position = "bottom"/>
+                        </div>
                     </div>
                 </div>
 
