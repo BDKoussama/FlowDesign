@@ -3,6 +3,7 @@ import Logo from "../Svg/Logo";
 import { useInView } from 'react-intersection-observer';
 import gsap from 'gsap';
 import { useCallback , useRef , useLayoutEffect} from "react";
+import Link from 'next/link';
 
 export default function Footer({text = 'Create Unique social media graphics .'}){
     
@@ -86,13 +87,39 @@ export default function Footer({text = 'Create Unique social media graphics .'})
                         <div className=" w-[40%] h-full">    
                             <div className=" mt-[20px] lg:mt-[110px] flex flex-col lg:flex-row">
                                 <ul className="mr-10">
-                                    <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white"><span className="font-semibold">Home</span></li>
-                                    <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white"><span className="font-semibold">Templates</span></li>
-                                    <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white"><span className="font-semibold">Get Stared</span></li>
+                                    <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white">
+                                        <Link href = "/">
+                                            <a href="/">
+                                                <span className="font-semibold">Home</span>
+                                            </a>
+                                        </Link>
+                                    </li>
+                                    <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white">
+                                        <Link href = "#templates">
+                                            <a href="#templates" data-scroll-to>
+                                                <span className="font-semibold">Templates</span>
+                                            </a>
+                                        </Link>
+                                    </li>
+                                    <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white">
+                                        <span className="font-semibold">Get Stared</span>
+                                    </li>
                                 </ul>
                                 <ul className="mr-10">
-                                    <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px]  text-white"><span className="font-semibold">Features</span></li>
-                                    <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white"><span className="font-semibold">Faq</span></li>
+                                    <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px]  text-white">
+                                        <Link href = "#features">
+                                            <a href="#features" data-scroll-to>
+                                                <span className="font-semibold">Features</span>
+                                            </a>
+                                        </Link>
+                                    </li>
+                                    <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white">
+                                        <Link href = "#faq">
+                                            <a href="#faq" data-scroll-to>
+                                                <span className="font-semibold">Faq</span>
+                                            </a>
+                                        </Link>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

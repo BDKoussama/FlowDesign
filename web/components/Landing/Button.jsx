@@ -21,7 +21,7 @@ export default function Button({ text , url , style , animate = true}){
 
     return( 
         <Link href={url} >
-            <span ref = {ref} className={`cursor-pointer  ${animate ? 'opacity-0 translate-y-3/4' : 'opacity-1'} inline-block py-5 px-10 rounded-full bg-gradient-to-r to-[#A56FFC] from-[#644595] text-white font-medium ${style}`}>
+            <span ref = {ref} className={`custom-btn cursor-pointer  ${animate ? 'opacity-0 translate-y-3/4' : 'opacity-1'} inline-block py-5 px-10 rounded-full bg-gradient-to-r to-[#A56FFC] from-[#644595] text-white font-medium ${style}`}>
                 {text}
             </span>
         </Link>

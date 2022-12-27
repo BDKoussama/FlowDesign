@@ -1,5 +1,6 @@
 
 module.exports = {
+    experimental: { images: { layoutRaw: true } },
     images: {
         domains: ['images.unsplash.com' ,
         'cdn0.iconfinder.com',
