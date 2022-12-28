@@ -10,7 +10,7 @@ import { CloudArrowDownIcon } from '@heroicons/react/24/outline'
 import { ArrowsPointingOutIcon } from '@heroicons/react/24/outline'
 import { Square3Stack3DIcon } from '@heroicons/react/24/outline'
 import { FaceSmileIcon } from '@heroicons/react/24/outline'
-
+import Link from 'next/link';
 import Logo from '../../components/Svg/Logo';
 
 export default function SideBar(){
@@ -31,7 +31,9 @@ export default function SideBar(){
         <div className='editor-navbar flex flex-col bg-gray-900 w-full h-auto md:w-[100px] md:h-[100vh] overflow-hidden'>
 
             <div className="logo-wrapper h-20 w-12 md:flex items-center hidden justify-center  mx-auto">
-                <Logo />    
+                <Link href="/">
+                    <a><Logo /></a>
+                </Link>   
             </div>
 
             <div className='editor-sidebar_menu w-full md:mt-0 h-full overflow-x-scroll'>
