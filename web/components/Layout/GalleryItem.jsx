@@ -11,7 +11,7 @@ export default function GalleryItem({photo , widget}){
     const imgRef = useRef();
     
     const dispatch = useDispatch()
-
+    
     const {height : stageHeight , width : stageWidth} = useSelector(state => state.stage.present.size)
     
     const handleClick = (url) => {

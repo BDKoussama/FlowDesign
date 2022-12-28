@@ -1,12 +1,15 @@
 import { useState } from "react";
-import Image from 'next/image';
 import {Label , FileInput , Alert} from 'flowbite-react';
+import { useDispatch } from "react-redux";
+import { addItem } from "../../app/features/canvas/uploadSlice";
+import { v4 as uuidv4 } from 'uuid';
+import UploadsList from "../Layout/uploadsList";
 
 export default function Upload(){
 
-    const [image, setImage] = useState(null);
-    const [preview, setPreview] = useState(null);
     const [warning , setWarning] = useState(false);
+
+    const dispatch = useDispatch();
 
     const handleChange = (event) => {
         const file = event.target.files[0];
@@ -17,15 +20,21 @@ export default function Upload(){
 
         if(validImageTypes.includes(fileType)){
             setWarning(false)
-            setImage(file);
+
             const reader = new FileReader();
+            const id = uuidv4()
+
             reader.onloadend = () => {
-            setPreview(reader.result);
+                dispatch(addItem({
+                    id,
+                    url : reader.result
+                }))
             };
 
             if(file){
                 reader.readAsDataURL(file);
             }
+
         }else{
             console.log("wrong file type");
             setWarning(true);
@@ -43,20 +52,12 @@ export default function Upload(){
                 </div>
                 { warning && (
                     <Alert className="mb-5" color="failure" onDismiss = { () => { setWarning(false) } }>
-                        <span>wrong file type , please choose a file of type Png , jpeg .</span>
+                        <span>wrong file type , please choose a file of type png , jpeg .</span>
                     </Alert>
                 ) }
-                {preview && (
-                    <button onClick={() => { console.log(preview)}}>
-                        <div className="h-28 w-28 relative">
-                            <Image  
-                                layout="fill"
-                                objectFit="cover"
-                                alt = "preview"
-                                src={preview}
-                            />
-                        </div>
-                    </button>)}
+
+                <UploadsList />
+
 		    </div>
         </div>
     )
