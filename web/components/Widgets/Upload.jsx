@@ -1,50 +1,62 @@
-import { useEffect } from "react";
 import { useState } from "react";
+import Image from 'next/image';
+import {Label , FileInput , Alert} from 'flowbite-react';
 
 export default function Upload(){
 
+    const [image, setImage] = useState(null);
+    const [preview, setPreview] = useState(null);
+    const [warning , setWarning] = useState(false);
 
-    const [selectedFile, setSelectedFile] = useState();
-	const [isFilePicked, setIsFilePicked] = useState(false);
+    const handleChange = (event) => {
+        const file = event.target.files[0];
 
+        const fileType  = file.type;
 
-    useEffect(() => {
-        console.log(selectedFile)
-    } , [selectedFile])
+        const validImageTypes = ['image/jpeg', 'image/png'];
 
-    const changeHandler = (e) => {
-        setSelectedFile(e.target.files[0])
-        setIsFilePicked(true)
-    }
+        if(validImageTypes.includes(fileType)){
+            setWarning(false)
+            setImage(file);
+            const reader = new FileReader();
+            reader.onloadend = () => {
+            setPreview(reader.result);
+            };
 
-    const handleSubmission = () => {
-
-    }
-
-
+            if(file){
+                reader.readAsDataURL(file);
+            }
+        }else{
+            console.log("wrong file type");
+            setWarning(true);
+        }
+    };
+    
     return(
         <div className="p-4">
-            Upload
             <div className="mt-10">
-                    <input type="file" name="file" onChange={changeHandler} />
-
-                    {isFilePicked ? (
-				<div>
-					<p>Filename: {selectedFile.name}</p>
-					<p>Filetype: {selectedFile.type}</p>
-					<p>Size in bytes: {selectedFile.size}</p>
-					<p>
-						lastModifiedDate:{' '}
-						{selectedFile.lastModifiedDate.toLocaleDateString()}
-					</p>
-				</div>
-			) : (
-				<p>Select a file to show details</p>
-			)}
-
-                    <div>
-                        <button onClick={handleSubmission}>Submit</button>
+                <div className="mb-10">
+                    <div className="mb-2 block">
+                        <Label htmlFor="file" value="Upload file"/>
                     </div>
+                    <FileInput id="file" onChange={handleChange} accept="image/*"/>
+                </div>
+                { warning && (
+                    <Alert className="mb-5" color="failure" onDismiss = { () => { setWarning(false) } }>
+                        <span>wrong file type , please choose a file of type Png , jpeg .</span>
+                    </Alert>
+                ) }
+                {preview && (
+                    <button onClick={() => { console.log(preview)}}>
+                        <div className="h-28 w-28 relative">
+                            <Image  
+                                layout="fill"
+                                objectFit="cover"
+                                alt = "preview"
+                                src={preview}
+                            />
+                        </div>
+                    </button>)}
 		    </div>
         </div>
     )
