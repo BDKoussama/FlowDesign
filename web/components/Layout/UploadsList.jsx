@@ -71,11 +71,11 @@ export default function UploadsList(){
     }
 
     return(
-        <ul className="w-full h-[72vh] 2xl:h-[80vh] border border-white overflow-scroll flex flex-wrap">
+        <ul className="w-full h-[72vh] 2xl:h-[80vh] overflow-scroll">
             {uploads.length !== 0 && uploads.map((preview) => (
-                    <li key = {preview.id} className>
+                    <li key = {preview.id} className = "inline-block">
                         <button onClick={() => { handleClick(preview.url)}}>
-                            <div className="h-32     w-32 relative">
+                            <div className="h-36 w-36 relative mr-2 mb-1 overflow-hidden rounded-lg">
                                 <Image  
                                     layout="fill"
                                     objectFit="cover"

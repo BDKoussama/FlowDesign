@@ -3,7 +3,7 @@ import {Label , FileInput , Alert} from 'flowbite-react';
 import { useDispatch } from "react-redux";
 import { addItem } from "../../app/features/canvas/uploadSlice";
 import { v4 as uuidv4 } from 'uuid';
-import UploadsList from "../Layout/uploadsList";
+import UploadsList from "../Layout/UploadsList";
 
 export default function Upload(){
 
