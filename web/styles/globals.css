@@ -7,8 +7,9 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Montserrat";
-  color: #1E1D1D;
+  color: #1E1D1D; 
   overscroll-behavior-y: none;
+
 }
 
 a {
@@ -321,7 +322,7 @@ cursor: grab;
   width: 22px;
   height: 2px;
   margin-top: -2px;
-  background-color: #372717;
+  background-color: #F8F8F8;
 }
 
 .panel__label:before {

@@ -10,12 +10,9 @@ export default function Home() {
             <Head>
                 <title>Design.Io | Social media graphics</title>
             </Head>
-            <div data-scroll-container>
+            <div data-scroll-container className='bg-slate-100'>
                 <SmoothScrollProvider>
-                    <div className='relative w-full'>
-                        <div className='absolute -left-50 -z-10 hidden'>
-                            <BlobLeft />
-                        </div>
+                    <div className='relative w-full bg-gray-900'>
                         <Navbar/>
                         <Hero   
                             heading= "Design visually appealing social media graphics that set you apart"

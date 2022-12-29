@@ -4,13 +4,15 @@ import Title from "./Title";
 
 export default function Faq(){
     return(
-        <Container >
-            <div className='my-60 text-center  h-screen' id = "faq">
-              <Title text="Frequently asked questions" />
-                <div className='w-full mt-20 lg:w-9/12 mx-auto mb-96'>
-                    <Accordion />
+        <div className="bg-gray-900">
+            <Container >
+                <div className='text-center h-[120vh] py-20 ' id = "faq">
+                    <Title text="Frequently asked questions" style= "text-slate-200"/>
+                    <div className='w-full mt-20 lg:w-9/12 mx-auto'>
+                        <Accordion />
+                    </div>
                 </div>
-            </div>
-        </Container>
+            </Container>
+        </div>
     )
 }

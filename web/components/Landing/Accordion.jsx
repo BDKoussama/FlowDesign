@@ -53,10 +53,10 @@ export function Panel({activeTab , index , label , content , activateTab}){
     return(
         <div  ref = {ref} className='panel will-change-transform translate-y-full ' role='tabpanel' aria-expanded={ isActive }>
 			<button className='panel__label' role='tab' onClick={ activateTab }>
-				<h4 className="text-2xl text-black font-medium">{ label }</h4>
+				<h4 className="text-2xl text-black font-medium text-slate-200">{ label }</h4>
 			</button>
 			<div className='panel__inner' style={ innerStyle } aria-hidden={ !isActive }>
-				<p className='panel__content text-left text-lg'> { content } </p>
+				<p className='panel__content text-left text-lg text-slate-400'> { content } </p>
 			</div>
 		</div>
     )

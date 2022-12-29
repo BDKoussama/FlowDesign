@@ -67,7 +67,7 @@ export default function Footer({text = 'Create Unique social media graphics .'})
 
 
     return (
-        <div className="pb-5 pt-20 bg-[#0f0f0f]" ref = {setRefs}>
+        <div className="pb-5 -mt-8 pt-20 bg-[#0f0f0f]" ref = {setRefs}>
             <Container>
                 <div className='h-full lg:h-[50vh] flex flex-col lg:flex-row lg:items-center lg:px-40'>
                         <div className="flex-1 w-[60%]">

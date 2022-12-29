@@ -27,14 +27,14 @@ export default function Hero({heading , description}){
     return(
         <Container> 
             <div className='hero w-full text-center z-2 ' ref = {hero}>
-                <h1 className='text-[4.5vw] font-bold mt-0 leading-snug w-10/12 mx-auto'> 
+                <h1 className='text-[4.5vw] font-bold mt-0 leading-snug w-10/12 mx-auto text-slate-200	'> 
                     {headingSpans.current.length !== 0 && headingSpans.current.map((item , index)  => (
                         <span className="mx-2 overflow-hidden inline-block " key={`${item}-${index}`}>
                             <span className="translate-y-[110%] block translate-z-px will-change-transform">{item}</span>
                         </span>
                     ))} 
                 </h1>
-                <p className='mt-5 w-11/12 lg:w-6/12 mx-auto text-md lg:text-xl h-d' >
+                <p className='mt-5 w-11/12 lg:w-6/12 mx-auto text-md lg:text-xl h-d text-slate-400	' >
                     {descSpans.current.length !== 0 && descSpans.current.map((item , index)  => (
                         <span className="mx-0.5 overflow-hidden inline-block " key={`${item}-${index}`}>
                             <span className="translate-y-[110%] block translate-z-px will-change-transform">{item}</span>

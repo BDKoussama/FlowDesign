@@ -6,8 +6,8 @@ import Image from 'next/image';
 export default function Templates(){
 
     return (
-        <div className='w-full text-center pt-20 relative'  id = "templates">
-            <Title text = "Explore eye-catching templates" />
+        <div className='w-full text-center relative pt-20'  id = "templates">
+            <Title text = "Explore eye-catching templates" style= "text-black" />
             <Description text="Browse through thousands of professionally designed templates for social posts, banners, campaigns, and more. Specify your search based on platform, aesthetic, mood, color, event, or theme." />
             <div className='w-full overflow-hidden h-[80vh] flex items-center justify-center my-0 lg:my-20'>
                 <div className='flex flex-row items-center w-[2000px] lg:w-[200vw]'  data-scroll data-scroll-speed = "2" data-scroll-direction = "horizontal">
