@@ -29,7 +29,7 @@ export default function Templates(){
                                 />
                         </button>                      
                 ))}
-            
+                <p> More Coming soon ...</p>
             </div>
         </div>
     )

@@ -1082,13 +1082,13 @@ export const templates = [
             "width": 1080,
             "height": 1080,
             "type": "ig-post",
-            "initialWidth": 1080,
-            "initialHeight": 1080,
+            "initialWidth": 540,
+            "initialHeight": 540,
             "heightAmount": 108,
             "widthAmount": 108,
             "scale": {
-                "x": 1,
-                "y": 1
+                "x": 0.5,
+                "y": 0.5
             }
         },
         "className": "Stage",

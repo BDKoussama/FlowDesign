@@ -102,7 +102,7 @@ export default function SideBar(){
                                 <div className="custom-radio_content">
                                     <FaceSmileIcon className="h-6 w-6 text-white"/>
                                     <div className="custom-radio_text">
-                                        <span>Sticker</span>
+                                        <span>Stickers</span>
                                     </div>
                                 </div>
                             </label>

@@ -69,7 +69,7 @@ export default function UnsplashGallery ({widget}) {
                     </form>
             </div>
 
-            <div className="unsplash-gallery w-full h-[71vh] 2xl:h-[81vh] overflow-scroll"> 
+            <div className="unsplash-gallery w-full h-[71vh] 2xl:h-[82vh] overflow-scroll"> 
                 {
                     status === "loading" ? (
                         <div className='flex items-center justify-center p-3'>
@@ -97,7 +97,7 @@ export default function UnsplashGallery ({widget}) {
                                 </div>)
                                 : hasNextPage
                                 ? null
-                                : <p>Nothing more to load</p>}
+                                : <p> Nothing more to load </p>}
                             </div>
 
                         </div>

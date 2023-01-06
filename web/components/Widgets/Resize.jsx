@@ -135,6 +135,8 @@ export default function Resize(){
             </h3>
 
             <ul className='mt-10'>
+                <li className='px-2'><span className='text-lg font-medium'>Instagram</span></li>
+
                 <li className='resize-list_item mt-2'>
                     <button className={`flex justify-between items-center w-full p-2 ${value === 'ig-post' ? 'resize-list_item--checked ' : ''}`}  onClick={() => handleChange("ig-post")}>
                         <div className='flex justify-between items-center'>
@@ -158,6 +160,8 @@ export default function Resize(){
                         <p className='text-sm'>1080 x 1920 px</p>
                     </button>
                 </li>
+
+                <li className='mt-5 px-2'><span className='text-lg font-medium'>Facebook</span></li>
 
                 <li className='resize-list_item mt-2'>
                     <button className= {`flex justify-between items-center w-full p-2 ${value === 'fb-post' ? 'resize-list_item--checked ' : ''}`}  onClick={() => handleChange("fb-post")}>
@@ -195,6 +199,8 @@ export default function Resize(){
                     </button>
                 </li>
 
+                <li className='mt-5 px-2'><span className='text-lg font-medium'>Twitter</span></li>
+
                 <li className='resize-list_item mt-2'>
                     <button className= {`flex justify-between items-center w-full p-2 ${value === 'tw-post' ? 'resize-list_item--checked ' : ''}`}  onClick={() => handleChange("tw-post")}>
                         <div className='flex justify-between items-center'>
@@ -218,6 +224,9 @@ export default function Resize(){
                         <p className='text-sm'>851 x 315 px</p>
                     </button>
                 </li>
+
+                <li className='mt-5 px-2'><span className='text-lg font-medium'>Youtube</span></li>
+
 
                 <li className='resize-list_item mt-2'>
                     <button className= {`flex justify-between items-center w-full p-2 ${value === 'yt-thmb' ? 'resize-list_item--checked ' : ''}`}  onClick={() => handleChange("yt-thmb")}>
