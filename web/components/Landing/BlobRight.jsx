@@ -1,17 +1,25 @@
 export default function BlobRight(){
     return (
-        <svg width="916" height="1555" viewBox="0 0 916 1555" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.3" filter="url(#filter0_f_6_1067)">
-            <circle cx="777.5" cy="777.5" r="277.5" fill="#8941FF"/>
+        <svg width="100%" height="100%" viewBox="0 0 1728 1639" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.3" filter="url(#filter0_f_6_1090)">
+            <circle cx="994.5" cy="777.5" r="277.5" fill="#8941FF"/>
+            </g>
+            <g opacity="0.89" filter="url(#filter1_f_6_1090)">
+            <circle cx="613.5" cy="981.5" r="157.5" fill="#FF68F9"/>
             </g>
             <defs>
-            <filter id="filter0_f_6_1067" x="0" y="0" width="1555" height="1555" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+            <filter id="filter0_f_6_1090" x="217" y="0" width="1555" height="1555" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
             <feFlood floodOpacity="0" result="BackgroundImageFix"/>
             <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-            <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_6_1067"/>
+            <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_6_1090"/>
+            </filter>
+            <filter id="filter1_f_6_1090" x="-44" y="324" width="1315" height="1315" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_6_1090"/>
             </filter>
             </defs>
         </svg>
-
+        
     )
 }

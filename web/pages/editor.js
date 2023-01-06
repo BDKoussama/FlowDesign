@@ -5,6 +5,8 @@ import Widget  from '../components/Editor/Widget';
 import Scene from '../components/Scene';
 import WidgetContextProvider from '../context/WidgetContext';
 
+
+
 export default function Editor() {  
 
   const [toggle , setToggle] = useState(false);
@@ -20,7 +22,7 @@ export default function Editor() {
                   <SideBar />
                   <Widget toggle = {toggle} setToggle = {setToggle} />
               </WidgetContextProvider>
-              <Scene toggle = {toggle}/>
+              <Scene toggle = {toggle}/> 
           </div>     
     </>
   )

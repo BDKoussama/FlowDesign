@@ -100,7 +100,9 @@ export default function Footer({text = 'Create Unique social media graphics .'})
                                         </Link>
                                     </li>
                                     <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white">
-                                        <span className="font-semibold">Get Stared</span>
+                                        <Link href = "/editor">
+                                            <a><span className="font-semibold">Get Started</span></a>
+                                        </Link>
                                     </li>
                                 </ul>
                                 <ul className="mr-10">

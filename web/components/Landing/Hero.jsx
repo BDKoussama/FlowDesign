@@ -3,6 +3,7 @@ import Button from "./Button";
 import Image from 'next/image';
 import { useRef , useLayoutEffect } from "react";
 import gsap from 'gsap';
+import {BlobRight} from "../Landing/index";
 
 export default function Hero({heading , description}){
     
@@ -43,14 +44,15 @@ export default function Hero({heading , description}){
                 </p>
                 <Button text= "Create your social graphic now" url = '/editor' style= "mt-10" />
             </div>
-            <div className='w-full mt-20 relative'>
+            <div className='w-full mt-20 relative relative'>
+                <div className="gradient-blob absolute h-[60%] w-[80%]"></div>
                 <Image 
                     layout='responsive'
                     height="70%"
                     width="100%"
                     objectFit='contain'
-                    src = '/images/App.png'
-                    alt = 'designo app screen'
+                    src = '/images/app.webp'
+                    alt = 'app editor screen shot'
                 />
              </div>
     </Container>
