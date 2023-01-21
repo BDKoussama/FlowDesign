@@ -136,7 +136,7 @@ export default function LayerControl(){
                                 </button> 
                             </Tooltip>
                         </li>
-                        <li className="inline-block mr-1">
+                        <li className="hidden inline-block mr-1">
                             <Tooltip content = "Lock">
                                 <button className="text-white hover:bg-gray-700 rounded-full p-1">  
                                     <LockClosedIcon className="h-5 w-5" />

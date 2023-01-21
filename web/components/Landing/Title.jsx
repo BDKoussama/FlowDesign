@@ -39,7 +39,7 @@ export default function Title({text , style}) {
 
 
     return (
-        <h2 className= {`font-black text-gray-900 text-4xl ${style}`} ref = {setRefs}>
+        <h2 className= {`font-black text-gray-900 text-3xl md:text-4xl ${style}`} ref = {setRefs}>
             {spans.current.length !== 0 && spans.current.map((item , index)  => (
                 <span className="mx-1 overflow-hidden inline-block " key={`${item}-${index}`}>
                     <span className="translate-y-[110%] block translate-z-px will-change-transform">{item}</span>

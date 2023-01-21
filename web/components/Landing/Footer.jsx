@@ -67,12 +67,12 @@ export default function Footer({text = 'Create Unique social media graphics .'})
 
 
     return (
-        <div className="pb-5 -mt-8 pt-20 bg-[#0f0f0f]" ref = {setRefs}>
+        <div className="pb-5 -mt-8 pt-20 px-5 md:px-0 bg-[#0f0f0f]" ref = {setRefs}>
             <Container>
                 <div className='h-full lg:h-[50vh] flex flex-col lg:flex-row lg:items-center lg:px-40'>
-                        <div className="flex-1 w-[60%]">
+                        <div className="flex-1 w-full md:w-[60%]">
                             <Logo height={75} width = {65}/>
-                            <h3 className="text-2xl font-semibold mt-5  lg:w-7/12 text-white">
+                            <h3 className="text-2xl font-semibold mt-5 w-10/12 lg:w-7/12 text-white">
                                 {spans.current.length !== 0 && spans.current.map((item , index)  => (
                                     <span className="mx-1 overflow-hidden inline-block " key={`${item}-${index}`}>
                                         <span className="translate-y-[110%] block translate-z-px will-change-transform">{item}</span>
@@ -84,7 +84,7 @@ export default function Footer({text = 'Create Unique social media graphics .'})
                                 <p className="text-sm mr-4 opacity-0 translate-x-[100px]">Terms & Conditions</p>
                             </div>
                         </div>
-                        <div className=" w-[40%] h-full">    
+                        <div className="w-full md:w-[40%] h-full">    
                             <div className=" mt-[20px] lg:mt-[110px] flex flex-col lg:flex-row">
                                 <ul className="mr-10">
                                     <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white">

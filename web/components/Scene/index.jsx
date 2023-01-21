@@ -34,14 +34,14 @@ export default function Scene({toggle}){
         }))
     }
 
-    const downloadAsPng = ({width , height}) => {
+    const downloadAsPng = ({width , height} , type) => {
         const id = uuidv4()
 
         if(stageRef.current && stageRef.current !== null){
             scaleStage(width , height)
             const uri = stageRef.current.toDataURL();
             const link = document.createElement('a');
-            link.download = `${id}.png`;
+            link.download = `${id}.${type}`;
             link.href = uri;
             link.click();
         }

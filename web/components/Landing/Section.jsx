@@ -66,7 +66,7 @@ export default function Section({ direction , title , description , subtitle , s
     }
 
     return (
-        <div className={`w-full md:h-screen my-40 flex flex-col p-2 md:p-0 ${direction} justify-between items-center`} ref = {setRefs}>
+        <div className={`w-full md:h-screen my-20 md:my-40 flex flex-col p-2 md:p-0 ${direction} justify-between items-center`} ref = {setRefs}>
             <div className='flex-1'>    
                 <span className="block overflow-hidden uppercase text-[#7746c7] font-medium mb-5 text-sm md:text-md">
                     <span className="translate-y-[110%] block translate-z-px will-change-transform">{subtitle}</span>

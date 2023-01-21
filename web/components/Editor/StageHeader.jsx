@@ -1,8 +1,9 @@
 import { ArrowUturnLeftIcon, ArrowUturnRightIcon } from '@heroicons/react/24/outline';
-import {Button , Tooltip } from 'flowbite-react';
+import { Dropdown, Tooltip } from 'flowbite-react';
 import {useSelector , useDispatch} from 'react-redux';
 import LayerControl from '../Layout/LayerControl';
 import { ActionCreators as UndoActionCreators } from 'redux-undo'
+import { CloudArrowDownIcon } from '@heroicons/react/24/outline';
 
 export default function StageHeader({downloadAsJson , downloadAsPng}){
 
@@ -39,13 +40,14 @@ export default function StageHeader({downloadAsJson , downloadAsPng}){
                 </div>
 
                 <div className="download-stage flex ">
-                    <Button className='rounded-full mx-1' onClick={() => downloadAsJson(size)}>
-                        Json
-                    </Button>
-
-                    <Button className='rounded-full mx-1' onClick={() => downloadAsPng(size)}>
-                        Png
-                    </Button>
+                    <Dropdown label="Download">
+                        <Dropdown.Item icon={CloudArrowDownIcon} onClick={() => downloadAsPng(size , 'png')}>
+                            Png
+                        </Dropdown.Item>
+                        <Dropdown.Item icon={CloudArrowDownIcon} onClick={() => downloadAsPng(size , 'jpeg')}>
+                            Jpeg
+                        </Dropdown.Item>        
+                    </Dropdown>
                 </div>
             </div>
     </div>

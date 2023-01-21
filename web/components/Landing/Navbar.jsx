@@ -33,7 +33,7 @@ export default function Navbar(){
                             </span>
                         </a>
                     </Link>
-                    <ul ref={nav} className = "text-slate-200">
+                    <ul ref={nav} className = "text-slate-200 flex flex-col md:flex-roww items-end ">
                         <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
                             <Link href= "/">
                                 <a>
