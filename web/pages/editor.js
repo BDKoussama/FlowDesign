@@ -19,8 +19,10 @@ export default function Editor() {
           </Head>
           {isMobile ? (
             <div className='h-screen w-full p-4 flex flex-col justify-center items-center'>
-                <p className='text-center mb-10'> Oops! For better experience use desktop navigator , the mobile version is stil under construction </p>
-                <Button text= "Go Back" animate = {false} />
+                <p className='text-center mb-2'> Oops! For better experience use desktop navigator , the mobile version is stil under construction </p>
+                <div>
+                  <Button text= "Go Back" animate = {false} style = "mt-10"/>
+                </div>
             </div>
           ) : (
             <div  className='editor flex flex-col-reverse md:flex-row h-[100%] md:h-[100vh]'>
