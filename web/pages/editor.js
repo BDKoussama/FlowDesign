@@ -5,7 +5,8 @@ import Widget  from '../components/Editor/Widget';
 import Scene from '../components/Scene';
 import WidgetContextProvider from '../context/WidgetContext';
 import {isMobile} from 'react-device-detect';
-import Button from '../components/Landing/Button';
+import {Button} from '../components/Landing/index';
+
 
 export default function Editor() {  
 
@@ -18,7 +19,7 @@ export default function Editor() {
           </Head>
           {isMobile ? (
             <div className='h-screen w-full p-4 flex flex-col justify-center items-center'>
-                <p className='text-center'> Oops! For better experience use desktop navigator , the mobile version is stil under construction </p>
+                <p className='text-center mb-10'> Oops! For better experience use desktop navigator , the mobile version is stil under construction </p>
                 <Button text= "Go Back" animate = {false} />
             </div>
           ) : (
