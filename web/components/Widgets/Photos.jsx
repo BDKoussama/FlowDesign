@@ -13,9 +13,8 @@ export default function Photos(){
         return (<ImageSettings />)
     }else {
         return(
-            <div className="p-4">
-                <h3>Add Photos</h3>
-                <div className="mt-10">
+            <div className="p-4 h-screen overflow-hiddden">
+                <div className="">
                     <QueryClientProvider   QueryClientProvider client={queryClient}>
                         <UnsplashGallery widget = "photos"/>
                     </QueryClientProvider>
