@@ -52,7 +52,7 @@ export default function TextWidget(){
             draggable : true,
             id,
             fontStyle : '',
-            fontFamily : 'Arial',
+            fontFamily : "arial",
             textDecoration : 'normal',
             align: 'center',
             stroke : '#000000',

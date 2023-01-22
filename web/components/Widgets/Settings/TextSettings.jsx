@@ -1,15 +1,170 @@
-import {Label , TextInput , Textarea , Select , Button , Tooltip} from 'flowbite-react'
+import {Label , TextInput , Textarea  , Button , Tooltip} from 'flowbite-react'
 import {useDispatch , useSelector} from 'react-redux';
 import ColorPicker from '../../Layout/ColorPicker';
 import { Bars3Icon , Bars3BottomLeftIcon , Bars3BottomRightIcon } from '@heroicons/react/24/outline'
 import {UpperCase , Underline , Bold , ItalicText , StrikeText } from '../../Svg/index'
 import { updateSelected } from '../../../app/features/canvas/selectSlice';
+import { useEffect } from 'react';
+import  Select from 'react-select';
+
+  const options = [
+       {
+            value :  'Playfair Display',
+            label :  'Playfair Display'
+       },
+       {
+            value :  'Anton',
+            label :  'Anton'
+       },
+       {
+            value :  'Bad Script',
+            label :  'Bad Script'
+       },
+        {
+            value :  'Catamaran',
+            label :  'Catamaran'
+        },
+        {
+            value :  'Droid Sans',
+            label :  'Droid Sans'
+        },
+        {
+            value :  'Droid Serif',
+            label :  'Droid Serif'
+        },
+        {
+            value :  'Hammersmith One',
+            label :  'Hammersmith One'
+        },
+        {
+            value :  'Hanalei',
+            label :  'Hanalei'
+        },
+        {
+            value :  'IM Fell Double Pica',
+            label :  'IM Fell Double Pica'
+        },
+        {
+            value :  'Lobster',
+            label :  'Lobster'
+        },
+        {
+            value :  'Merriweather',
+            label :  'Merriweather'
+        },
+        {
+            value :  'Noto Sans JP',
+            label :  'Noto Sans JP'
+        },
+        {
+            value :  'Open Sans',
+            label :  'Open Sans'
+        },
+        {
+            value :  'Pangolin',
+            label :  'Pangolin'
+        },
+        {
+            value :  'Roboto',
+            label :  'Roboto'
+        },
+        {
+            value :  'Shadows Into Light',
+            label :  'Shadows Into Light'
+        },
+        {
+            value :  'Stalinist One',
+            label :  'Stalinist One'
+        },
+        {
+            value :  'Ubuntu',
+            label :  'Ubuntu'
+        },
+        {
+            value :  'Ultra',
+            label :  'Ultra'
+        },
+        {
+            value : 'Oswald',
+            label : 'Oswald'
+        },
+        {
+            value : 'Raleway',
+            label : 'Raleway'
+        },
+        {
+            value : 'Montserrat',
+            label: 'Montserrat'
+        },
+        {
+            value : 'PT Sans',
+            label : 'PT Sans'
+        },
+        {
+            value : 'Poppins',
+            label : 'Poppins'
+        },
+        {
+            value : 'Cantata One',
+            label : 'Cantata One'
+        },
+        {
+            value : 'Cardo',
+            label : 'Cardo'
+        },
+        { 
+            value: 'Lora', 
+            label: 'Lora'
+        },
+        { 
+            value: 'Domine' ,
+            label: 'Domine' 
+        },
+        { 
+            value: 'Karla',
+            label: 'Karla' 
+        },
+        { 
+            value: 'Pacifico',
+            label: 'Pacifico' 
+        },
+        { 
+            value: 'Abril Fatface' ,
+            label: 'Abril Fatface' 
+        },
+        { 
+            value: 'Barlow',
+            label: 'Barlow'
+        }
+  ]
 
 export default function TextSettings(){
 
-    const dispatch = useDispatch();
-    const {attrs} = useSelector(state => state.selected.present.item)
 
+    const dispatch = useDispatch();
+
+    const {attrs} = useSelector(state => state.selected.present.item)
+    
+    useEffect(() => {
+        const WebFont = require('webfontloader');
+        if(typeof window !== 'undefined'){
+            WebFont.load({
+                google: { 
+                  families : options.map(item => item.value)
+                },
+               // called when the load of an individual font commences.
+                fontloading: function(familyName, fvd) {
+                  //console.log('Loading font [' + familyName + ']')
+                },
+               // called when the load of an individual font completes.
+                fontactive: function(familyName, fvd) {
+                  //console.log('Loaded font [' + familyName + ']')
+                }
+            })
+        }
+       
+    },[])
+    
 
     const handleNumbersChange = (e) => {
         const {name , value} = e.target;
@@ -107,11 +262,19 @@ export default function TextSettings(){
 
     } 
 
+    const handleFamilyTypeChange = (e) =>{
+        dispatch(updateSelected({
+            attrs : {
+                ...attrs,
+                fontFamily: e.value
+            }
+        }))
+    }
+
     return (
         <div className='h-screen overflow-y-scroll pb-10 p-4'>
             <div className="w-full mt-10">
                 <span className='text-2xl font-bold'>Layout</span>
-
                 <div className='flex justify-between items-center gap-5 my-4'>
                         <div className='input-group'>
                             <div className="mb-2 block">
@@ -213,16 +376,36 @@ export default function TextSettings(){
                         />
                     </div>
 
-                    <Select id="fontFamily" name='fontFamily' onChange={handleInputChange}>
-                        <option value = "roboto">Roboto</option>
-                        <option value = "satoshi"> Satoshi </option>
-                        <option value = "Helvetica Neue">Helvetica Neue</option>
-                        <option value = "Montserrat">Montserrat</option>
-                        <option value = "Raleway">Raleway</option>
-                        <option value = "George X">George x</option>
-                        <option value = "Druk Text Wide">Druke Text Wide</option>
-                        <option value = "anton">Anton</option>
-                    </Select>
+                    <Select 
+                        styles={{ 
+                            placeholder: (defaultStyles) => ({
+                                    ...defaultStyles,
+                                    color: '#ffffff',
+                            }),
+                            option: (provided, state) => ({ ...provided, 
+                                fontFamily: state.value , 
+                                cursor : 'pointer' ,
+                                backgroundColor: '#374151' ,
+                                "&:hover" : {
+                                    backgroundColor : "#1f2937"
+                                }
+                            }),
+                            control: (styles) => ({ ...styles, 
+                                backgroundColor: '#374151' , 
+                                borderColor : '#4b5563' ,
+                                "&:hover" : {
+                                    backgroundColor : "#1f2937"
+                                }
+                            })
+                        }}
+                        value={attrs.fontFamily} 
+                        placeholder= {attrs.fontFamily}
+                        name='fontFamily' 
+                        className='text-white'
+                        onChange={handleFamilyTypeChange} 
+                        options = {options}
+                        
+                    />
                     
                 </div>
 
