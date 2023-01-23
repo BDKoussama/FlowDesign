@@ -69,7 +69,7 @@ export default function UnsplashGallery ({widget}) {
                     </form>
             </div>
 
-            <div className={`unsplash-gallery overflow-y-scroll ${widget === "background" ? 'h-[80vh]' : 'h-[84vh]'}  w-full`}> 
+            <div className={`unsplash-gallery overflow-y-scroll h-[80vh]  w-full`}> 
                 {
                     status === "loading" ? (
                         <div className='flex items-center justify-center p-3'>
