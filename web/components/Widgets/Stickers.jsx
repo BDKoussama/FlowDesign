@@ -1,6 +1,3 @@
-import {QueryClient , QueryClientProvider } from 'react-query';
-import FlaticonGallery from '../Layout/FlaticonGallery';
-const queryClient = new QueryClient();
 import {stickers} from '../../utils/stickers'
 import Sticker from '../Layout/Sticker';
 

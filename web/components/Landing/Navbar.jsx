@@ -23,7 +23,7 @@ export default function Navbar(){
     } ,[])
 
     return(
-        <Container>
+        <Container mb="mb-0">
             <div className='py-10 z-2'>
                 <nav className='flex items-center justify-between'>
                     <Link href= "/" >
