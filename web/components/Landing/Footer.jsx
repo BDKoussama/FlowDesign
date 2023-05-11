@@ -79,9 +79,21 @@ export default function Footer({text = 'Create Unique social media graphics .'})
                                     </span>
                                 ))} 
                             </h3>
-                            <div className=" mt-10 lg:mt-32 flex flex-row text-gray-700">
-                                <p className="text-sm mr-4 opacity-0 translate-x-[100px]">Privacy Policy</p>
-                                <p className="text-sm mr-4 opacity-0 translate-x-[100px]">Terms & Conditions</p>
+                            <div className=" mt-10 lg:mt-32  flex flex-row text-gray-700">
+                                <p className="text-sm mr-4 opacity-0 translate-x-[100px]">
+                                    <Link href = "https://www.bendakir.me/">
+                                            <a>
+                                                <span> By @bdk.oussama</span>
+                                            </a>
+                                    </Link>
+                                </p>
+                                <p className="text-sm mr-4 opacity-0 translate-x-[100px]">
+                                    <Link href = "https://github.com/BDKoussama/UpDesign">
+                                            <a>
+                                                <span> Check On Github </span>
+                                            </a>
+                                    </Link>
+                                </p>
                             </div>
                         </div>
                         <div className="w-full md:w-[40%] h-full">    

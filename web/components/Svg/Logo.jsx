@@ -1,20 +1,8 @@
 export default function Logo({ width = 20 , height = 35 }){
     return (
-        <svg width={width} height={height} viewBox="0 0 23 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.29541 5H8.35867C16.4272 5 22.9681 11.5409 22.9681 19.6094C22.9681 27.678 16.4272 34.2188 8.35867 34.2188H5.29541V5Z" fill="url(#paint0_linear_1_1007)"/>
-            <rect width="14.2952" height="19.872" fill="url(#paint1_linear_1_1007)"/>
-            <defs>
-            <linearGradient id="paint0_linear_1_1007" x1="14.1318" y1="5" x2="14.1318" y2="34.2188" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#BC8BFA"/>
-            <stop offset="1" stopColor="#5A3589"/>
-            </linearGradient>
-            <linearGradient id="paint1_linear_1_1007" x1="7.14762" y1="0" x2="7.14762" y2="19.872" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#FFF507"/>
-            <stop offset="0.9999" stopColor="#FFE33C"/>
-            <stop offset="1" stopColor="#FFED50" stopOpacity="0"/>
-            </linearGradient>
-            </defs>
+        <svg width={width} height={height} viewBox="0 0 274 316" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M62 42C62 39.2386 64.2386 37 67 37H174C229.228 37 274 81.7715 274 137V216C274 271.228 229.228 316 174 316H67C64.2386 316 62 313.761 62 311V42Z" fill="#7254A7"/>
+            <path d="M0 4.99999C0 2.23857 2.23858 0 5 0H180C182.761 0 185 2.23858 185 5V164C185 208.183 149.183 244 105 244H80C35.8172 244 0 208.183 0 164V4.99999Z" fill="#FDEC58"/>
         </svg>
-
     )
 }

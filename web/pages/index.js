@@ -8,15 +8,15 @@ export default function Home() {
   return (
         <>
             <Head>
-                <title>Design.Io | Social media graphics</title>
+                <title>UpDesign | Social media graphics</title>
             </Head>
             <div data-scroll-container className='bg-slate-100'>
                 <SmoothScrollProvider>
                     <div className='relative w-full bg-gray-900'>
                         <Navbar/>
                         <Hero   
-                            heading= "Design visually appealing social media graphics that set you apart"
-                            description = "Easily make unique social media designs in a flash using free templates, images, trending design assets, and more."
+                            heading= "Design. Inspire. Empower."
+                            description = "Unleash your creativity instantly, crafting unique social media designs with ease using free templates, images, trending design assets, and more."
                         />
                         <HeroiIcons />
                     </div>

@@ -37,28 +37,28 @@ export default function Navbar(){
                         <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
                             <Link href= "/">
                                 <a>
-                                    <span className="font-semibold">Home</span>
+                                    <span className="font-regular">Home</span>
                                 </a>
                             </Link>
                         </li>
                         <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
                             <Link href= "#templates">
                                 <a href="#templates" data-scroll-to>
-                                    <span className="font-semibold">Templates</span>
+                                    <span className="font-regular">Templates</span>
                                 </a>
                             </Link>
                         </li>
                         <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
                             <Link href= "#features">
                                 <a href="#features" data-scroll-to>
-                                    <span className="font-semibold">Features</span>
+                                    <span className="font-normal">Features</span>
                                 </a>
                             </Link>
                         </li>
                         <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
                             <Link href= "#faq">
                                 <a href="#faq" data-scroll-to>
-                                    <span className="font-semibold">Faq</span>
+                                    <span className="font-normal">Faq</span>
                                 </a>
                             </Link>
                         </li>

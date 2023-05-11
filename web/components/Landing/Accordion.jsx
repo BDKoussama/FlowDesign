@@ -5,24 +5,32 @@ import { useInView } from 'react-intersection-observer';
 
 const panels = [
 	{
-		label: 'Seriously, Don\'t Use Icon Fonts',
-		content: 'Icons are everywhere. These "little miracle workers" (as John Hicks described them) help us reinforce meaning in the interfaces we design and build. Their popularity in web design has never been greater; the conciseness and versatility of pictograms in particular make them a lovely fit for displays large and small. But icons on the web have had their fair share of challenges.',
+		label: 'What is UpDesign?',
+		content: 'UpDesign is a tool that allows users to create beautiful designs and graphics with ease. It has a variety of templates and design elements that users can customize to fit their needs.',
 	},
 	{
-		label: 'Screen Readers Actually Read That Stuff',
-		content: 'Most assistive devices will read aloud text inserted via CSS, and many of the Unicode characters icon fonts depend on are no exception. Best-case scenario, your "favorite" icon gets read aloud as "black favorite star." Worse-case scenario, it\'s read as "unpronounceable" or skipped entirely.',
+		label: 'Is the app free?',
+		content: 'UpDesign is open source and available for free on GitHub. You can download the source code and use it to create your own version of the app. While the app itself is free, there may be costs associated with hosting and maintaining your own version of the app. We encourage users to contribute to the open source community and help improve the app for everyone.',
 	},	
 	{
-		label: 'They Fail Poorly and Often',
-		content: 'When your icon font fails, the browser treats it like any other font and replaces it with a fallback. Best-case scenario, you\'ve chosen your fallback characters carefully and something weird-looking but communicative still loads. Worse-case scenario (and far more often), the user sees something completely incongruous, usually the dreaded "missing character" glyph.',
+		label: 'What design formats does your graphic app support?',
+		content: 'Currently the App supports only two formats , PNG and JPEG',
 	},
 	{
-		label: 'They\'re a Nightmare if You\'re Dyslexic',
-		content: 'Many dyslexic people find it helpful to swap out a website\'s typeface for something like OpenDyslexic. But icon fonts get replaced as well, which makes for a frustratingly broken experience.',
+		label: 'Can I use UpDesign app to design social media posts?',
+		content: 'Yes, you can use the app to design social media posts. It has templates that are specifically designed for different social media platforms, including Facebook, Instagram, Twitter, and Youtube.',
 	},
 	{
-		label: 'There\'s Already a Better Way',
-		content: 'SVG is awesome for icons! It\'s a vector image format with optional support for CSS, JavaScript, reusability, accessibility and a bunch more. It was made for this sort of thing.'
+		label: 'Is it easy to use the app?',
+		content: 'Yes, the app is designed to be user-friendly and easy to use. It has a simple and intuitive interface, and users can easily customize templates and design elements to fit their needs.'
+	},
+	{
+		label: 'Can I save my designs and come back to them later?	',
+		content: 'Unfortunately, the app does not currently have a save feature that allows users to save their designs and come back to them later. '
+	},
+	{
+		label: 'Can I use my own images in my designs?',
+		content: 'Yes, you can use your own images in your designs. the app allows users to upload their own images and use them in their designs.'
 	},
 ];
 

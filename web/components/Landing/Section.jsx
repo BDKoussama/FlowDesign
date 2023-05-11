@@ -86,13 +86,13 @@ export default function Section({ direction , title , description , subtitle , s
                 </div>
             </div>
             <div  className={`will-change-transform relative feature-cover w-full h-[60vh] lg:flex-1 lg:h-[70vh] rounded-lg ${style}`}>
-                        <Image 
-                            layout='fill'
-                            priority
-                            objectFit='contain'
-                            src = {`/images/${image}.webp`}
-                            alt = {`${image} template image`}
-                        />
+                    <Image 
+                        layout='fill'
+                        priority
+                        objectFit='contain'
+                        src = {`/images/${image}.webp`}
+                        alt = {`${image} template image`}
+                    />
             </div>
         </div>
     )

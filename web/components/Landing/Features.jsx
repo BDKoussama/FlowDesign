@@ -35,7 +35,7 @@ export default function Features(){
              <Container>
 
                 <div className='w-full text-center pt-60 relative ' ref = {ref} id = "features">
-                    <Title text = "We didin't reinvent the wheel" />
+                    <Title text = "Unleash Your Imagination" />
                     <Description text="Just launch the editor for free on your desktop or mobile device to start creating your graphic"/>
                     <div className='w-full flex  flex-col  items-center md:flex-row justify-between md:items-start mt-20  p-5'>
                         { data.map((item , index) => ( <FeatureItem key={index.toString()} text = {item.text} icon = {item.icon} /> )) }
@@ -47,7 +47,7 @@ export default function Features(){
                 subtitle = "get started fast"
                 description= "Browse through professionally designed templates for social posts, banners, campaigns, and more."
                 direction= "lg:flex-row"
-                style= "lg:ml-28 mt-10 lg:mt-0"
+                style= "lg:ml-28 mt-10 lg:mt-0" 
                 translate = {50}
                 image = "templates"
             />
