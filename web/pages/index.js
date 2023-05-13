@@ -8,7 +8,7 @@ export default function Home() {
   return (
         <>
             <Head>
-                <title>UpDesign | Social media graphics</title>
+                <title>Duvory | Social Media Graphics</title>
             </Head>
             <div data-scroll-container className='bg-slate-100'>
                 <SmoothScrollProvider>
