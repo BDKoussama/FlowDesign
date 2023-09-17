@@ -71,7 +71,7 @@ export default function Footer({text = 'Create Unique social media graphics .'})
             <Container>
                 <div className='h-full lg:h-[50vh] flex flex-col lg:flex-row lg:items-center lg:px-40'>
                         <div className="flex-1 w-full md:w-[60%]">
-                            <Logo height={75} width = {65}/>
+                            <Logo height={75} width = {120}/>
                             <h3 className="text-2xl font-semibold mt-5 w-10/12 lg:w-7/12 text-white">
                                 {spans.current.length !== 0 && spans.current.map((item , index)  => (
                                     <span className="mx-1 overflow-hidden inline-block " key={`${item}-${index}`}>
@@ -101,33 +101,33 @@ export default function Footer({text = 'Create Unique social media graphics .'})
                                 <ul className="mr-10">
                                     <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white">
                                         <Link href = "/">
-                                            <a>
+                                            <a className="nav-link">
                                                 <span className="font-semibold">Home</span>
                                             </a>
                                         </Link>
                                     </li>
                                     <li data-scroll-to className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white">
                                         <Link href = "#templates">
-                                            <a href = "#templates" data-scroll-to><span className="font-semibold">Templates</span></a>
+                                            <a href = "#templates" data-scroll-to className="nav-link"><span className="font-semibold">Templates</span></a>
                                         </Link>
                                     </li>
                                     <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white">
                                         <Link href = "/editor">
-                                            <a><span className="font-semibold">Get Started</span></a>
+                                            <a className="nav-link"><span className="font-semibold">Get Started</span></a>
                                         </Link>
                                     </li>
                                 </ul>
                                 <ul className="mr-10">
                                     <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px]  text-white">
                                         <Link href = "#features">
-                                            <a href="#features" data-scroll-to>
+                                            <a href="#features" data-scroll-to className="nav-link">
                                                 <span className="font-semibold">Features</span>
                                             </a>
                                         </Link>
                                     </li>
                                     <li className="text-2xl mb-5 block mr-5 opacity-0 translate-x-[100px] text-white">
                                         <Link href = "#faq">
-                                            <a href="#faq" data-scroll-to>
+                                            <a href="#faq" data-scroll-to className="nav-link">
                                                 <span className="font-semibold">Faq</span>
                                             </a>
                                         </Link>

@@ -68,17 +68,17 @@ export default function Section({ direction , title , description , subtitle , s
     return (
         <div className={`w-full md:h-screen my-20 md:my-40 flex flex-col p-2 md:p-0 ${direction} justify-between items-center`} ref = {setRefs}>
             <div className='flex-1'>    
-                <span className="block overflow-hidden uppercase text-[#7746c7] font-medium mb-5 text-sm md:text-md">
+                <span className="block overflow-hidden uppercase text-[#f896ff] font-medium mb-5 text-sm md:text-md">
                     <span className="translate-y-[110%] block translate-z-px will-change-transform">{subtitle}</span>
                 </span>
-                <h3 className="font-black text-4xl mb-8 text-gray-900">
+                <h3 className="font-black text-4xl mb-8 text-gray-200">
                     {spans.current.length !== 0 && spans.current.map((item , index)  => (
                         <span className="mr-2 overflow-hidden inline-block " key={`${item}-${index}`}>
                             <span className="translate-y-[110%] block translate-z-px will-change-transform ">{item}</span>
                         </span>
                     ))} 
                 </h3>
-                <p className="text-lg description font-regular mb-10 text-gray-700 w-10/12 will-change-transform translate-y-3/4 opacity-0">
+                <p className="text-lg description font-regular mb-10 text-gray-400 w-10/12 will-change-transform translate-y-3/4 opacity-0">
                     {description}
                 </p>    
                 <div className="cta will-change-transform translate-y-3/4 opacity-0">

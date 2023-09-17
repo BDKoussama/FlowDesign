@@ -8,11 +8,11 @@ export default function Home() {
   return (
         <>
             <Head>
-                <title>Duvory | Social Media Graphics</title>
+                <title>FlowDesign | Social Media Graphics</title>
             </Head>
-            <div data-scroll-container className='bg-slate-100'>
+            <div data-scroll-container className='bg-neutral-900'>
                 <SmoothScrollProvider>
-                    <div className='relative w-full bg-gray-900'>
+                    <div className='relative w-full'>
                         <Navbar/>
                         <Hero   
                             heading= "Design. Inspire. Empower."

@@ -364,9 +364,17 @@ cursor: grab;
 }
 
 .custom-btn:hover{
-  box-shadow: 0 0 25px rgba(140, 86, 241, 0.374); 
+  box-shadow: 0 0 20px rgba(98, 140, 255, 0.7); 
 }
 
+.nav-link {
+  transition: all 200ms ease-in-out;
+}
+
+.nav-link:hover{
+  text-shadow: 0 0 5px rgba(248, 150, 255, 1); 
+  color: rgba(248, 150, 255, 1);
+}
 
 /* Main CSS */
 .masonry-grid {
@@ -413,7 +421,13 @@ cursor: grab;
   -webkit-text-fill-color: transparent;
   padding-left: 0.05em;
   padding-right: 0.05em;
-  background-image: linear-gradient(90deg ,#A56FFC ,  #5e19cc );
+  background-image: linear-gradient(to right, rgba(98, 140, 255, 1), rgba(159, 189, 255, 1), rgba(248, 150, 255, 1), rgba(254, 140, 140, 1), rgba(255, 210, 125, 1), rgba(254, 140, 140, 1));
   position: relative;
   z-index: 1;
+}
+
+
+.feature-item{
+  padding: 3px;
+  background-image: linear-gradient(to right, rgba(248, 150, 255, 1) , rgba(254, 140, 140, 1));
 }

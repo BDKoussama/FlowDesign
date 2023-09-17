@@ -37,7 +37,7 @@ export default function Features(){
                 <div className='w-full text-center pt-60 relative ' ref = {ref} id = "features">
                     <Title text = "Unleash Your Imagination" />
                     <Description text="Just launch the editor for free on your desktop or mobile device to start creating your graphic"/>
-                    <div className='w-full flex  flex-col  items-center md:flex-row justify-between md:items-start mt-20  p-5'>
+                    <div className='w-full flex  flex-col gap-8 items-center md:flex-row justify-between md:items-start mt-10  p-5'>
                         { data.map((item , index) => ( <FeatureItem key={index.toString()} text = {item.text} icon = {item.icon} /> )) }
                     </div>
                 </div>

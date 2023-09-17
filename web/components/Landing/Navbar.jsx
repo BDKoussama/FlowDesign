@@ -5,6 +5,7 @@ import Logo from "../Svg/Logo";
 import Button from "./Button";
 import gsap from 'gsap';
 import Link from 'next/link';
+import Image from 'next/image'
 
 export default function Navbar(){
 
@@ -28,36 +29,36 @@ export default function Navbar(){
                 <nav className='flex items-center justify-between'>
                     <Link href= "/" >
                         <a>
-                            <span className='logo flex justify-center items-center h-12 w-12'> 
-                                <Logo height={45} width = {30} />
+                            <span className='logo flex justify-center items-centerk'> 
+                                <Image src={"/images/flowdesign.png"} height={50} width={100} objectFit="contain"/>
                             </span>
                         </a>
                     </Link>
                     <ul ref={nav} className = "text-slate-200 flex flex-col md:flex-row items-end md:items-center ">
                         <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
                             <Link href= "/">
-                                <a>
+                                <a className="nav-link">
                                     <span className="font-regular">Home</span>
                                 </a>
                             </Link>
                         </li>
                         <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
                             <Link href= "#templates">
-                                <a href="#templates" data-scroll-to>
+                                <a href="#templates" data-scroll-to className="nav-link">
                                     <span className="font-regular">Templates</span>
                                 </a>
                             </Link>
                         </li>
                         <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
                             <Link href= "#features">
-                                <a href="#features" data-scroll-to>
+                                <a href="#features" data-scroll-to className="nav-link">
                                     <span className="font-normal">Features</span>
                                 </a>
                             </Link>
                         </li>
                         <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
                             <Link href= "#faq">
-                                <a href="#faq" data-scroll-to>
+                                <a href="#faq" data-scroll-to className="nav-link">
                                     <span className="font-normal">Faq</span>
                                 </a>
                             </Link>

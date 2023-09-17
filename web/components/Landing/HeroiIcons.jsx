@@ -24,7 +24,7 @@ export default function HeroiIcons(){
     },[])
 
     return(
-        <div ref = {ref} className = 'z-0'>
+        <div ref = {ref} className = 'z-0 hidden'>
                <div   className='h-16 w-16 md:h-20 md:w-20 absolute top-28 md:top-40 left-16 md:left-32' data-scroll data-scroll-speed = "1.2">
                    <div className='h-full w-full relative h-icon'>
                        <Image src="/images/icons/facebook.png" alt = "facebook icon" layout='fill' priority/>

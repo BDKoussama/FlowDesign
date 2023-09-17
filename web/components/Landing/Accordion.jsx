@@ -5,19 +5,19 @@ import { useInView } from 'react-intersection-observer';
 
 const panels = [
 	{
-		label: 'What is Duvory?',
-		content: 'Duvory is a tool that allows users to create beautiful designs and graphics with ease. It has a variety of templates and design elements that users can customize to fit their needs.',
+		label: 'What is FlowDesign?',
+		content: 'FlowDesign is a tool that allows users to create beautiful designs and graphics with ease. It has a variety of templates and design elements that users can customize to fit their needs.',
 	},
 	{
 		label: 'Is the app free?',
-		content: 'Duvory is open source and available for free on GitHub. You can download the source code and use it to create your own version of the app. While the app itself is free, there may be costs associated with hosting and maintaining your own version of the app. We encourage users to contribute to the open source community and help improve the app for everyone.',
+		content: 'FlowDesign is open source and available for free on GitHub. You can download the source code and use it to create your own version of the app. While the app itself is free, there may be costs associated with hosting and maintaining your own version of the app. We encourage users to contribute to the open source community and help improve the app for everyone.',
 	},	
 	{
 		label: 'What design formats does your graphic app support?',
 		content: 'Currently the App supports only two formats , PNG and JPEG',
 	},
 	{
-		label: 'Can I use Duvory app to design social media posts?',
+		label: 'Can I use FlowDesign app to design social media posts?',
 		content: 'Yes, you can use the app to design social media posts. It has templates that are specifically designed for different social media platforms, including Facebook, Instagram, Twitter, and Youtube.',
 	},
 	{

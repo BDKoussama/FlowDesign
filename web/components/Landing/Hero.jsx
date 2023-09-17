@@ -44,10 +44,10 @@ export default function Hero({heading , description}){
                 </p>
                 <div className="">
                     <Button text= "Create your social graphic now" url = '/editor' style= "mt-10" />
-                    <Button text= "Github" url = 'https://github.com/BDKoussama/UpDesign' style= "mt-10 md:ml-10 to-[transparent] from-[transparent] text-white border-2" />
+                    <Button text= "Github" url = 'https://github.com/BDKoussama/UpDesign' style= "mt-10 md:ml-10 !to-[transparent] !from-[transparent] !text-white border-2" />
                 </div>
             </div>
-            <div className='w-full mt-20 relative relative'>
+            <div className='w-full mt-20 relative'>
                 <div className="gradient-blob absolute h-[60%] w-[80%]"></div>
                 <Image 
                     layout='responsive'
