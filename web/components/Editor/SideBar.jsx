@@ -30,9 +30,9 @@ export default function SideBar(){
     return (
         <div className='editor-navbar flex flex-col bg-gray-900 w-full h-auto md:w-[100px] md:h-[100vh] overflow-hidden'>
 
-            <div className="logo-wrapper h-20 w-12 md:flex items-center hidden justify-center  mx-auto">
+            <div className="logo-wrapper md:flex items-center hidden justify-center  mx-auto">
                 <Link href="/">
-                    <a><Logo /></a>
+                    <a className=""><Logo width={70}/></a>
                 </Link>   
             </div>
 
