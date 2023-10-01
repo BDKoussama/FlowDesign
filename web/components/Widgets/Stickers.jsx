@@ -48,16 +48,3 @@ export default function Stickers(){
     )
 }
 
-
-/**export default function Stickers(){
-    return(
-        <div className="p-4">
-            <h3>Stickers</h3>
-            <div className="mt-10">
-                <QueryClientProvider   QueryClientProvider client={queryClient}>
-                    <FlaticonGallery />
-                </QueryClientProvider>
-            </div>
-        </div>
-    )
-} */
