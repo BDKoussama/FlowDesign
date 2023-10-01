@@ -132,19 +132,15 @@ const stageSlice = createSlice({
 
             switch (position) {
                 case "FORWARD":
-                    // add at the end or the top of array
                    items.push(item);
                break;                    
                case "BOTTOM":
-                   //add element at the beginning if the array 
                    items.unshift(item)
                break;
                case "UP":
-                   // increment element position to the top 
                    items.splice(index + 1 , 0 , item)
                break;
                case "DOWN":
-                   // decrement element position to the bottom 
                    items.splice(index - 1 , 0 , item)
                break;
                default:

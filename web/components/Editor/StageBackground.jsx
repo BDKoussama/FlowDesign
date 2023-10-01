@@ -6,7 +6,6 @@ import {getCrop} from '../../utils/cropImage';
 
 export default function StageBackground({width , height , fill , type , fillPatternImage }){
 
-    //const [image , setImage] = useState(null)
 
     const [image] = useImage(fillPatternImage , "anonymous");
 
@@ -17,13 +16,11 @@ export default function StageBackground({width , height , fill , type , fillPatt
 
         const image = new window.Image()
 
-        //media.crossOrigin = 'anonymous'
         image.src = fillPatternImage;
 
         image.onload = () => {
             const cropImage = getCrop(image , { height , width })
             setCrop(cropImage);
-            //setImage(image)
         }
     }
 

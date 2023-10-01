@@ -32,8 +32,6 @@ export default function CustomImage({url , attrs , isSelected , onSelect , onSna
 
     useEffect(() => {
       if (isSelected && trRef.current !== null) {
-        //trRef.current.rotateAnchorOffset(0);
-        // we need to attach transformer manually
         trRef.current.nodes([imgRef.current]);
         trRef.current.getLayer().batchDraw();
       }

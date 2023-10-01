@@ -12,12 +12,8 @@ export default function Shape({type , attrs , isSelected , onSelect , onSnap}){
 
     useEffect(() => {
         if (isSelected && trRef.current !== null) {
-          //trRef.current.rotateAnchorOffset(0);
-          // we need to attach transformer manually
           trRef.current.nodes([elRef.current]);
           trRef.current.attachTo(elRef.current);
-
-          //trRef.current.getLayer().batchDraw();
         }
     }, [isSelected]);
 
@@ -71,7 +67,6 @@ export default function Shape({type , attrs , isSelected , onSelect , onSnap}){
 
     const onDragEnd = (e) => {
 
-        //elRef.current.name('object');
 
         const position = {
             x : Math.floor(e.target.x()),
