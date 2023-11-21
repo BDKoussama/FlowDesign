@@ -35,13 +35,7 @@ export default function Navbar(){
                         </a>
                     </Link>
                     <ul ref={nav} className = "text-slate-200 flex flex-col md:flex-row items-end md:items-center ">
-                        <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
-                            <Link href= "/">
-                                <a className="nav-link">
-                                    <span className="font-regular">Home</span>
-                                </a>
-                            </Link>
-                        </li>
+                        
                         <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
                             <Link href= "#templates">
                                 <a href="#templates" data-scroll-to className="nav-link">
@@ -56,13 +50,7 @@ export default function Navbar(){
                                 </a>
                             </Link>
                         </li>
-                        <li className="inline-block mr-5 opacity-0 translate-x-[100px]">
-                            <Link href= "#faq">
-                                <a href="#faq" data-scroll-to className="nav-link">
-                                    <span className="font-normal">Faq</span>
-                                </a>
-                            </Link>
-                        </li>
+                        
                         <li className="hidden lg:inline-block mr-5 opacity-0 translate-x-[100px]">
                             <Button text= "Get Started" url = '/editor' animate = {false} />
                         </li>

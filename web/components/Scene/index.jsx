@@ -6,9 +6,13 @@ import { useRef } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from "react-redux";
 import { setStageSize } from "../../app/features/canvas/stageSlice";
+import {Spinner} from 'flowbite-react'
 
 const Stage = dynamic(() => import("../Editor/StageWrapper"), {
     ssr: false,
+    loading : () => <div className="mt-10 w-[500px] h-[520px] flex items-center justify-center" >
+            <Spinner />
+    </div>  
   });
 
 export default function Scene({toggle}){

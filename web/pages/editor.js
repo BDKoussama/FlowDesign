@@ -15,7 +15,7 @@ export default function Editor() {
   return (
     <>
           <Head>
-              <title>Editor App</title>
+              <title>FlowDesign Editor</title>
           </Head>
           {isMobile ? (
             <div className='h-screen w-full p-4 flex flex-col justify-center items-center'>
